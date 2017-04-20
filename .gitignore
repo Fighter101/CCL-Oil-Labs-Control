@@ -253,3 +253,6 @@ paket-files/
 
 #removing .vs
 .vs/
+
+#removing objcet
+**/obj/
