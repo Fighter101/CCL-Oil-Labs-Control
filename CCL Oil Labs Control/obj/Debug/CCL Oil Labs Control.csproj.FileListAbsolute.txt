@@ -13,3 +13,18 @@ D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\EntryMenu.g.cs
 D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\EntryMenu.baml
 D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\App.baml
 D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.csprojResolveAssemblyReference.cache
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\bin\Debug\CCL Oil Labs Control.exe.config
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\bin\Debug\CCL Oil Labs Control.exe
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\bin\Debug\CCL Oil Labs Control.pdb
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.csprojResolveAssemblyReference.cache
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\EntryMenu.g.cs
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\App.g.cs
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control_MarkupCompile.cache
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control_MarkupCompile.lref
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\App.baml
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\EntryMenu.baml
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.g.resources
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL_Oil_Labs_Control.Properties.Resources.resources
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.csproj.GenerateResource.Cache
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.exe
+C:\Users\hsaie\Documents\Visual Studio 2017\Projects\CCL Oil Labs Control\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.pdb
