@@ -254,5 +254,6 @@ paket-files/
 #removing .vs
 .vs/
 
-#removing objcet
+#removing objcet and bin
 **/obj/
+**/bin/
