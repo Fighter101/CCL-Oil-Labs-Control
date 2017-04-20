@@ -1,0 +1,15 @@
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\bin\Debug\CCL Oil Labs Control.exe.config
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\bin\Debug\CCL Oil Labs Control.exe
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\bin\Debug\CCL Oil Labs Control.pdb
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\App.g.cs
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control_MarkupCompile.cache
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control_MarkupCompile.lref
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.g.resources
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL_Oil_Labs_Control.Properties.Resources.resources
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.csproj.GenerateResource.Cache
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.exe
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.pdb
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\EntryMenu.g.cs
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\EntryMenu.baml
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\App.baml
+D:\Github\CCL-Oil-Labs-Control-GUI\CCL Oil Labs Control\obj\Debug\CCL Oil Labs Control.csprojResolveAssemblyReference.cache
