@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control"
              xmlns:clr="clr-namespace:System;assembly=mscorlib"
-             StartupUri="EntryMenu.xaml">
+             StartupUri="Menus\CodesRegSampleDataMenu.xaml">
 
     <!--Resources Dictionary-->
     <Application.Resources>
@@ -15,22 +15,139 @@
             <Setter Property="WindowState" Value="Maximized"/>
         </Style>
 
+        <!--Basic style for UserControl-->
+        <Style TargetType="UserControl" x:Key="BasicUserControl">
+            <Setter Property="Width" Value="1024" />
+            <Setter Property="Height" Value="720" />
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+
         <!--Basic style for TextBlock-->
         <Style TargetType="TextBlock" x:Key="BaicText">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <!--Basic Red-->
+        <Style TargetType="TextBlock" x:Key="BaicRedText" BasedOn="{StaticResource BaicText}">
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="FontSize" Value="32"/>
+        </Style>
+        <!--Basic purple-->
+        <Style TargetType="TextBlock" x:Key="BaicPurpleText" BasedOn="{StaticResource BaicText}">
+            <Setter Property="Foreground" Value="Purple"/>
+            <Setter Property="FontSize" Value="32"/>
+        </Style>
+        <!--Basic blue-->
+        <Style TargetType="TextBlock" x:Key="BaicBlueText" BasedOn="{StaticResource BaicText}">
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+        <!--Basic black-->
+        <Style TargetType="TextBlock" x:Key="BaicBlackText" BasedOn="{StaticResource BaicText}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <!--Basic brown-->
+        <Style TargetType="TextBlock" x:Key="BaicBrownText" BasedOn="{StaticResource BaicText}">
+            <Setter Property="Foreground" Value="Brown"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <!--Contributors style for TextBlock-->
+        <Style TargetType="TextBlock" x:Key="ContributorsText">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+        </Style>
+        <!--Advanced style for TextBlock-->
+        <Style TargetType="TextBlock" x:Key="AdvTextBlock">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <!--Advanced black-->
+        <Style TargetType="TextBlock" x:Key="AdvBlackText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <!--Advanced blue-->
+        <Style TargetType="TextBlock" x:Key="AdvBlueText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
 
         <!--Basic style for Button-->
         <Style TargetType="Button" x:Key="BasicButton">
             <Setter Property="ClickMode" Value="Press"/>
-            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Background" Value="#F098CADA"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="BorderBrush" Value="BlueViolet"/>
+            <Setter Property="BorderThickness" Value="2.5"/>
+        </Style>
+        
+        <!--Basic style for TextBox-->
+        <Style TargetType="TextBox" x:Key="BasicTextBox">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+        
+        <!--Basic style for PasswordBox-->
+        <Style TargetType="PasswordBox" x:Key="BasicPassBox">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+        
+        <!--Basic style for separator-->
+        <Style TargetType="Separator" x:Key="BasicSeparator">
+            <Setter Property="Height" Value="4"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <!--Basic style for Border-->
+        <Style TargetType="Border" x:Key="BasicBorder">
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+            <Setter Property="BorderThickness" Value="3.5"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+
+        <!--Basic style for ComboBox-->
+        <Style TargetType="ComboBox" x:Key="BasicComboBox">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="BorderThickness" Value="3.5"/>
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
         </Style>
 
         <!--String Resources-->
@@ -48,7 +165,50 @@
         <clr:String x:Key="ArMainMenu">القائمة الرئيسية</clr:String>
         <clr:String x:Key="ArUserName">اسم المستخدم</clr:String>
         <clr:String x:Key="ArPassword">كلمة السر</clr:String>
+        <clr:String x:Key="ArNewPassword">كلمة السر الجديدة</clr:String>
+        <clr:String x:Key="ArConfirmPassword">تأكيد كلمة السر</clr:String>
         <clr:String x:Key="ArContactUs">المعامل الكيماوية المركزية: شارع شنن بالسبتية - القاهرة  ت:25768250 - 25770269 ف: 25778268 </clr:String>
+        <clr:String x:Key="ArAddCodes"> إضافة الأكواد</clr:String>
+        <clr:String x:Key="ArAddBasicData">إضافة بيانات أساسية</clr:String>
+        <clr:String x:Key="ArEditSampleData">تسجيل بيانات عينة</clr:String>
+        <clr:String x:Key="ArReports">تقارير</clr:String>
+        <clr:String x:Key="ArAppCodes">أكواد التطبيق</clr:String>
+        <clr:String x:Key="ArAddCoTypesCode">إضافة اكواد أنواع الشركات</clr:String>
+        <clr:String x:Key="ArAddCoCode">إضافة اكواد الشركات</clr:String>
+        <clr:String x:Key="ArRegCoCode">تسجيل اكواد الشركات</clr:String>
+        <clr:String x:Key="ArAddStationCode">إضافة اكواد المحطات</clr:String>
+        <clr:String x:Key="ArAddEquipNamesCode">إضافة اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArRegEquipNamesCode">تسجيل اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArAddNewUsr">إضافة مستخدم جديد</clr:String>
+        <clr:String x:Key="ArEditUsr">تعديل بيانات مستخدم</clr:String>
+        <clr:String x:Key="ArAddUsrSuccess">تم إضافة المستخدم جديد بنجاح</clr:String> 
+        <clr:String x:Key="ArSave">حفظ</clr:String>
+        <clr:String x:Key="ArBack">عودة</clr:String>
+        <clr:String x:Key="ArDelete">حذف</clr:String>
+        <clr:String x:Key="ArDelReport">حذف بيان</clr:String>
+        <clr:String x:Key="ArAdd">إضافة</clr:String>
+        <clr:String x:Key="ArCoName">اسم الشركة</clr:String>
+        <clr:String x:Key="ArCoType">نوع الشركة</clr:String>
+        <clr:String x:Key="ArCoTypeCode">كود نوع الشركة</clr:String>
+        <clr:String x:Key="ArNext">التالي</clr:String>
+        <clr:String x:Key="ArImportDate">تاريخ الوارد</clr:String>
+        <clr:String x:Key="ArImportNum">رقم الوارد</clr:String> 
+        <clr:String x:Key="ArExportDate">تاريخ الصادر</clr:String>
+        <clr:String x:Key="ArExportNum">رقم الصادر</clr:String>
+        <clr:String x:Key="ArStation">المحطة</clr:String>
+        <clr:String x:Key="ArOilType">نوع الزيت</clr:String>
+        <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
+        <clr:String x:Key="ArLab">المعمل</clr:String>
+        <clr:String x:Key="ArResults">النتائج</clr:String>
+        <clr:String x:Key="ArRecomm">التوصيات</clr:String>
+        <clr:String x:Key="ArCosts">التكاليف</clr:String>
+        <clr:String x:Key="ArCheckRegByImpDate">التحقق من سابقة تسجيل تاريخ الوارد</clr:String>
+        <clr:String x:Key="ArCheckRegByImpNum">التحقق من سابقة تسجيل رقم وارد</clr:String>
+        <!--Contributors-->
+        <clr:String x:Key="NameContrib0">Ahmad Sameh</clr:String>
+        <clr:String x:Key="NameContrib1">Hassan Saied</clr:String>
+        <clr:String x:Key="NameContrib2">Mina Samy</clr:String>
+        <clr:String x:Key="NameContrib3">Muhammad Hamdy</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>
