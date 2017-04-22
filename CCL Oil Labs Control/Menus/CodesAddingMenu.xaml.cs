@@ -15,33 +15,34 @@ using System.Windows.Shapes;
 namespace CCL_Oil_Labs_Control.Menus
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Interaction logic for CodesAddingMenu.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class CodesAddingMenu : Window
     {
-        public MainMenu()
+        public CodesAddingMenu()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// Close this window when MainMenuButtonClose is clicked
+        /// Close this windows when CodesAddMenuButtonClose is clicked and show MainMenu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MainMenuButtonClose_Click(object sender, RoutedEventArgs e)
+        private void CodesAddMenuButtonClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            new MainMenu().Show();
         }
 
         /// <summary>
-        /// Switch to CodesAddingMenu when MainMenuButtonAddCodes is clicked and hide this window
+        /// Switch to AddNewUsrMenu when CodesAddMenuButtonNewUsr is clicked and hide this window
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MainMenuButtonAddCodes_Click(object sender, RoutedEventArgs e)
+        private void CodesAddMenuButtonNewUsr_Click(object sender, RoutedEventArgs e)
         {
-            new CodesAddingMenu().Show();
+            new AddNewUsrMenu().Show();
             Hide();
         }
     }

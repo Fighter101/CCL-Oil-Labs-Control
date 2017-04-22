@@ -56,7 +56,7 @@
                 </Grid.RowDefinitions>
                 <Button Name="MainMenuButtonAddCodes"
                         Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"
-                        Style="{StaticResource BasicButton}">
+                        Style="{StaticResource BasicButton}" Click="MainMenuButtonAddCodes_Click">
                     <TextBlock Style="{StaticResource BaicRedText}"
                                Text="{StaticResource ArAddCodes}"/>
                 </Button>
