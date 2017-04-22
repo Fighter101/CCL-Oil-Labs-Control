@@ -87,7 +87,7 @@
         <Button Name="AddNewUsrMenuButtonClose"
                 Style="{StaticResource BasicButton}"
                 Grid.Row="3" Grid.Column="1" Click="AddNewUsrMenuButtonClose_Click">
-            <TextBlock Name="CodesAddMenuTextBlockClose"
+            <TextBlock Name="AddNewUsrMenuTextBlockClose"
                        Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArClose}"
                        FontSize="32"
