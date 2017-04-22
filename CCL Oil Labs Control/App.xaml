@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control"
              xmlns:clr="clr-namespace:System;assembly=mscorlib"
-             StartupUri="Menus\CodesRegCoMenu.xaml">
+             StartupUri="Menus\EntryMenu.xaml">
 
     <!--Resources Dictionary-->
     <Application.Resources>
