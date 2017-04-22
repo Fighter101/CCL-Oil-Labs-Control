@@ -12,17 +12,25 @@ namespace CCL_Oil_Labs_Control.Model
     {
         public User() { }
         private Utils.Utils hashingUtil = new Utils.Utils();
-        public User (String userName , SecureString password )
+        private SecureString password;
+        public bool state;
+        public User (String userName , SecureString _password )
+        {
+            this.Username = userName;
+            password = _password;
+        }
+
+        public bool login()
         {
             using (var model = new Model.DatabaseEntities())
             {
                 var userList = from user in model.Users
-                               where user.Username == userName
+                               where user.Username == this.Username
                                select user;
                 var currentuser = userList.First();
                 if (currentuser == null)
                 {
-                    throw new WrongUserNameException("User Name is wrong");
+                    return false;
                 }
                 else
                 {
@@ -30,10 +38,6 @@ namespace CCL_Oil_Labs_Control.Model
                     this.HashedString = hashingUtil.hash(this.Salt, password);
                 }
             }
-        }
-
-        public bool login()
-        {
             using (var model = new Model.DatabaseEntities())
             {
                 var userList = from user in model.Users

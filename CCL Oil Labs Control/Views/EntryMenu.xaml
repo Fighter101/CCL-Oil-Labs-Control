@@ -98,7 +98,7 @@
                 <!--Fourth Right-->
                 <Button Name="EntryMenuButtonMainMenu"
                         Style="{StaticResource BasicButton}"  Grid.Column="2" Grid.Row="4"
-                        FontSize="32" Foreground="Brown" Background="#F098CADA" Command="{Binding fillAndNavigateCommand.fillDataAndNavigateCommand}" CommandParameter="Dummy">
+                        FontSize="32" Foreground="Brown" Background="#F098CADA" Command="{Binding fillAndNavigateCommand.fillDataAndNavigateCommand}" CommandParameter="EntryMenu">
                     <TextBlock Text="{StaticResource ArMainMenu}"/>
                     
                 </Button>
@@ -118,7 +118,7 @@
                     Text="{StaticResource ArPassword}"/>
                 <!--Sixth Left-->
                 <PasswordBox Name="EntryMenuPassBoxPassword" Grid.Column="1" Grid.Row="6"
-                              Background="#F098CADA" LostFocus="EntryMenuPassBoxPassword_LostFocus"  
+                              Background="#F098CADA" PasswordChanged="EntryMenuPassBoxPassword_LostFocus" 
                             />
             </Grid>
         </Border>

@@ -7,15 +7,17 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using System.Security;
+using Prism.Regions;
 using System.Windows;
 using CCL_Oil_Labs_Control.CompositeCommands;
 using CCL_Oil_Labs_Control.Model;
 using CCL_Oil_Labs_Control.Events;
 namespace CCL_Oil_Labs_Control.ViewModels
 {
-    public class EntryMenuViewModel : BindableBase
+    public class EntryMenuViewModel : BindableBase , IConfirmNavigationRequest
     {
         private IApplicationCommands _fillAndNavigateCommand;
+        public User currentUser;
         public IApplicationCommands fillAndNavigateCommand
         {
             get { return _fillAndNavigateCommand; }
@@ -44,21 +46,44 @@ namespace CCL_Oil_Labs_Control.ViewModels
             loginCommand = new DelegateCommand(fillUserData, canExecute).ObservesProperty(()=>userName).ObservesProperty(()=>password);
             fillAndNavigateCommand = m_fillAndNavigateCommand;
             fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(loginCommand);
+            var navigateCommand = fillAndNavigateCommand.fillDataAndNavigateCommand.RegisteredCommands[0];
+            fillAndNavigateCommand.fillDataAndNavigateCommand.UnregisterCommand(navigateCommand);
+            fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(navigateCommand);
+
         }
         private void fillUserData ()
         {
-            {
-                User user = new User(_userName, _password);
-                eventAggregator.GetEvent<UpdatedEvent>().Publish(user);
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-            }
+            currentUser = new User(_userName, _password);
+
         }
         private bool canExecute ()
         {
             return !string.IsNullOrWhiteSpace(_userName) && password != null;
+        }
+
+        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
+        {
+            if (currentUser.login())
+                continuationCallback(true);
+            else
+            {
+                MessageBox.Show("Wrong User Name or Password");
+                continuationCallback(false);
+            }
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            eventAggregator.GetEvent<UpdatedEvent>().Publish(currentUser);
         }
     }
 }
