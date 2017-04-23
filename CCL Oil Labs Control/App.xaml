@@ -208,6 +208,9 @@
         <clr:String x:Key="MainMenu">MainMenu</clr:String>
         <clr:String x:Key="CodesAddingMenu">CodesAddingMenu</clr:String>
         <clr:String x:Key="CodesRegSampleDataMenu">CodesRegSampleDataMenu</clr:String>
+        <clr:String x:Key="CodesRegCoMenu">CodesRegCoMenu</clr:String>
+        <clr:String x:Key="AddNewUsrMenu">AddNewUsrMenu</clr:String>
+        <clr:String x:Key="EditUsrMenu">EditUsrMenu</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>

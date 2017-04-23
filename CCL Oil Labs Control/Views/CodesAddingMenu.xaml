@@ -65,7 +65,7 @@
                                Text="{StaticResource ArAddCoTypesCode}"/>
                 </Button>
                 <!--Second-->
-                <Button Name="CodesAddMenuButtonCo"
+                <Button Name="CodesAddMenuButtonCo" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegCoMenu}"
                         Grid.Row="3" Grid.Column="1"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
@@ -86,14 +86,14 @@
                                Text="{StaticResource ArAddEquipNamesCode}"/>
                 </Button>
                 <!--Fifth-->
-                <Button Name="CodesAddMenuButtonNewUsr"
+                <Button Name="CodesAddMenuButtonNewUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource AddNewUsrMenu}"
                         Grid.Row="9" Grid.Column="1" 
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArAddNewUsr}"/>
                 </Button>
                 <!--Sixth-->
-                <Button Name="CodesAddMenuButtonEditUsr"
+                <Button Name="CodesAddMenuButtonEditUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource EditUsrMenu}"
                         Grid.Row="11" Grid.Column="1"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
@@ -102,7 +102,7 @@
             </Grid>
         </Border>
         <!--Back button-->
-        <Button Name="CodesAddMenuButtonClose" 
+        <Button Name="CodesAddMenuButtonClose"  Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource MainMenu}"
                 Style="{StaticResource BasicButton}"
                 Grid.Row="3" Grid.Column="1" >
             <TextBlock Name="CodesAddMenuTextBlockClose"

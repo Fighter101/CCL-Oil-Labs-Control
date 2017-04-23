@@ -17,7 +17,7 @@ namespace CCL_Oil_Labs_Control.Views
     /// <summary>
     /// Interaction logic for EditUsrMenu.xaml
     /// </summary>
-    public partial class EditUsrMenu : Window
+    public partial class EditUsrMenu : UserControl
     {
         public EditUsrMenu()
         {

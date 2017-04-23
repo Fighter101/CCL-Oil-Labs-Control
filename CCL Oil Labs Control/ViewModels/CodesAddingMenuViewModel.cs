@@ -11,10 +11,16 @@ namespace CCL_Oil_Labs_Control.ViewModels
     public class CodesAddingMenuViewModel : BindableBase
     {
 
-        
+        private IGLobalNavigateCommand _globalNavigateCommand;
+        public IGLobalNavigateCommand globalNavigateCommand
+        {
+            get { return _globalNavigateCommand; }
+            set { SetProperty(ref _globalNavigateCommand, value); }
+        }
         public CodesAddingMenuViewModel(GlobalNavigateCommand globalNavigateCommand)
         {
-
+            this.globalNavigateCommand = globalNavigateCommand;
         }
     }
+
 }
