@@ -192,8 +192,24 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Views\EntryMenu.xaml.cs">
-      <DependentUpon>EntryMenu.xaml</DependentUpon>
+    <Compile Include="Views\EntryMenu.xaml.cs" />
+    <Compile Include="Menus\AddNewUsrMenu.xaml.cs">
+      <DependentUpon>AddNewUsrMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\CodesAddingMenu.xaml.cs">
+      <DependentUpon>CodesAddingMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\CodesRegCoMenu.xaml.cs">
+      <DependentUpon>CodesRegCoMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\CodesRegSampleDataMenu.xaml.cs">
+      <DependentUpon>CodesRegSampleDataMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\EditUsrMenu.xaml.cs">
+      <DependentUpon>EditUsrMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Menus\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -278,9 +294,33 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\MainWindow.xaml" />
+    <Resource Include="Images\Logos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Menus\AddNewUsrMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menus\CodesAddingMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menus\CodesRegCoMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menus\CodesRegSampleDataMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menus\EditUsrMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Menus\MainMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

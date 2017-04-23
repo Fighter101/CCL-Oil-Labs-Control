@@ -18,7 +18,7 @@
         <!--Upper half-->
         <!--Frequent header-->
 
-        <Border Grid.Row="0" BorderBrush="DarkBlue" BorderThickness="3.5" Margin="1.5">
+        <Border Grid.Row="0" Style="{StaticResource BasicBorder}">
             <Grid Grid.Row="0" Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -37,7 +37,7 @@
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="0" Grid.Row="1" Text="{StaticResource EnEgyElecTransCo.}"/>
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="0" Grid.Row="2" Text="{StaticResource EnCCL}"/>
                 <!--Middle-->
-               <Image Source="..\Images\Logos.png" Grid.Row="0" Grid.RowSpan="6" Grid.Column="1"/>
+                <Image Source="..\Images\Logos.png" Grid.Row="0" Grid.RowSpan="6" Grid.Column="1"/>
                 <!--Right-->
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="2" Grid.Row="0" Text="{StaticResource ArEgyElecHoldCo.}"/>
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="2" Grid.Row="1" Text="{StaticResource ArEgyElecTransCo.}"/>
@@ -46,7 +46,7 @@
         </Border>
 
         <!--Lower half-->
-        <Border Grid.Row="1" BorderBrush="DarkBlue" BorderThickness="3.5" Margin="1.5">
+        <Border Grid.Row="1" Style="{StaticResource BasicBorder}">
             <Grid Name="UserEntryGrid" Grid.Row="1" Background="LightBlue" FocusManager.FocusedElement="{Binding ElementName=EntryMenuComboBoxUserName}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -55,18 +55,18 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="4*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="6*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="49*"/>
+                    <RowDefinition Height="49*"/>
+                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="99*"/>
+                    <RowDefinition Height="42*"/>
+                    <RowDefinition Height="42*"/>
+                    <RowDefinition Height="42*"/>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="21*"/>
+                    <RowDefinition Height="21*"/>
                 </Grid.RowDefinitions>
                 <Grid.InputBindings>
                     <KeyBinding Command="{Binding fillAndNavigateCommand.fillDataAndNavigateCommand}" CommandParameter="EntryMenu" Key="Return"/>
@@ -74,34 +74,28 @@
                 <!--First-->
                 <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                     Text="{StaticResource ArOilAnlProg}"
-                    Style="{StaticResource BaicText}"
-                    FontSize="32" Foreground="#FF1414A6">
+                    Style="{StaticResource BaicText}">
                 </TextBlock>
                 <!--Second-->
                 <Separator Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
-                           Height="4" Width="Auto" 
-                           HorizontalAlignment="Stretch" 
-                           VerticalAlignment="Center"                   
-                           Background="Black"
-                           Foreground="Black"
-                          />
+                            Style="{StaticResource BasicSeparator}"/>
                 <!--Third-->
                 <TextBlock Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
                            Text="{StaticResource EnNameManager}"
-                           Style="{StaticResource BaicText}"
+                           Style="{StaticResource BaicBlueText}"
                            FontSize="28" Foreground="Blue"
                            />
                 <!--Fourth Left-->
                 <Button Name="EntryMenuButtonClose" Command="{Binding closeCommand}"
                         Style="{StaticResource BasicButton}"  
-                        Grid.Column="1" Grid.Row="4"
-                        FontSize="32" Foreground="Brown" Background="#F098CADA">
-                    <TextBlock Text="{StaticResource ArClose}" />
+                        Grid.Column="1" Grid.Row="4">
+                <TextBlock Text="{StaticResource ArClose}" />
                 </Button>
+
                 <!--Fourth Right-->
                 <Button Name="EntryMenuButtonMainMenu" IsTabStop="True" TabIndex="3"
                         Style="{StaticResource BasicButton}"  Grid.Column="2" Grid.Row="4"
-                        FontSize="32" Foreground="Brown" Background="#F098CADA" Command="{Binding fillAndNavigateCommand.fillDataAndNavigateCommand}" CommandParameter="EntryMenu">
+                        Command="{Binding fillAndNavigateCommand.fillDataAndNavigateCommand}" CommandParameter="EntryMenu">
                     <TextBlock Text="{StaticResource ArMainMenu}"/>
                 </Button>
                 <!--Fifth Right-->
@@ -115,17 +109,30 @@
                           />
                 <!--Sixth Right-->
                 <TextBlock
-                    Style="{StaticResource BaicText}" Grid.Column="2" Grid.Row="6"
-                    FontSize="18" Foreground="Black"
+                    Style="{StaticResource BaicBlackText}" Grid.Column="2" Grid.Row="6"
                     Text="{StaticResource ArPassword}"/>
                 <!--Sixth Left-->
                 <PasswordBox Name="EntryMenuPassBoxPassword" Grid.Column="1" Grid.Row="6" TabIndex="2"
                               Background="#F098CADA" PasswordChanged="EntryMenuPassBoxPassword_LostFocus" 
                             />
+                <!--Contributors list in bottom left-->
+                <TextBlock Grid.Column="0" Grid.Row="8" 
+                   Style="{StaticResource ContributorsText}"
+                   Text="{StaticResource NameContrib0}"
+                   />
+                <TextBlock Grid.Column="0" Grid.Row="9" 
+                   Style="{StaticResource ContributorsText}"
+                   Text="{StaticResource NameContrib1}"/>
+                <TextBlock Grid.Column="0" Grid.Row="10" 
+                   Style="{StaticResource ContributorsText}"
+                   Text="{StaticResource NameContrib2}"/>
+                <TextBlock Grid.Column="0" Grid.Row="11" 
+                   Style="{StaticResource ContributorsText}"
+                   Text="{StaticResource NameContrib3}"/>
             </Grid>
         </Border>
         <!--Footer-->
-        <TextBlock Style="{StaticResource BaicText}" Grid.Column="1" Grid.Row="2"
+        <TextBlock Style="{StaticResource BaicBlackText}" Grid.Column="1" Grid.Row="2"
                  Text="{StaticResource ArContactUs}"/>
     </Grid>
 </UserControl>

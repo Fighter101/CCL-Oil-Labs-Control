@@ -251,8 +251,6 @@ paket-files/
 .idea/
 *.sln.iml
 
-#removing .vs
-.vs/
 
 #removing objcet and bin
 **/obj/
