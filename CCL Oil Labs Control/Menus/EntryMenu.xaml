@@ -36,7 +36,7 @@
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="0" Grid.Row="1" Text="{StaticResource EnEgyElecTransCo.}"/>
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="0" Grid.Row="2" Text="{StaticResource EnCCL}"/>
                 <!--Middle-->
-                <Image Source="Images\Logos.png" Grid.Row="0" Grid.RowSpan="6" Grid.Column="1"/>
+                <Image Source="..\Images\Logos.png" Grid.Row="0" Grid.RowSpan="6" Grid.Column="1"/>
                 <!--Right-->
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="2" Grid.Row="0" Text="{StaticResource ArEgyElecHoldCo.}"/>
                 <TextBlock Style="{StaticResource BaicText}" Grid.Column="2" Grid.Row="1" Text="{StaticResource ArEgyElecTransCo.}"/>
