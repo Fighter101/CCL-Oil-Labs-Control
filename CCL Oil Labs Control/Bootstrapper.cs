@@ -10,6 +10,7 @@ using CCL_Oil_Labs_Control.Views;
 using Prism.Modularity;
 using CCL_Oil_Labs_Control.CompositeCommands;
 using CCL_Oil_Labs_Control.ViewModels;
+using Prism.Events;
 namespace CCL_Oil_Labs_Control 
 {
     class Bootstrapper : UnityBootstrapper
@@ -28,9 +29,14 @@ namespace CCL_Oil_Labs_Control
             base.ConfigureContainer();
 
             //TODO : Remove Magic String
+            Container.RegisterType<CloseCommand, CloseCommand>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<AddingCodesNavigateCommand, AddingCodesNavigateCommand>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<IGLobalNavigateCommand, GlobalNavigateCommand>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IApplicationCommands, FillDataAndNavigateCommand>(new ContainerControlledLifetimeManager());
             Container.RegisterType<EntryMenuViewModel, EntryMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterTypeForNavigation<EntryMenu>("EntryMenu");
+            Container.RegisterTypeForNavigation<MainMenu>("MainMenu");
+            Container.RegisterTypeForNavigation<CodesAddingMenu>("CodesAddingMenu");
         }
     }
 }

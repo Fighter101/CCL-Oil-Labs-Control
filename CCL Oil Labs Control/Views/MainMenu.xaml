@@ -1,11 +1,13 @@
-<Window x:Class="CCL_Oil_Labs_Control.Views.MainMenu"
+<UserControl x:Class="CCL_Oil_Labs_Control.Views.MainMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
+        xmlns:prism ="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Style="{StaticResource BasicWindow}">
+        Style="{StaticResource BasicUserControl}">
     <Grid Background="WhiteSmoke">
         <!--Space Grid Space-->
         <Grid.ColumnDefinitions>
@@ -53,9 +55,9 @@
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button Name="MainMenuButtonAddCodes"
+                <Button  Name="MainMenuButtonAddCodes" Command="{Binding  addingCodesNavigationCommand.addingCodesNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
                         Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"
-                        Style="{StaticResource BasicButton}">
+                        Style="{StaticResource BasicButton}"  >
                     <TextBlock Style="{StaticResource BaicRedText}"
                                Text="{StaticResource ArAddCodes}"/>
                 </Button>
@@ -71,7 +73,7 @@
                     <TextBlock Style="{StaticResource BaicRedText}"
                                Text="{StaticResource ArReports}"/>
                 </Button>
-                <Button Name="MainMenuButtonClose"
+                <Button Name="MainMenuButtonClose" Command="{Binding closeCommand.closeCommand}"
                         Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicPurpleText}"
@@ -80,4 +82,4 @@
             </Grid>
         </Border>
     </Grid>
-</Window>
+</UserControl>

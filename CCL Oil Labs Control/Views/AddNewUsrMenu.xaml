@@ -1,11 +1,13 @@
-﻿<Window x:Class="CCL_Oil_Labs_Control.Views.AddNewUsrMenu"
+﻿<UserControl x:Class="CCL_Oil_Labs_Control.Views.AddNewUsrMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Title="" Style="{StaticResource BasicWindow}">
+        Style="{StaticResource BasicUserControl}">
     <Grid Background="WhiteSmoke">
         <!--Title, line, Grid, Button, Space-->
         <Grid.RowDefinitions>
@@ -105,4 +107,4 @@
                        />
         </Button>
     </Grid>
-</Window>
+</UserControl>

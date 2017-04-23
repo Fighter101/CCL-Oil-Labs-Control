@@ -16,7 +16,7 @@ namespace CCL_Oil_Labs_Control.Views
     /// <summary>
     /// Interaction logic for AddNewUsrMenu.xaml
     /// </summary>
-    public partial class AddNewUsrMenu : Window
+    public partial class AddNewUsrMenu : UserControl
     {
         public AddNewUsrMenu()
         {

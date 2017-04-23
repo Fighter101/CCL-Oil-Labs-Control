@@ -40,11 +40,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public DelegateCommand loginCommand { get; private set; }
         public DelegateCommand closeCommand { get; private set; }
-        public EntryMenuViewModel (IApplicationCommands m_fillAndNavigateCommand, IEventAggregator _eventAggregator)
+        public EntryMenuViewModel (CloseCommand closeCommand, IApplicationCommands m_fillAndNavigateCommand, IEventAggregator _eventAggregator)
         {
             eventAggregator = _eventAggregator;
             loginCommand = new DelegateCommand(fillUserData, ()=>(!string.IsNullOrWhiteSpace(_userName) && !((_password!=null&&_password.Length==0)))).ObservesProperty(()=>userName).ObservesProperty(()=>password);
-            closeCommand = new DelegateCommand(closeProgram, () => true);
+            this.closeCommand = new DelegateCommand(closeProgram, () => true);
+            closeCommand.closeCommand.RegisterCommand(this.closeCommand);
             fillAndNavigateCommand = m_fillAndNavigateCommand;
             fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(loginCommand);
             var navigateCommand = fillAndNavigateCommand.fillDataAndNavigateCommand.RegisteredCommands[0];
@@ -66,7 +67,11 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
             if (currentUser.login())
+            {
                 continuationCallback(true);
+                eventAggregator.GetEvent<UpdatedEvent>().Publish(currentUser);
+                currentUser = null;
+            }
             else
             {
                 MessageBox.Show("Wrong User Name or Password");
@@ -75,7 +80,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
-        {
+        {           
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -85,7 +90,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            eventAggregator.GetEvent<UpdatedEvent>().Publish(currentUser);
+            
         }
     }
 }

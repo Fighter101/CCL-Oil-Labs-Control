@@ -109,22 +109,24 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CompositeCommands\AddingCodesNavigateCommand.cs" />
+    <Compile Include="CompositeCommands\CloseCommand.cs" />
     <Compile Include="CompositeCommands\FillDataAndNavigateCommand.cs" />
+    <Compile Include="CompositeCommands\GlobalNavigateCommand.cs" />
     <Compile Include="CompositeCommands\IApplicationCommands.cs" />
+    <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
     <Compile Include="Controller\UserController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Events\UpdatedEvent.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
     <Compile Include="Exceptions\WrongUserNameException.cs" />
     <Compile Include="Model\UserController.cs" />
     <Compile Include="Utils\Utils.cs" />
+    <Compile Include="ViewModels\AddNewUsrMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesAddingMenuViewModel.cs" />
     <Compile Include="ViewModels\EntryMenuViewModel.cs" />
+    <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\EntryMenu.xaml.cs">
       <DependentUpon>EntryMenu.xaml</DependentUpon>
@@ -234,17 +236,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DatabaseDataSet.xsc">
-      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DatabaseDataSet.xss">
-      <DependentUpon>DatabaseDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Model\DatabaseModel.edmx.diagram">
       <DependentUpon>DatabaseModel.edmx</DependentUpon>
     </None>

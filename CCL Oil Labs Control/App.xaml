@@ -204,6 +204,9 @@
         <clr:String x:Key="NameContrib1">Hassan Saied</clr:String>
         <clr:String x:Key="NameContrib2">Mina Samy</clr:String>
         <clr:String x:Key="NameContrib3">Muhammad Hamdy</clr:String>
+        <!--Navigations-->
+        <clr:String x:Key="MainMenu">MainMenu</clr:String>
+        <clr:String x:Key="CodesAddingMenu">CodesAddingMenu</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>

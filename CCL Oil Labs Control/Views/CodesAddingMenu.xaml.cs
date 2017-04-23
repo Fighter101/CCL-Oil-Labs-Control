@@ -17,7 +17,7 @@ namespace CCL_Oil_Labs_Control.Views
     /// <summary>
     /// Interaction logic for CodesAddingMenu.xaml
     /// </summary>
-    public partial class CodesAddingMenu : Window
+    public partial class CodesAddingMenu : UserControl
     {
         public CodesAddingMenu()
         {

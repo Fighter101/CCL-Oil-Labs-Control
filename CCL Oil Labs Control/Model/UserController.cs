@@ -36,6 +36,7 @@ namespace CCL_Oil_Labs_Control.Model
                 {
                     this.Salt = currentuser.Salt;
                     this.HashedString = hashingUtil.hash(this.Salt, password);
+                    this.AuthorizationLevel = currentuser.AuthorizationLevel;
                 }
             }
             using (var model = new DatabaseEntities())
