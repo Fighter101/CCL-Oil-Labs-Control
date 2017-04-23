@@ -61,7 +61,7 @@
                     <TextBlock Style="{StaticResource BaicRedText}"
                                Text="{StaticResource ArAddCodes}"/>
                 </Button>
-                <Button Name="MainMenuButtonAddBasicData"
+                <Button Name="MainMenuButtonAddBasicData" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegSampleDataMenu}"
                         Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicRedText}"

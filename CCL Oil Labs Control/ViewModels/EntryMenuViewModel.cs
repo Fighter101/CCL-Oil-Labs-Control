@@ -55,8 +55,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
         }
         private void fillUserData ()
         {
-            currentUser = new User(_userName, _password);
-            password = null;
+            currentUser = new User(userName, password);
         }
 
 

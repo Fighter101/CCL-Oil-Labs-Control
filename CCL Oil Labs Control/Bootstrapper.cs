@@ -37,6 +37,7 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterTypeForNavigation<EntryMenu>("EntryMenu");
             Container.RegisterTypeForNavigation<MainMenu>("MainMenu");
             Container.RegisterTypeForNavigation<CodesAddingMenu>("CodesAddingMenu");
+            Container.RegisterTypeForNavigation<CodesRegSampleDataMenu>("CodesRegSampleDataMenu");
         }
     }
 }

@@ -207,6 +207,7 @@
         <!--Navigations-->
         <clr:String x:Key="MainMenu">MainMenu</clr:String>
         <clr:String x:Key="CodesAddingMenu">CodesAddingMenu</clr:String>
+        <clr:String x:Key="CodesRegSampleDataMenu">CodesRegSampleDataMenu</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>
