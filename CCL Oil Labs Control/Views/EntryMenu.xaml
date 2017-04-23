@@ -89,11 +89,11 @@
                            FontSize="28" Foreground="Blue"
                            />
                 <!--Fourth Left-->
-                <Button Name="EntryMenuButtonClose"
+                <Button Name="EntryMenuButtonClose" Command="{Binding closeCommand}"
                         Style="{StaticResource BasicButton}"  
                         Grid.Column="1" Grid.Row="4"
                         FontSize="32" Foreground="Brown" Background="#F098CADA">
-                    <TextBlock Text="{StaticResource ArClose}"/>
+                    <TextBlock Text="{StaticResource ArClose}" />
                 </Button>
                 <!--Fourth Right-->
                 <Button Name="EntryMenuButtonMainMenu"

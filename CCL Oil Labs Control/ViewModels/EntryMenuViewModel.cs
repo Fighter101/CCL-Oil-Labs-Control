@@ -23,7 +23,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _fillAndNavigateCommand; }
             set { SetProperty(ref _fillAndNavigateCommand, value); }
         }
-
+        private bool canExit = true;
         IEventAggregator eventAggregator;
         private string _userName = null;
         public string userName
@@ -40,10 +40,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
         }
 
         public DelegateCommand loginCommand { get; private set; }
+        public DelegateCommand closeCommand { get; private set; }
         public EntryMenuViewModel (IApplicationCommands m_fillAndNavigateCommand, IEventAggregator _eventAggregator)
         {
             eventAggregator = _eventAggregator;
-            loginCommand = new DelegateCommand(fillUserData, canExecute).ObservesProperty(()=>userName).ObservesProperty(()=>password);
+            loginCommand = new DelegateCommand(fillUserData, ()=>(!string.IsNullOrWhiteSpace(_userName) && !((_password!=null&&_password.Length==0)))).ObservesProperty(()=>userName).ObservesProperty(()=>password);
+            closeCommand = new DelegateCommand(closeProgram, () => true);
             fillAndNavigateCommand = m_fillAndNavigateCommand;
             fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(loginCommand);
             var navigateCommand = fillAndNavigateCommand.fillDataAndNavigateCommand.RegisteredCommands[0];
@@ -56,11 +58,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
             currentUser = new User(_userName, _password);
 
         }
-        private bool canExecute ()
-        {
-            return !string.IsNullOrWhiteSpace(_userName) && password != null;
-        }
 
+
+        private void closeProgram()
+        {
+            Application.Current.Shutdown();
+        }
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
             if (currentUser.login())

@@ -14,9 +14,7 @@
             <Setter Property="WindowState" Value="Maximized"/>
         </Style>
         <Style TargetType="UserControl" x:Key="BasicUserControl">
-            <Setter Property="Width" Value="1024" />
-            <Setter Property="Height" Value="720" />
-            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Background" Value="LightGray" />
         </Style>
 
         <!--Basic style for TextBlock-->
