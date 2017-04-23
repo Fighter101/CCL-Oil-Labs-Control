@@ -11,8 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
-namespace CCL_Oil_Labs_Control.Menus
+namespace CCL_Oil_Labs_Control.Views
 {
     /// <summary>
     /// Interaction logic for AddNewUsrMenu.xaml
@@ -22,17 +21,6 @@ namespace CCL_Oil_Labs_Control.Menus
         public AddNewUsrMenu()
         {
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Close this windows when AddNewUsrMenuButtonClose is clicked and show CodesAddingMenu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddNewUsrMenuButtonClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-            new CodesAddingMenu().Show();
         }
     }
 }

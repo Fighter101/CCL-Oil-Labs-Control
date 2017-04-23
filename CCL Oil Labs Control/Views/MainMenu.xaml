@@ -1,9 +1,9 @@
-<Window x:Class="CCL_Oil_Labs_Control.Menus.MainMenu"
+<Window x:Class="CCL_Oil_Labs_Control.Views.MainMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Menus"
+        xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
         mc:Ignorable="d"
         Style="{StaticResource BasicWindow}">
     <Grid Background="WhiteSmoke">
@@ -55,7 +55,7 @@
                 </Grid.RowDefinitions>
                 <Button Name="MainMenuButtonAddCodes"
                         Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"
-                        Style="{StaticResource BasicButton}" Click="MainMenuButtonAddCodes_Click">
+                        Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicRedText}"
                                Text="{StaticResource ArAddCodes}"/>
                 </Button>
@@ -73,7 +73,7 @@
                 </Button>
                 <Button Name="MainMenuButtonClose"
                         Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2"
-                        Style="{StaticResource BasicButton}" Click="MainMenuButtonClose_Click">
+                        Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicPurpleText}"
                                Text="{StaticResource ArClose}"/>
                 </Button>

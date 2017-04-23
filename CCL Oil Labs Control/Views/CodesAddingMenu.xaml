@@ -1,9 +1,9 @@
-﻿<Window x:Class="CCL_Oil_Labs_Control.Menus.CodesAddingMenu"
+﻿<Window x:Class="CCL_Oil_Labs_Control.Views.CodesAddingMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Menus"
+        xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
         mc:Ignorable="d"
         Title="" Style="{StaticResource BasicWindow}">
 
@@ -85,7 +85,7 @@
                 </Button>
                 <!--Fifth-->
                 <Button Name="CodesAddMenuButtonNewUsr"
-                        Grid.Row="9" Grid.Column="1" Click="CodesAddMenuButtonNewUsr_Click"
+                        Grid.Row="9" Grid.Column="1" 
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArAddNewUsr}"/>
@@ -102,7 +102,7 @@
         <!--Back button-->
         <Button Name="CodesAddMenuButtonClose"
                 Style="{StaticResource BasicButton}"
-                Grid.Row="3" Grid.Column="1" Click="CodesAddMenuButtonClose_Click">
+                Grid.Row="3" Grid.Column="1" >
             <TextBlock Name="CodesAddMenuTextBlockClose"
                        Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArClose}"

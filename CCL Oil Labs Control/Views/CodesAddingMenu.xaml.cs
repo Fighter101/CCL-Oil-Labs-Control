@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-namespace CCL_Oil_Labs_Control.Menus
+using CCL_Oil_Labs_Control.Views;
+namespace CCL_Oil_Labs_Control.Views
 {
     /// <summary>
-    /// Interaction logic for CodesRegSampleDataMenu.xaml
+    /// Interaction logic for CodesAddingMenu.xaml
     /// </summary>
-    public partial class CodesRegSampleDataMenu : UserControl
+    public partial class CodesAddingMenu : Window
     {
-        public CodesRegSampleDataMenu()
+        public CodesAddingMenu()
         {
             InitializeComponent();
         }
+       
     }
 }

@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="CCL_Oil_Labs_Control.Menus.CodesEquipNames"
+﻿<UserControl x:Class="CCL_Oil_Labs_Control.Views.CodesEquipNames"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Menus"
+             xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
              mc:Ignorable="d" Style="{StaticResource BasicUserControl}"
              >
     <Grid Background="WhiteSmoke">

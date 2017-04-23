@@ -126,6 +126,9 @@
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModels\EntryMenuViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\EntryMenu.xaml.cs">
+      <DependentUpon>EntryMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -192,23 +195,22 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Views\EntryMenu.xaml.cs" />
-    <Compile Include="Menus\AddNewUsrMenu.xaml.cs">
+    <Compile Include="Views\AddNewUsrMenu.xaml.cs">
       <DependentUpon>AddNewUsrMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menus\CodesAddingMenu.xaml.cs">
+    <Compile Include="Views\CodesAddingMenu.xaml.cs">
       <DependentUpon>CodesAddingMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menus\CodesRegCoMenu.xaml.cs">
+    <Compile Include="Views\CodesRegCoMenu.xaml.cs">
       <DependentUpon>CodesRegCoMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menus\CodesRegSampleDataMenu.xaml.cs">
+    <Compile Include="Views\CodesRegSampleDataMenu.xaml.cs">
       <DependentUpon>CodesRegSampleDataMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menus\EditUsrMenu.xaml.cs">
+    <Compile Include="Views\EditUsrMenu.xaml.cs">
       <DependentUpon>EditUsrMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Menus\MainMenu.xaml.cs">
+    <Compile Include="Views\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -298,27 +300,27 @@
     <Resource Include="Images\Logos.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Menus\AddNewUsrMenu.xaml">
+    <Page Include="Views\AddNewUsrMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Menus\CodesAddingMenu.xaml">
+    <Page Include="Views\CodesAddingMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Menus\CodesRegCoMenu.xaml">
+    <Page Include="Views\CodesRegCoMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Menus\CodesRegSampleDataMenu.xaml">
+    <Page Include="Views\CodesRegSampleDataMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Menus\EditUsrMenu.xaml">
+    <Page Include="Views\EditUsrMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Menus\MainMenu.xaml">
+    <Page Include="Views\MainMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

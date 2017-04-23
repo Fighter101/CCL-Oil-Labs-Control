@@ -89,7 +89,7 @@
                 <Button Name="EntryMenuButtonClose" Command="{Binding closeCommand}"
                         Style="{StaticResource BasicButton}"  
                         Grid.Column="1" Grid.Row="4">
-                <TextBlock Text="{StaticResource ArClose}" />
+                    <TextBlock Text="{StaticResource ArClose}" />
                 </Button>
 
                 <!--Fourth Right-->

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CCL_Oil_Labs_Control.Menus
+namespace CCL_Oil_Labs_Control.Views
 {
     /// <summary>
-    /// Interaction logic for CodesEquipNames.xaml
+    /// Interaction logic for EditUsrMenu.xaml
     /// </summary>
-    public partial class CodesEquipNames : UserControl
+    public partial class EditUsrMenu : Window
     {
-        public CodesEquipNames()
+        public EditUsrMenu()
         {
             InitializeComponent();
         }
