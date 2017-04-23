@@ -126,6 +126,18 @@
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModels\EntryMenuViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\ChemicalElectricalAnalysis.xaml.cs">
+      <DependentUpon>ChemicalElectricalAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesAnalysisMenu.xaml.cs">
+      <DependentUpon>CodesAnalysisMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegCoTypeMenu.xaml.cs">
+      <DependentUpon>CodesRegCoTypeMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegEquipNamesMenu.xaml.cs">
+      <DependentUpon>CodesRegEquipNamesMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EntryMenu.xaml.cs">
       <DependentUpon>EntryMenu.xaml</DependentUpon>
     </Compile>
@@ -292,6 +304,22 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ChemicalElectricalAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesAnalysisMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegCoTypeMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegEquipNamesMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EntryMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

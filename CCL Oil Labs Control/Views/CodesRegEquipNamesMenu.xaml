@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="CCL_Oil_Labs_Control.Views.CodesRegEquipNamesMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
+             mc:Ignorable="d" 
+             Style="{StaticResource BasicUserControl}">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <!--Title-->
+        <TextBlock Style="{StaticResource BaicPurpleText}"
+                   Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7"
+                   Text="{StaticResource ArRegEquipNamesCode}"/>
+        <!--Separator-->
+        <Separator Style="{StaticResource BasicSeparator}"
+                   Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7"/>
+        <!--Left column header-->
+        <Border Style="{StaticResource BasicBorder}" 
+                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5">
+            <TextBlock Style="{StaticResource AdvBlackText}"
+                   Text="{StaticResource ArEquipName}" 
+                   />
+        </Border>
+        <!--Right column header-->
+        <Border Style="{StaticResource BasicBorder}" 
+                                  Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2">
+            <TextBlock Style="{StaticResource AdvBlackText}"
+                   Text="{StaticResource ArOilTypeCode}" 
+                   />
+        </Border>
+        <!--Center Grid-->
+        <Border Style="{StaticResource BasicBorder}"  Margin="5"
+                Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="9">
+            <ScrollViewer Width="Auto">
+                <StackPanel Orientation="Vertical">
+                    <Grid Background="LightGray">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="53*"/>
+                            <ColumnDefinition Width="19*"/>
+                            <ColumnDefinition Width="13*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="90*"/>
+                            <RowDefinition Height="10*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox Style="{StaticResource BasicTextBox}"
+                                 Grid.Row="0" Grid.Column="1" 
+                                 Margin="2"
+                                    />
+                        <ComboBox Grid.Row="0" Grid.Column="2"
+                                  Style="{StaticResource BasicComboBox}"/>
+                        <Separator Style="{StaticResource BasicSeparator}"
+                                   Grid.Row="1" Grid.ColumnSpan="4"/>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+        <!--Back button-->
+        <Button Style="{StaticResource BasicButton}"
+                Grid.Row="5" Grid.Column="1" >
+            <TextBlock Style="{StaticResource BaicRedText}"
+                       Text="{StaticResource ArBack}"
+                       FontSize="32"
+                       />
+        </Button>
+        <!--Delete button-->
+        <Button Style="{StaticResource BasicButton}"
+                Grid.Row="5" Grid.Column="3">
+            <TextBlock Style="{StaticResource BaicRedText}"
+                       Text="{StaticResource ArDelete}"
+                       FontSize="32"
+                       />
+        </Button>
+        <!--Save button-->
+        <Button Style="{StaticResource BasicButton}"
+                Grid.Row="5" Grid.Column="5">
+            <TextBlock Style="{StaticResource BaicBlueText}"
+                       Text="{StaticResource ArSave}"
+                       FontSize="32"
+                       />
+        </Button>
+        <!--Add button-->
+        <Button Style="{StaticResource BasicButton}"
+                Grid.Row="5" Grid.Column="7">
+            <TextBlock Style="{StaticResource BaicBlueText}"
+                       Text="{StaticResource ArAdd}"
+                       FontSize="32"
+                       />
+        </Button>
+    </Grid>
+</UserControl>
