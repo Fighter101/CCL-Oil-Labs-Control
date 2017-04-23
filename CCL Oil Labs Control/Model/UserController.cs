@@ -38,13 +38,13 @@ namespace CCL_Oil_Labs_Control.Model
                     this.HashedString = hashingUtil.hash(this.Salt, password);
                 }
             }
-            using (var model = new Model.DatabaseEntities())
+            using (var model = new DatabaseEntities())
             {
                 var userList = from user in model.Users
-                               where user.Username == this.Username && user.HashedString == this.HashedString
+                               where (user.Username == this.Username && user.HashedString == this.HashedString)
                                select user;
-                var currentUser = userList.First();
-                return currentUser == null;
+                User currentUser = userList?.FirstOrDefault();
+                return currentUser != null;
             }
         }
     }

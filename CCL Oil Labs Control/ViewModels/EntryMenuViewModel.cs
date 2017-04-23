@@ -23,7 +23,6 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _fillAndNavigateCommand; }
             set { SetProperty(ref _fillAndNavigateCommand, value); }
         }
-        private bool canExit = true;
         IEventAggregator eventAggregator;
         private string _userName = null;
         public string userName
@@ -56,7 +55,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
         private void fillUserData ()
         {
             currentUser = new User(_userName, _password);
-
+            password = null;
         }
 
 
