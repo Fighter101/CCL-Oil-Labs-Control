@@ -59,8 +59,11 @@ namespace CCL_Oil_Labs_Control.ViewModels
             }
             else
             {
-                new User(userName, password).Register();
+                if (new User(userName, password).Register())
+                    MessageBox.Show("Register Successful");
+                else MessageBox.Show("User Name already exists");
             }
+            userName = null;
         }
         public AddNewUsrMenuViewModel(GlobalNavigateCommand globalNavigateCommand)
         {

@@ -35,6 +35,7 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterType<IApplicationCommands, FillDataAndNavigateCommand>(new ContainerControlledLifetimeManager());
             Container.RegisterType<EntryMenuViewModel, EntryMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<AddNewUsrMenuViewModel, AddNewUsrMenuViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<EditUsrMenuViewModel, EditUsrMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterTypeForNavigation<EntryMenu>("EntryMenu");
             Container.RegisterTypeForNavigation<MainMenu>("MainMenu");
             Container.RegisterTypeForNavigation<CodesAddingMenu>("CodesAddingMenu");

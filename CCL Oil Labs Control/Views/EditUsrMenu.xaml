@@ -56,6 +56,9 @@
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
+                <Grid.InputBindings>
+                    <KeyBinding Key="Return" Command="{Binding saveCommand}"></KeyBinding>
+                </Grid.InputBindings>
                 <!--First right-->
                 <TextBlock Style="{StaticResource BaicBlackText}"
                            Grid.Row="1" Grid.Column="3"
@@ -78,7 +81,7 @@
                            Text="{StaticResource ArPassword}"
                            />
                 <!--Second left-->
-                <PasswordBox Style="{StaticResource BasicPassBox}"
+                <PasswordBox Style="{StaticResource BasicPassBox}" PasswordChanged="PasswordBox_PasswordChanged"
                            Grid.Row="3" Grid.Column="1"
                            />
                 <!--Third right-->
@@ -87,7 +90,7 @@
                            Text="{StaticResource ArNewPassword}"
                            />
                 <!--Third left-->
-                <PasswordBox Style="{StaticResource BasicPassBox}"
+                <PasswordBox Style="{StaticResource BasicPassBox}" PasswordChanged="PasswordBox_PasswordChanged_1"
                            Grid.Row="5" Grid.Column="1"                        
                            />
                 <!--Fourth right-->
@@ -96,7 +99,7 @@
                            Text="{StaticResource ArConfirmPassword}"
                            />
                 <!--Fourth left-->
-                <PasswordBox Style="{StaticResource BasicPassBox}"
+                <PasswordBox Style="{StaticResource BasicPassBox}" PasswordChanged="PasswordBox_PasswordChanged_2"
                            Grid.Row="7" Grid.Column="1"                        
                            />
                 <!--Fifth-->
