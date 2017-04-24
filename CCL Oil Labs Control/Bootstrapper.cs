@@ -34,6 +34,7 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterType<IGLobalNavigateCommand, GlobalNavigateCommand>(new ContainerControlledLifetimeManager());
             Container.RegisterType<IApplicationCommands, FillDataAndNavigateCommand>(new ContainerControlledLifetimeManager());
             Container.RegisterType<EntryMenuViewModel, EntryMenuViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<AddNewUsrMenuViewModel, AddNewUsrMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterTypeForNavigation<EntryMenu>("EntryMenu");
             Container.RegisterTypeForNavigation<MainMenu>("MainMenu");
             Container.RegisterTypeForNavigation<CodesAddingMenu>("CodesAddingMenu");
@@ -41,6 +42,8 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterTypeForNavigation<CodesEquipNames>("CodesRegCoMenu");
             Container.RegisterTypeForNavigation<AddNewUsrMenu>("AddNewUsrMenu");
             Container.RegisterTypeForNavigation<EditUsrMenu>("EditUsrMenu");
+            Container.RegisterTypeForNavigation<CodesRegCoTypeMenu>("CodesRegCoTypeMenu");
+            Container.RegisterTypeForNavigation<CodesRegEquipNamesMenu>("CodesRegEquipNamesMenu");
         }
     }
 }

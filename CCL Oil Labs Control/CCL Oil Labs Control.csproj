@@ -115,7 +115,6 @@
     <Compile Include="CompositeCommands\GlobalNavigateCommand.cs" />
     <Compile Include="CompositeCommands\IApplicationCommands.cs" />
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
-    <Compile Include="Controller\UserController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\UpdatedEvent.cs" />
@@ -343,6 +342,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

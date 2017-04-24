@@ -58,7 +58,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <!--First-->
-                <Button Name="CodesAddMenuButtonCoType"
+                <Button Name="CodesAddMenuButtonCoType" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegCoTypeMenu}"
                         Grid.Row="1" Grid.Column="1"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
@@ -79,7 +79,7 @@
                                Text="{StaticResource ArAddStationCode}"/>
                 </Button>
                 <!--Fourth-->
-                <Button Name="CodesAddMenuButtonEquipNames"
+                <Button Name="CodesAddMenuButtonEquipNames" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegEquipNamesMenu}"
                         Grid.Row="7" Grid.Column="1"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"

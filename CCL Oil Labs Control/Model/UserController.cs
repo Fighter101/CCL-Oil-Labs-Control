@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.Security;
 using CCL_Oil_Labs_Control.Utils;
 using CCL_Oil_Labs_Control.Exceptions;
+
 namespace CCL_Oil_Labs_Control.Model
 {
     public partial class User
     {
         public User() { }
-        private Utils.Utils hashingUtil = new Utils.Utils();
         private SecureString password;
         public bool state;
         public User (String userName , SecureString _password )
@@ -35,7 +35,7 @@ namespace CCL_Oil_Labs_Control.Model
                 else
                 {
                     this.Salt = currentuser.Salt;
-                    this.HashedString = hashingUtil.hash(this.Salt, password);
+                    this.HashedString = Utils.Utils.hash(this.Salt, password);
                     this.AuthorizationLevel = currentuser.AuthorizationLevel;
                 }
             }
@@ -48,5 +48,26 @@ namespace CCL_Oil_Labs_Control.Model
                 return currentUser != null;
             }
         }
+        public bool Register()
+        {
+            var model = new DatabaseEntities();
+            if (model.Users.Any(u => u.Username == this.Username))
+                return false;
+
+            var salt = Utils.Utils.RandomString(10);
+            var hashString = Utils.Utils.hash(salt, this.password);
+            var userData = new Model.User()
+            {
+                AuthorizationLevel = "User",
+                HashedString = hashString,
+                Salt = salt,
+                Username = this.Username
+            };
+
+            model.Users.Add(userData);
+            model.SaveChanges();
+            return true;
+        }
+        
     }
 }

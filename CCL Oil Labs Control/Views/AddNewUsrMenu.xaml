@@ -60,7 +60,7 @@
                            Text="{StaticResource ArUserName}"
                            />
                 <!--First left-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding userName , UpdateSourceTrigger=PropertyChanged}"
                            Grid.Row="1" Grid.Column="1"
                            />
                 <!--Second right-->
@@ -69,8 +69,8 @@
                            Text="{StaticResource ArPassword}"
                            />
                 <!--Second left-->
-                <PasswordBox Style="{StaticResource BasicPassBox}"
-                           Grid.Row="3" Grid.Column="1"
+                <PasswordBox Style="{StaticResource BasicPassBox}" 
+                           Grid.Row="3" Grid.Column="1" PasswordChanged="PasswordBox_PasswordChanged" 
                            />
                 <!--Third right-->
                 <TextBlock Style="{StaticResource BaicBlackText}"
@@ -79,7 +79,7 @@
                            />
                 <!--Third left-->
                 <PasswordBox Style="{StaticResource BasicPassBox}"
-                           Grid.Row="5" Grid.Column="1"                        
+                           Grid.Row="5" Grid.Column="1" PasswordChanged="PasswordBox_PasswordChanged_1"                        
                            />
                 <!--Fourth-->
                 <TextBlock Style="{StaticResource BaicBlueText}"
@@ -87,7 +87,7 @@
             </Grid>
         </Border>
         <!--Back button-->
-        <Button Name="AddNewUsrMenuButtonClose"
+        <Button Name="AddNewUsrMenuButtonClose" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
                 Style="{StaticResource BasicButton}"
                 Grid.Row="3" Grid.Column="1" >
             <TextBlock Name="AddNewUsrMenuTextBlockClose"
@@ -97,7 +97,7 @@
                        />
         </Button>
         <!--Save button-->
-        <Button Name="AddNewUsrMenuButtonSave"
+        <Button Name="AddNewUsrMenuButtonSave" Command="{Binding saveCommand}"
                 Style="{StaticResource BasicButton}"
                 Grid.Row="3" Grid.Column="2">
             <TextBlock Name="AddNewUsrMenuTextBlockSave"
