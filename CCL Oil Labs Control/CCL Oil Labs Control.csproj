@@ -138,6 +138,9 @@
     <Compile Include="Views\CodesRegEquipNamesMenu.xaml.cs">
       <DependentUpon>CodesRegEquipNamesMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CodesRegStationsMenu.xaml.cs">
+      <DependentUpon>CodesRegStationsMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EntryMenu.xaml.cs">
       <DependentUpon>EntryMenu.xaml</DependentUpon>
     </Compile>
@@ -317,6 +320,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CodesRegEquipNamesMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegStationsMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
