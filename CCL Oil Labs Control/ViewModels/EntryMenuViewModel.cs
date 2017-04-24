@@ -16,8 +16,11 @@ namespace CCL_Oil_Labs_Control.ViewModels
 {
     public class EntryMenuViewModel : BindableBase , IConfirmNavigationRequest
     {
+
+        private User currentUser;
+
+
         private IApplicationCommands _fillAndNavigateCommand;
-        public User currentUser;
         public IApplicationCommands fillAndNavigateCommand
         {
             get { return _fillAndNavigateCommand; }
@@ -40,17 +43,17 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public DelegateCommand loginCommand { get; private set; }
         public DelegateCommand closeCommand { get; private set; }
-        public EntryMenuViewModel (CloseCommand closeCommand, IApplicationCommands m_fillAndNavigateCommand, IEventAggregator _eventAggregator)
+        public EntryMenuViewModel (CloseCommand closeCommand, IApplicationCommands fillAndNavigateCommand, IEventAggregator _eventAggregator)
         {
             eventAggregator = _eventAggregator;
             loginCommand = new DelegateCommand(fillUserData, ()=>(!string.IsNullOrWhiteSpace(_userName) && !((_password!=null&&_password.Length==0)))).ObservesProperty(()=>userName).ObservesProperty(()=>password);
             this.closeCommand = new DelegateCommand(closeProgram, () => true);
             closeCommand.closeCommand.RegisterCommand(this.closeCommand);
-            fillAndNavigateCommand = m_fillAndNavigateCommand;
-            fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(loginCommand);
-            var navigateCommand = fillAndNavigateCommand.fillDataAndNavigateCommand.RegisteredCommands[0];
-            fillAndNavigateCommand.fillDataAndNavigateCommand.UnregisterCommand(navigateCommand);
-            fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(navigateCommand);
+            this.fillAndNavigateCommand = fillAndNavigateCommand;
+            this.fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(loginCommand);
+            var navigateCommand = this.fillAndNavigateCommand.fillDataAndNavigateCommand.RegisteredCommands[0];
+            this.fillAndNavigateCommand.fillDataAndNavigateCommand.UnregisterCommand(navigateCommand);
+            this.fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(navigateCommand);
 
         }
         private void fillUserData ()

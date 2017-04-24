@@ -45,8 +45,10 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private DelegateCommand _saveCommand;
         public DelegateCommand saveCommand =>
-            _saveCommand ?? (_saveCommand = new DelegateCommand(save, () => !string.IsNullOrWhiteSpace(userName) && password != null && confirmPassword != null))
-            .ObservesProperty(() => userName).ObservesProperty(() => password).ObservesProperty(() => confirmPassword);
+            _saveCommand ?? (_saveCommand = new DelegateCommand(save, () => !string.IsNullOrWhiteSpace(userName) 
+            && password != null && password.Length!=0 && confirmPassword != null &&confirmPassword.Length!=0))
+            .ObservesProperty(() => userName).ObservesProperty(() => password)
+            .ObservesProperty(() => confirmPassword);
 
         private void save()
         {

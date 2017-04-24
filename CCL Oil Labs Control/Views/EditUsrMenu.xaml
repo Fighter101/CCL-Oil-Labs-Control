@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d" Style="{StaticResource BasicUserControl}">
     <Grid Background="WhiteSmoke">
@@ -61,10 +62,16 @@
                            Text="{StaticResource ArUserName}"
                            />
                 <!--First left-->
-                <ComboBox  Name="EditUsrMenuComboBoxUsrs"
-                           Style="{StaticResource BasicComboBox}"
+                <ComboBox  Name="EditUsrMenuComboBoxUsrs" ItemsSource="{Binding userNames}" 
+                           Style = "{StaticResource BasicComboBox}" 
                            Grid.Row="1" Grid.Column="1"
-                           />
+                           IsEditable="True">
+                    <i:Interaction.Triggers>
+                         <i:EventTrigger EventName="SelectionChanged">
+                              <prism:InvokeCommandAction Command="{Binding selectedCommand}" TriggerParameterPath="AddedItems"/>
+                         </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
                 <!--Second right-->
                 <TextBlock Style="{StaticResource BaicBlackText}"
                            Grid.Row="3" Grid.Column="3"
@@ -98,7 +105,7 @@
             </Grid>
         </Border>
         <!--Back button-->
-        <Button Name="EditUsrMenuButtonClose"
+        <Button Name="EditUsrMenuButtonClose" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
                 Style="{StaticResource BasicButton}"
                 Grid.Row="3" Grid.Column="1">
             <TextBlock Name="EditUsrMenuTextBlockClose"

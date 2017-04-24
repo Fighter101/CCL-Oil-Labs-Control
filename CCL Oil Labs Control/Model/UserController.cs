@@ -14,10 +14,10 @@ namespace CCL_Oil_Labs_Control.Model
         public User() { }
         private SecureString password;
         public bool state;
-        public User (String userName , SecureString _password )
+        public User (String userName , SecureString password )
         {
             this.Username = userName;
-            password = _password;
+            this.password = password;
         }
 
         public bool login()
@@ -38,13 +38,10 @@ namespace CCL_Oil_Labs_Control.Model
                     this.HashedString = Utils.Utils.hash(this.Salt, password);
                     this.AuthorizationLevel = currentuser.AuthorizationLevel;
                 }
-            }
-            using (var model = new DatabaseEntities())
-            {
-                var userList = from user in model.Users
+                var userListWithHash = from user in model.Users
                                where (user.Username == this.Username && user.HashedString == this.HashedString)
                                select user;
-                User currentUser = userList?.FirstOrDefault();
+                User currentUser = userListWithHash?.FirstOrDefault();
                 return currentUser != null;
             }
         }
@@ -68,6 +65,17 @@ namespace CCL_Oil_Labs_Control.Model
             model.SaveChanges();
             return true;
         }
-        
+        public static IList<string> getuserNames()
+        {
+            List<string> userNames;
+            using (var model = new DatabaseEntities())
+            {
+                var names = from user in model.Users
+                            select user.Username;
+                userNames = names.ToList();
+            }
+            return userNames;
+
+        }
     }
 }
