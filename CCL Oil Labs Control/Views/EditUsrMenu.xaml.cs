@@ -28,7 +28,7 @@ namespace CCL_Oil_Labs_Control.Views
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            this.viewModel.oldPassword = (sender as PasswordBox).SecurePassword;
+            //this.viewModel.oldPassword = (sender as PasswordBox).SecurePassword;
         }
 
         private void PasswordBox_PasswordChanged_1(object sender, RoutedEventArgs e)

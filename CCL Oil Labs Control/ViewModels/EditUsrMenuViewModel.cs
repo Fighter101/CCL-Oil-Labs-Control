@@ -9,7 +9,7 @@ using Prism.Mvvm;
 using Prism.Commands;
 using System.Windows;
 using System.Security;
-
+using System.Windows.Controls;
 namespace CCL_Oil_Labs_Control.ViewModels
 {
     public class EditUsrMenuViewModel : BindableBase
@@ -66,15 +66,15 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _confirmNewPassword, value); }
         }
 
-        private DelegateCommand _saveCommand;
-        public DelegateCommand saveCommand =>
-            _saveCommand ?? (_saveCommand = new DelegateCommand(save,
-                () => !string.IsNullOrWhiteSpace(selectedUserName) && oldPassword != null
-            && oldPassword.Length > 0
-            && newPassword != null && newPassword.Length > 0
-            && confirmNewPassword != null && confirmNewPassword.Length > 0));
+        private DelegateCommand <object> _saveCommand;
+        public DelegateCommand<object> saveCommand =>
+            _saveCommand ?? (_saveCommand = new DelegateCommand<object>(save,
+             passwordGrid => !string.IsNullOrWhiteSpace(selectedUserName)
+             && oldPassword != null && oldPassword.Length > 0
+         && newPassword != null && newPassword.Length > 0
+         && confirmNewPassword != null && confirmNewPassword.Length > 0)).ObservesProperty(() => oldPassword).ObservesProperty(() => newPassword).ObservesProperty(() => confirmNewPassword);
 
-        private void save()
+        private void save(object passwordGrid)
         {
             User editedUser = new User(selectedUserName, oldPassword);
             if (!editedUser.login())
@@ -84,6 +84,15 @@ namespace CCL_Oil_Labs_Control.ViewModels
                 //TODO call User.editPass
                 MessageBox.Show("Save Successful");
             }
+            (((passwordGrid as Grid).FindName("oldPasswordBox")) as PasswordBox).Clear();
         }
+
+
+        private DelegateCommand<object> _passwordChangedCommand;
+        public DelegateCommand<object> passwordChangedCommand =>
+            _passwordChangedCommand ?? (_passwordChangedCommand = new DelegateCommand<object>(
+                passwordBox => oldPassword = (passwordBox as PasswordBox).SecurePassword
+                , passwordBox=>passwordBox!=null && passwordBox is PasswordBox)
+            );
     }
 }

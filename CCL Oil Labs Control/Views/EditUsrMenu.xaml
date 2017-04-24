@@ -8,7 +8,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d" Style="{StaticResource BasicUserControl}">
-    <Grid Background="WhiteSmoke">
+    <Grid Name="passwordGrid" Background="WhiteSmoke">
         <!--Title, line, Grid, Button, Space-->
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
@@ -81,9 +81,16 @@
                            Text="{StaticResource ArPassword}"
                            />
                 <!--Second left-->
-                <PasswordBox Style="{StaticResource BasicPassBox}" PasswordChanged="PasswordBox_PasswordChanged"
-                           Grid.Row="3" Grid.Column="1"
-                           />
+                <PasswordBox Name="oldPasswordBox" Style="{StaticResource BasicPassBox}" PasswordChanged="PasswordBox_PasswordChanged"
+                           Grid.Row="3" Grid.Column="1">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <prism:InvokeCommandAction Command="{Binding passwordChangedCommand}" CommandParameter="{Binding ElementName=oldPasswordBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    
+                </PasswordBox>
+
                 <!--Third right-->
                 <TextBlock Style="{StaticResource BaicBlackText}"
                            Grid.Row="5" Grid.Column="3"
@@ -118,7 +125,7 @@
                        />
         </Button>
         <!--Save button-->
-        <Button Name="EditUsrMenuButtonSave"
+        <Button Name="EditUsrMenuButtonSave" Command="{Binding saveCommand}" CommandParameter="{Binding ElementName=passwordGrid}" 
                 Style="{StaticResource BasicButton}"
                 Grid.Row="3" Grid.Column="2">
             <TextBlock Name="EditUsrMenuTextBlockSave"
