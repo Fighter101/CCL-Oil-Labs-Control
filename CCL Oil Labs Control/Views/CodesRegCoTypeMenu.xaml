@@ -43,28 +43,30 @@
         <!--Center Grid-->
         <Border Style="{StaticResource BasicBorder}"
                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
-            <DataGrid  AutoGenerateColumns="False"  Name="companyTypesDataGrid" ItemsSource="{Binding companyTypes}" CanUserAddRows="True" CanUserDeleteRows="True" FlowDirection="RightToLeft"  >
+            <DataGrid  AutoGenerateColumns="False"  Name="companyTypesDataGrid" ItemsSource="{Binding companyTypes}" 
+                       CanUserAddRows="True" CanUserDeleteRows="True" FlowDirection="RightToLeft"
+                       SelectedIndex="{Binding currentSelectedRow}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Loaded">
                         <prism:InvokeCommandAction Command="{Binding loadedCommand}" CommandParameter="{Binding ElementName=companyTypesDataGrid}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <DataGrid.Columns >
+                    <DataGridTextColumn Header="نوع الشركة" Binding="{Binding TypeName}"/>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox Text="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path= DataContext.dummy}"/>
+                                <ComboBox  ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.dummy}" 
+                                          SelectedIndex="0" Visibility="Visible" IsEnabled="True" IsManipulationEnabled="True" >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="SelectionChanged">
+                                            <prism:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.dataGridComboBoxSelectionChangedCommand}" 
+                                                                       TriggerParameterPath="AddedItems"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </ComboBox>
                             </DataTemplate>
-                            
                         </DataGridTemplateColumn.CellTemplate>
-                        
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Visibility="Visible" IsReadOnly="False"  Header="Test">
-                        <DataGridTemplateColumn.CellEditingTemplate >
-                            <DataTemplate x:Name="dataTemplate">
-                                <ComboBox IsManipulationEnabled="True" IsEnabled="True" IsReadOnly="False" SelectedIndex="1" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.dummy}"/>
-                            </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
