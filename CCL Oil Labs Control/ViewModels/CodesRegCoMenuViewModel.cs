@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CCL_Oil_Labs_Control.CompositeCommands;
 using Prism.Mvvm;
 using CCL_Oil_Labs_Control.Model;
 using System.Collections.ObjectModel;
 using Prism.Commands;
 using Prism.Regions;
-using CCL_Oil_Labs_Control.Utils;
 using System.Windows.Controls;
 using System.Windows;
 
@@ -43,7 +40,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _companies; }
             set { SetProperty(ref _companies, value); }
         }
-        private bool _canNavigateBack;
+        private bool _canNavigateBack = true;
         public bool canNavigateBack
         {
             get { return _canNavigateBack; }
