@@ -16,8 +16,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--Upper half-->
-        <!--Frequent header-->
-
         <Border Grid.Row="0" Style="{StaticResource BasicBorder}">
             <Grid Grid.Row="0" Background="White">
                 <Grid.ColumnDefinitions>
@@ -74,7 +72,7 @@
                 <!--First-->
                 <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                     Text="{StaticResource ArOilAnlProg}"
-                    Style="{StaticResource BaicText}">
+                    Style="{StaticResource BaicPurpleText}">
                 </TextBlock>
                 <!--Second-->
                 <Separator Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"

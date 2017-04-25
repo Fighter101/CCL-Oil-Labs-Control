@@ -45,6 +45,7 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterTypeForNavigation<EditUsrMenu>("EditUsrMenu");
             Container.RegisterTypeForNavigation<CodesRegCoTypeMenu>("CodesRegCoTypeMenu");
             Container.RegisterTypeForNavigation<CodesRegEquipNamesMenu>("CodesRegEquipNamesMenu");
+            Container.RegisterTypeForNavigation<CodesRegStationsMenu>("CodesRegStationsMenu");
         }
     }
 }
