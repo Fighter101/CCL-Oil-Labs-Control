@@ -245,7 +245,7 @@
             </Grid>
         </Border>
         <!--Back button-->
-        <Button Style="{StaticResource BasicButton}"
+        <Button Style="{StaticResource BasicButton}" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource MainMenu}"
                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArBack}"

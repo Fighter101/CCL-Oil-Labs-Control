@@ -10,8 +10,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="60*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
@@ -34,51 +32,39 @@
         <!--Separator-->
         <Separator Style="{StaticResource BasicSeparator}"
                    Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7"/>
-        <!--Left column header-->
-        <Border Style="{StaticResource BasicBorder}" 
-                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5">
-            <TextBlock Style="{StaticResource AdvBlackText}"
-                   Text="{StaticResource ArAnlName}" 
-                   />
-        </Border>
-        <!--Right column header-->
-        <Border Style="{StaticResource BasicBorder}" 
-                                  Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2">
-            <TextBlock Style="{StaticResource AdvBlackText}"
-                   Text="{StaticResource ArAnlTypeCode}" 
-                   />
-        </Border>
         <!--Center Grid-->
-        <Border Style="{StaticResource BasicBorder}"  Margin="5"
-                Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="9">
-            <ScrollViewer Width="Auto">
-                <StackPanel Orientation="Vertical">
-                    <Grid Background="LightGray">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="15*"/>
-                            <ColumnDefinition Width="53*"/>
-                            <ColumnDefinition Width="19*"/>
-                            <ColumnDefinition Width="13*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90*"/>
-                            <RowDefinition Height="10*"/>
-                        </Grid.RowDefinitions>
-                        <TextBox Style="{StaticResource BasicTextBox}"
-                                 Grid.Row="0" Grid.Column="1" 
-                                 Margin="2"
-                                    />
-                        <ComboBox Grid.Row="0" Grid.Column="2"
-                                  Style="{StaticResource BasicComboBox}"/>
-                        <Separator Style="{StaticResource BasicSeparator}"
-                                   Grid.Row="1" Grid.ColumnSpan="4"/>
-                    </Grid>
-                </StackPanel>
-            </ScrollViewer>
+        <Border Style="{StaticResource BasicBorder}"
+                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7">
+            <Grid Background="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid  Name="companyCodesDataGrid" 
+                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="{StaticResource ArAnlTypeCode}" Width="1*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox Style="{StaticResource BasicComboBox}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="{StaticResource ArAnlName}" Width="3*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Style="{StaticResource BasicTextBox}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Border>
         <!--Back button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="5" Grid.Column="1" >
+                Grid.Row="3" Grid.Column="1" >
             <TextBlock Style="{StaticResource BaicRedText}"
                        Text="{StaticResource ArBack}"
                        FontSize="32"
@@ -86,7 +72,7 @@
         </Button>
         <!--Delete button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="5" Grid.Column="3">
+                Grid.Row="3" Grid.Column="3">
             <TextBlock Style="{StaticResource BaicRedText}"
                        Text="{StaticResource ArDelete}"
                        FontSize="32"
@@ -94,7 +80,7 @@
         </Button>
         <!--Save button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="5" Grid.Column="5">
+                Grid.Row="3" Grid.Column="5">
             <TextBlock Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArSave}"
                        FontSize="32"
@@ -102,7 +88,7 @@
         </Button>
         <!--Add button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="5" Grid.Column="7">
+                Grid.Row="3" Grid.Column="7">
             <TextBlock Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArAdd}"
                        FontSize="32"
