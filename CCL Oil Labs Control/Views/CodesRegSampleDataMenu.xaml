@@ -45,7 +45,7 @@
         <Separator Style="{StaticResource BasicSeparator}"
                    Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="8"/>
         <!--Check by Import Date TextBox-->
-        <TextBox Style="{StaticResource BasicTextBox}"
+        <DatePicker Style="{StaticResource BasicDatePicker}"
                  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
         <!--Check by Import Date TextBlock-->
         <Border Style="{StaticResource BasicBorder}"
@@ -109,7 +109,7 @@
                 </Grid.ColumnDefinitions>
                 <!--First row-->
                 <!--Import day TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <DatePicker Style="{StaticResource BasicDatePicker}"
                          Grid.Column="5" Grid.Row="1"/>
                 <!--Import day TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
@@ -129,7 +129,7 @@
 
                 <!--Second row-->
                 <!--Export day TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <DatePicker Style="{StaticResource BasicDatePicker}"
                          Grid.Column="5" Grid.Row="3"/>
                 <!--Export day TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"

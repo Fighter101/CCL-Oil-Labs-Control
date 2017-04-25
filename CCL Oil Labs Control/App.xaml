@@ -124,6 +124,18 @@
             <Setter Property="Margin" Value="1.5"/>
         </Style>
 
+        <Style TargetType="DatePicker" x:Key="BasicDatePicker">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+
         <Style TargetType="DataGridCell" x:Key="BasicGridCell">
             <Setter Property="Background" Value="WhiteSmoke"/>
             <Setter Property="Foreground" Value="Black"/>
