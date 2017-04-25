@@ -153,6 +153,10 @@
         <Style TargetType="Border" x:Key="BasicBlueBorder" BasedOn="{StaticResource BasicBorder}">
             <Setter Property="BorderBrush" Value="DarkBlue"/>
         </Style>
+        <!--Basic brown-->
+        <Style TargetType="Border" x:Key="BasicBrownBorder" BasedOn="{StaticResource BasicBorder}">
+            <Setter Property="BorderBrush" Value="Brown"/>
+        </Style>
 
         <!--Basic style for ComboBox-->
         <Style TargetType="ComboBox" x:Key="BasicComboBox">
@@ -206,6 +210,7 @@
         <clr:String x:Key="EnCCL">Central Chemical Labs</clr:String>
         <clr:String x:Key="EnNameManager">Dr: Naser Sami</clr:String>
         <clr:String x:Key="EnChElecAnl">Chemical_Electrical Analysis</clr:String>
+        <clr:String x:Key="EnOkay">ok</clr:String>
         <!--Arabic-->
         <clr:String x:Key="ArEgyElecHoldCo.">الشركة القابضة لكهرباء مصر</clr:String>
         <clr:String x:Key="ArEgyElecTransCo.">الشركة المصرية لنقل الكهرباء</clr:String>
@@ -231,6 +236,7 @@
         <clr:String x:Key="ArAddStationCode">إضافة اكواد المحطات</clr:String>
         <clr:String x:Key="ArAddEquipNamesCode">إضافة اكواد اسماء المعدات</clr:String>
         <clr:String x:Key="ArRegEquipNamesCode">تسجيل اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArRegStationsCode">تسجيل اكواد محطات</clr:String>
         <clr:String x:Key="ArAddNewUsr">إضافة مستخدم جديد</clr:String>
         <clr:String x:Key="ArEditUsr">تعديل بيانات مستخدم</clr:String>
         <clr:String x:Key="ArAddUsrSuccess">تم إضافة المستخدم جديد بنجاح</clr:String> 
@@ -265,6 +271,9 @@
         <clr:String x:Key="ArEquipName">اسم المعدة</clr:String>
         <clr:String x:Key="ArRegEquip">تسجيل معدة</clr:String>
         <clr:String x:Key="ArSamplesNum">عدد العينات</clr:String>
+        <clr:String x:Key="ArCompany">الشركة</clr:String>
+        <clr:String x:Key="ArCoCode">كود الشركة</clr:String>
+        <clr:String x:Key="ArStationName">اسم المحطة</clr:String>
         <!--Contributors-->
         <clr:String x:Key="NameContrib0">Ahmad Sameh</clr:String>
         <clr:String x:Key="NameContrib1">Hassan Saied</clr:String>
@@ -279,6 +288,7 @@
         <clr:String x:Key="EditUsrMenu">EditUsrMenu</clr:String>
         <clr:String x:Key="CodesRegCoTypeMenu">CodesRegCoTypeMenu</clr:String>
         <clr:String x:Key="CodesRegEquipNamesMenu">CodesRegEquipNamesMenu</clr:String>
+        <clr:String x:Key="CodesRegStationsMenu">CodesRegStationsMenu</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>
