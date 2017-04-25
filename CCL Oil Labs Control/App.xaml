@@ -72,13 +72,31 @@
             <Setter Property="Height" Value="Auto"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
+        <!--Advanced style for DatePicker-->
+        <Style TargetType="DatePickerTextBox" x:Key="AdvDatePicker">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
         <!--Advanced black-->
         <Style TargetType="TextBlock" x:Key="AdvBlackText" BasedOn="{StaticResource AdvTextBlock}">
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
+        <Style TargetType="DatePickerTextBox" x:Key="AdvBlackDatePicker" BasedOn="{StaticResource AdvDatePicker}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
         <!--Advanced blue-->
         <Style TargetType="TextBlock" x:Key="AdvBlueText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="DatePickerTextBox" x:Key="AdvBlueDatePicker" BasedOn="{StaticResource AdvDatePicker}">
             <Setter Property="Foreground" Value="DarkBlue"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>

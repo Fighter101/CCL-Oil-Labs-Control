@@ -63,13 +63,6 @@
                    Grid.Row="4" Grid.Column="13"
                    />
         <!--Register Equipment Button-->
-        <Button Style="{StaticResource BasicButton}"
-                Grid.Row="4" Grid.Column="5">
-            <TextBlock Style="{StaticResource BaicBrownText}"
-                   Text="{StaticResource ArRegEquip}" 
-                       FontSize="16"
-                    />
-        </Button>
         <!--Samples number TextBlock-->
         <TextBlock Style="{StaticResource AdvBlueText}"
                    Text="{StaticResource ArSamplesNum}" 
