@@ -19,7 +19,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _companyTypes = CompanyType.getCompanyTypes(); }
             set { SetProperty(ref _companyTypes, value); }
         }
-
+        private IList<String> _dummy;
+        public IList<String> dummy
+        {
+            get { return _dummy; }
+            set { SetProperty(ref _dummy, value); }
+        }
         private GlobalNavigateCommand _globalNavigateCommand;
         public GlobalNavigateCommand globalNavigateCommand
         {
@@ -29,6 +34,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public CodesRegCoTypeMenuViewModel(GlobalNavigateCommand globalNavigateCommand)
         {
             this.globalNavigateCommand = globalNavigateCommand;
+            dummy = new List<String> { "Hassan", "Bombo" };
         }
 
 
@@ -36,11 +42,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public DelegateCommand<object> loadedCommand =>
             _loadedCommand ?? (_loadedCommand = new DelegateCommand<object>(delegate (object dataGrid)
             {
-                (dataGrid as DataGrid).Columns[0].Visibility = System.Windows.Visibility.Hidden;
-                (dataGrid as DataGrid).Columns[2].Visibility = System.Windows.Visibility.Hidden;
+                //(dataGrid as DataGrid).Columns[0].Visibility = System.Windows.Visibility.Hidden;
+                //(dataGrid as DataGrid).Columns[2].Visibility = System.Windows.Visibility.Hidden;
                 (dataGrid as DataGrid).Columns[1].Header = "اسم الشركة";
+                (dataGrid as DataGrid).Columns[0].Visibility = System.Windows.Visibility.Visible;
 
             }
-            , /*dataGrid => dataGrid is DataGrid && dataGrid != null*/ u =>true));
+            , dataGrid => dataGrid is DataGrid && dataGrid != null));
     }
 }

@@ -49,6 +49,15 @@
                         <prism:InvokeCommandAction Command="{Binding loadedCommand}" CommandParameter="{Binding ElementName=companyTypesDataGrid}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Test">
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox IsEditable="True" Visibility="Visible"  ItemsSource="{Binding dummy}"/>
+                            </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
             </DataGrid>
 
         </Border>
