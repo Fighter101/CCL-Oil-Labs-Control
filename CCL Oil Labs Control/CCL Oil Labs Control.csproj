@@ -120,13 +120,15 @@
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CompanyTypeController.cs" />
     <Compile Include="Events\UpdatedEvent.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
     <Compile Include="Exceptions\WrongUserNameException.cs" />
-    <Compile Include="Model\UserController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModels\AddNewUsrMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesAddingMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegCoTypeMenuViewModel.cs" />
     <Compile Include="ViewModels\EditUsrMenuViewModel.cs" />
     <Compile Include="ViewModels\EntryMenuViewModel.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
@@ -347,8 +349,6 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

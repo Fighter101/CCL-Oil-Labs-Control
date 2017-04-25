@@ -46,7 +46,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public EntryMenuViewModel (CloseCommand closeCommand, IApplicationCommands fillAndNavigateCommand, IEventAggregator _eventAggregator)
         {
             eventAggregator = _eventAggregator;
-            loginCommand = new DelegateCommand(fillUserData, ()=>(!string.IsNullOrWhiteSpace(_userName) && !((_password!=null&&_password.Length==0)))).ObservesProperty(()=>userName).ObservesProperty(()=>password);
+            loginCommand = new DelegateCommand(fillUserData, () => (!string.IsNullOrWhiteSpace(userName) && password != null && password.Length > 0)).ObservesProperty(()=>userName).ObservesProperty(()=>password);
             this.closeCommand = new DelegateCommand(closeProgram, () => true);
             closeCommand.closeCommand.RegisterCommand(this.closeCommand);
             this.fillAndNavigateCommand = fillAndNavigateCommand;

@@ -5,6 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
              mc:Ignorable="d" 
+            xmlns:prism="http://prismlibrary.com/"
+            xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+            prism:ViewModelLocator.AutoWireViewModel="True"
              Style="{StaticResource BasicUserControl}">
     <Grid Background="WhiteSmoke">
         <!--Title, line, Grid, Button, Space-->
@@ -40,10 +43,17 @@
         <!--Center Grid-->
         <Border Style="{StaticResource BasicBorder}"
                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
+            <DataGrid    Name="companyTypesDataGrid" ItemsSource="{Binding companyTypes}" CanUserAddRows="True" CanUserDeleteRows="True" FlowDirection="RightToLeft"  >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Loaded">
+                        <prism:InvokeCommandAction Command="{Binding loadedCommand}" CommandParameter="{Binding ElementName=companyTypesDataGrid}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </DataGrid>
 
         </Border>
         <!--Back button-->
-        <Button Style="{StaticResource BasicButton}"
+        <Button Style="{StaticResource BasicButton}" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
                 Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArBack}"
