@@ -110,9 +110,6 @@
                 <PasswordBox Style="{StaticResource BasicPassBox}" PasswordChanged="PasswordBox_PasswordChanged_2"
                            Grid.Row="7" Grid.Column="1"                        
                            />
-                <!--Fifth-->
-                <TextBlock Style="{StaticResource BaicBlueText}"
-                           Grid.Row="9" Grid.Column="1"/>
             </Grid>
         </Border>
         <!--Back button-->

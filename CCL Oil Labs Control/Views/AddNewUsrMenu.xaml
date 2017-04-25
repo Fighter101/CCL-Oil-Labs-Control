@@ -84,9 +84,6 @@
                 <PasswordBox Style="{StaticResource BasicPassBox}"
                            Grid.Row="5" Grid.Column="1" PasswordChanged="PasswordBox_PasswordChanged_1"                        
                            />
-                <!--Fourth-->
-                <TextBlock Style="{StaticResource BaicBlueText}"
-                           Grid.Row="7" Grid.Column="1"/>
             </Grid>
         </Border>
         <!--Back button-->

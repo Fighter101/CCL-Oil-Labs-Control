@@ -14,8 +14,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="60*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="10*"/>
@@ -36,34 +34,34 @@
         <!--Separator-->
         <Separator Style="{StaticResource BasicSeparator}"
                    Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"/>
-        <!--TextBlock-->
-        <TextBlock Style="{StaticResource AdvBlueText}"
-                   Grid.Row="2" Grid.Column="3" 
-                   Text="{StaticResource ArCoType}"/>
         <!--Center Grid-->
         <Border Style="{StaticResource BasicBorder}"
-                Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
-            <DataGrid    Name="companyTypesDataGrid" ItemsSource="{Binding companyTypes}" CanUserAddRows="True" CanUserDeleteRows="True" FlowDirection="RightToLeft"  >
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Loaded">
-                        <prism:InvokeCommandAction Command="{Binding loadedCommand}" CommandParameter="{Binding ElementName=companyTypesDataGrid}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <DataGrid.Columns >
-                    <DataGridTemplateColumn  Header="Test" DisplayIndex="2">
-                        <DataGridTemplateColumn.CellEditingTemplate >
-                            <DataTemplate>
-                                <ComboBox  ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.dummy}"/>
-                            </DataTemplate>
-                            </DataGridTemplateColumn.CellEditingTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-
+                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5">
+            <Grid Background="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid  Name="companyTypesDataGrid" 
+                           ItemsSource="{Binding companyTypes}"
+                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="{StaticResource ArCoType}" Width="1*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Style="{StaticResource BasicTextBox}"
+                                             Text="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path= DataContext.dummy}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Border>
         <!--Back button-->
         <Button Style="{StaticResource BasicButton}" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
-                Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+                Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArBack}"
                        FontSize="32"
@@ -71,7 +69,7 @@
         </Button>
         <!--Save button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2">
+                Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2">
             <TextBlock Name="EditUsrMenuTextBlockSave"
                        Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArDelRecord}"

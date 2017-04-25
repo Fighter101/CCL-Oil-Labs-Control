@@ -24,5 +24,10 @@ namespace CCL_Oil_Labs_Control.Views
         {
             InitializeComponent();
         }
+
+        private void DataTemplate_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
