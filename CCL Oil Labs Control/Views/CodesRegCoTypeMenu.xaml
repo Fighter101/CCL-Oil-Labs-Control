@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CCL_Oil_Labs_Control.Views.CodesRegCoTypeMenu"
+﻿<UserControl Name="userControl" x:Class="CCL_Oil_Labs_Control.Views.CodesRegCoTypeMenu"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,8 +8,8 @@
             xmlns:prism="http://prismlibrary.com/"
             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
             prism:ViewModelLocator.AutoWireViewModel="True"
-             Style="{StaticResource BasicUserControl}">
-    <Grid Background="WhiteSmoke">
+             Style="{StaticResource BasicUserControl}" >
+    <Grid Name="grid" Background="WhiteSmoke">
         <!--Title, line, Grid, Button, Space-->
         <Grid.RowDefinitions>
             <RowDefinition Height="15*"/>
@@ -49,11 +49,11 @@
                         <prism:InvokeCommandAction Command="{Binding loadedCommand}" CommandParameter="{Binding ElementName=companyTypesDataGrid}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Test">
-                        <DataGridTemplateColumn.CellEditingTemplate>
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn  Header="Test" DisplayIndex="2">
+                        <DataGridTemplateColumn.CellEditingTemplate >
                             <DataTemplate>
-                                <ComboBox IsEditable="True" Visibility="Visible"  ItemsSource="{Binding dummy}"/>
+                                <ComboBox  ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.dummy}"/>
                             </DataTemplate>
                             </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
