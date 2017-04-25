@@ -135,6 +135,7 @@
     <Compile Include="ViewModels\CodesRegAnlTypeMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegCoMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegCoTypeMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegExpDetailsMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegStationsMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegEquipNamesMenuViewModel.cs" />
     <Compile Include="ViewModels\EditUsrMenuViewModel.cs" />
@@ -155,6 +156,9 @@
     </Compile>
     <Compile Include="Views\CodesRegEquipNamesMenu.xaml.cs">
       <DependentUpon>CodesRegEquipNamesMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegExpDetailsMenu.xaml.cs">
+      <DependentUpon>CodesRegExpDetailsMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CodesRegStationsMenu.xaml.cs">
       <DependentUpon>CodesRegStationsMenu.xaml</DependentUpon>
@@ -331,6 +335,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CodesRegEquipNamesMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegExpDetailsMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -250,7 +250,6 @@
         <clr:String x:Key="ArRegCoTypes">تسجيل أنواع الشركات</clr:String>
         <clr:String x:Key="ArAddCoCode">إضافة اكواد الشركات</clr:String>
         <clr:String x:Key="ArRegCoCode">تسجيل اكواد الشركات</clr:String>
-
         <clr:String x:Key="ArAddStationCode">إضافة اكواد المحطات</clr:String>
         <clr:String x:Key="ArAddEquipNamesCode">إضافة اكواد اسماء المعدات</clr:String>
         <clr:String x:Key="ArRegEquipNamesCode">تسجيل اكواد اسماء المعدات</clr:String>
@@ -294,6 +293,7 @@
         <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
         <clr:String x:Key="ArAnlTypeCode">كود نوع التحليل</clr:String>
         <clr:String x:Key="ArAnlName">اسم التحليل</clr:String>
+        <clr:String x:Key="ArRegExpDetails">تسجيل تفاصيل التجارب</clr:String>
         <!--Contributors-->
         <clr:String x:Key="NameContrib0">Ahmad Sameh</clr:String>
         <clr:String x:Key="NameContrib1">Hassan Saied</clr:String>
@@ -311,6 +311,7 @@
         <clr:String x:Key="CodesRegStationsMenu">CodesRegStationsMenu</clr:String>
         <clr:String x:Key="CodesRegAnlMenu">CodesRegAnlMenu</clr:String>
         <clr:String x:Key="CodesRegAnlTypeMenu">CodesRegAnlTypeMenu</clr:String>
+        <clr:String x:Key="CodesRegExpDetailsMenu">CodesRegExpDetailsMenu</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>
