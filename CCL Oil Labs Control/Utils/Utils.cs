@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using System.Security;
 using System.Runtime.InteropServices;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace CCL_Oil_Labs_Control.Utils
 {
@@ -67,6 +68,16 @@ namespace CCL_Oil_Labs_Control.Utils
                     Marshal.ZeroFreeBSTR(ss_bstr2_ptr);
                 }
             }
+        }
+
+        public static bool isThereEmpty<T>(ObservableCollection<T> collection, Func<T,bool> expression )
+        {
+            int emptyCells = 0;
+            foreach (var company in collection.Where(expression))
+            {
+                emptyCells += 1;
+            }
+            return emptyCells != 0;
         }
     }
 }

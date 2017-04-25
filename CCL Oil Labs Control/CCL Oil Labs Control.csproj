@@ -120,6 +120,7 @@
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyTypeController.cs" />
     <Compile Include="Events\UpdatedEvent.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModels\AddNewUsrMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesAddingMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegCoMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegCoTypeMenuViewModel.cs" />
     <Compile Include="ViewModels\EditUsrMenuViewModel.cs" />
     <Compile Include="ViewModels\EntryMenuViewModel.cs" />
