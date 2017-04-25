@@ -37,19 +37,23 @@
             <Grid Background="LightGray">
                 <!--Space, 6 Buttons, Space-->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <!--Space Button Space-->
                 <Grid.ColumnDefinitions>
@@ -86,15 +90,29 @@
                                Text="{StaticResource ArAddEquipNamesCode}"/>
                 </Button>
                 <!--Fifth-->
-                <Button Name="CodesAddMenuButtonNewUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource AddNewUsrMenu}"
+                <Button Name="CodesAddMenuButtonRegAnlType" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegAnlTypeMenu}"
                         Grid.Row="9" Grid.Column="1" 
+                        Style="{StaticResource BasicButton}">
+                    <TextBlock Style="{StaticResource BaicBlueText}"
+                               Text="{StaticResource ArRegAnlType}"/>
+                </Button>
+                <!--Sixth-->
+                <Button Name="CodesAddMenuButtonRegAnlCode" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegAnlMenu}"
+                        Grid.Row="11" Grid.Column="1" 
+                        Style="{StaticResource BasicButton}">
+                    <TextBlock Style="{StaticResource BaicBlueText}"
+                               Text="{StaticResource ArRegAnlCode}"/>
+                </Button>
+                <!--Seventh-->
+                <Button Name="CodesAddMenuButtonNewUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource AddNewUsrMenu}"
+                        Grid.Row="13" Grid.Column="1" 
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArAddNewUsr}"/>
                 </Button>
-                <!--Sixth-->
+                <!--Eighth-->
                 <Button Name="CodesAddMenuButtonEditUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource EditUsrMenu}"
-                        Grid.Row="11" Grid.Column="1"
+                        Grid.Row="15" Grid.Column="1"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArEditUsr}"/>

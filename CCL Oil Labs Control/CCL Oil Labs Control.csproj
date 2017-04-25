@@ -131,6 +131,8 @@
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModels\AddNewUsrMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesAddingMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegAnlMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegAnlTypeMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegCoMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegCoTypeMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegStationsMenuViewModel.cs" />
@@ -142,8 +144,11 @@
     <Compile Include="Views\ChemicalElectricalAnalysis.xaml.cs">
       <DependentUpon>ChemicalElectricalAnalysis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CodesAnalysisMenu.xaml.cs">
-      <DependentUpon>CodesAnalysisMenu.xaml</DependentUpon>
+    <Compile Include="Views\CodesRegAnlMenu.xaml.cs">
+      <DependentUpon>CodesRegAnlMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegAnlTypeMenu.xaml.cs">
+      <DependentUpon>CodesRegAnlTypeMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CodesRegCoTypeMenu.xaml.cs">
       <DependentUpon>CodesRegCoTypeMenu.xaml</DependentUpon>
@@ -313,7 +318,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CodesAnalysisMenu.xaml">
+    <Page Include="Views\CodesRegAnlMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegAnlTypeMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
