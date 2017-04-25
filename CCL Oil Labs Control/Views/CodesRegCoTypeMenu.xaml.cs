@@ -24,6 +24,5 @@ namespace CCL_Oil_Labs_Control.Views
         {
             InitializeComponent();
         }
-
     }
 }

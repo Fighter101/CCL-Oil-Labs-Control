@@ -49,8 +49,16 @@
                             CanUserAddRows="True" CanUserDeleteRows="True" FlowDirection="RightToLeft"
                             SelectedIndex="{Binding currentSelectedRow}"
                            Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <prism:InvokeCommandAction Command="{Binding dataGridLoadedCommand}" CommandParameter="{Binding ElementName=companyTypesDataGrid}"/>
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="SelectedCellsChanged">
+                            <prism:InvokeCommandAction Command="{Binding cellSelectionChangedCommand}" TriggerParameterPath="RemovedCells" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers> 
                     <DataGrid.Columns >
-                        <DataGridTextColumn CellStyle="{StaticResource BasicGridCell}" Header="{StaticResource ArCoType}" Binding="{Binding TypeName}" 
+                        <DataGridTextColumn  CellStyle="{StaticResource BasicGridCell}" Header="{StaticResource ArCoType}" Binding="{Binding TypeName}" 
                                              Width="1*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
                         </DataGridTextColumn>
                     </DataGrid.Columns>
@@ -58,15 +66,15 @@
             </Grid>
         </Border>
         <!--Back button-->
-        <Button Style="{StaticResource BasicButton}" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
+        <Button Style="{StaticResource BasicButton}" IsEnabled="{Binding canNavigateBack}" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
                 Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock Style="{StaticResource BaicBlueText}"
                        Text="{StaticResource ArBack}"
                        FontSize="32"
                        />
         </Button>
-        <!--Save button-->
-        <Button Style="{StaticResource BasicButton}"
+        <!--Delete button-->
+        <Button Style="{StaticResource BasicButton}" Command="{Binding deleteCommand}"
                 Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2">
             <TextBlock Name="EditUsrMenuTextBlockSave"
                        Style="{StaticResource BaicBlueText}"
