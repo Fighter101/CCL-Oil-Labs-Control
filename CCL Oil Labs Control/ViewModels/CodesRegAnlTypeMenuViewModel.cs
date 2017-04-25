@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace CCL_Oil_Labs_Control.ViewModels
 {
-    class CodesRegAnlTypeMenuViewModel : BindableBase, IConfirmNavigationRequest
+    public class CodesRegAnlTypeMenuViewModel : BindableBase, IConfirmNavigationRequest
     {
         public CodesRegAnlTypeMenuViewModel(GlobalNavigateCommand globalNavigateCommand)
         {
@@ -28,7 +28,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
-          
+            continuationCallback(true);
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
