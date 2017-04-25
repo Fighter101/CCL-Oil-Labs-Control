@@ -43,11 +43,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public DelegateCommand<object> loadedCommand =>
             _loadedCommand ?? (_loadedCommand = new DelegateCommand<object>(delegate (object dataGrid)
             {
-                (dataGrid as DataGrid).Columns.RemoveAt(1);
-                (dataGrid as DataGrid).Columns.RemoveAt(2);
+                var currentDataGrid = dataGrid as DataGrid;
                 (dataGrid as DataGrid).Columns[1].Header = "اسم الشركة";
-
-
             }
             , dataGrid => dataGrid is DataGrid && dataGrid != null));
     }

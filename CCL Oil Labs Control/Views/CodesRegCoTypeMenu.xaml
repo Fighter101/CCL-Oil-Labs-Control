@@ -43,17 +43,26 @@
         <!--Center Grid-->
         <Border Style="{StaticResource BasicBorder}"
                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5">
-            <DataGrid    Name="companyTypesDataGrid" ItemsSource="{Binding companyTypes}" CanUserAddRows="True" CanUserDeleteRows="True" FlowDirection="RightToLeft"  >
+            <DataGrid  AutoGenerateColumns="False"  Name="companyTypesDataGrid" ItemsSource="{Binding companyTypes}" CanUserAddRows="True" CanUserDeleteRows="True" FlowDirection="RightToLeft"  >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Loaded">
                         <prism:InvokeCommandAction Command="{Binding loadedCommand}" CommandParameter="{Binding ElementName=companyTypesDataGrid}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
                 <DataGrid.Columns >
-                    <DataGridTemplateColumn  Header="Test" DisplayIndex="2">
-                        <DataGridTemplateColumn.CellEditingTemplate >
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox  ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.dummy}"/>
+                                <TextBox Text="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path= DataContext.dummy}"/>
+                            </DataTemplate>
+                            
+                        </DataGridTemplateColumn.CellTemplate>
+                        
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Visibility="Visible" IsReadOnly="False"  Header="Test">
+                        <DataGridTemplateColumn.CellEditingTemplate >
+                            <DataTemplate x:Name="dataTemplate">
+                                <ComboBox IsManipulationEnabled="True" IsEnabled="True" IsReadOnly="False" SelectedIndex="1" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.dummy}"/>
                             </DataTemplate>
                             </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
