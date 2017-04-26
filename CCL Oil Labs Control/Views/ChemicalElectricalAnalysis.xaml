@@ -65,15 +65,6 @@
                    Text="{StaticResource ArEquipName}" 
                    Grid.Row="4" Grid.Column="13"
                    />
-        <!--Register Equipment Button-->
-        <Button Style="{StaticResource BasicButton}"
-                Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"
-                Margin="2"
-                >
-            <TextBlock Style="{StaticResource BaicBrownText}"
-                       Text="{StaticResource ArRegEquip}"
-                       />
-        </Button>
         <!--Samples number TextBlock-->
         <TextBlock Style="{StaticResource AdvBlueText}"
                    Text="{StaticResource ArSamplesNum}" 
@@ -92,26 +83,20 @@
                 Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="15">
             <Grid Background="LightGray">
                 <DataGrid  Name="chemElecAnlDataGrid" 
-                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}"
-                           ItemsSource="{Binding ChemElecAnlSetter}" SelectedIndex="{Binding currentSelectedRow}" >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectedCellsChanged">
-                            <prism:InvokeCommandAction Command="{Binding cellSelectionChangedCommand}" TriggerParameterPath="RemovedCells" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
+                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}" FlowDirection="LeftToRight"
+                           ItemsSource="{Binding expirments}" SelectedIndex="{Binding currentSelectedRow}"  IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
-                                            Width="2*" Header="{StaticResource EnRes}" 
-                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result}"/>
-                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
-                                            Width="3*" Header="{StaticResource EnStMeth}" 
-                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding stMethod}"/>
+                                            Width="4*" Header="{StaticResource EnExp}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding name}"/>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
                                             Width="3*" Header="{StaticResource EnUnit}" 
                                             CellStyle="{StaticResource BasicGridCell}" Binding="{Binding unit}"/>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
-                                            Width="4*" Header="{StaticResource EnExp}" 
-                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding experiment}"/>
+                                            Width="3*" Header="{StaticResource EnStMeth}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding testingMethod}"/>
+
+
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

@@ -15,9 +15,13 @@ namespace CCL_Oil_Labs_Control.ViewModels
 {
     class ChemicalElectricalAnalysisViewModel : BindableBase, IConfirmNavigationRequest
     {
+
+        private ChemElecAnlSetter chemElecAnlSetter;
         public ChemicalElectricalAnalysisViewModel(GlobalNavigateCommand globalNavigateCommand)
         {
             this.globalNavigateCommand = globalNavigateCommand;
+            chemElecAnlSetter = new ChemElecAnlSetter();
+            expirments = chemElecAnlSetter.expirments;
         }
 
         private GlobalNavigateCommand _globalNavigateCommand;
@@ -27,34 +31,13 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _globalNavigateCommand, value); }
         }
 
-        private IList<String> _experiment = ChemElecAnlSetter.experiment;
-        public IList<String> experiment
+        private IList<Expirments> _expirments ;
+        public IList<Expirments> expirments
         {
-            get { return _experiment; }
-            set { _experiment = value; }
+            get { return _expirments; }
+            set { SetProperty(ref _expirments, value); }
         }
 
-        private IList<String> _unit = ChemElecAnlSetter.unit;
-        public IList<String> unit
-        {
-            get { return _unit; }
-            set { _unit = value; }
-        }
-
-        private IList<String> _stMethod = ChemElecAnlSetter.stMethod;
-        public IList<String> stMethod
-        {
-            get { return _stMethod; }
-            set { _stMethod = value; }
-        }
-
-        private ObservableCollection<double> _result = ChemElecAnlSetter.result;
-        public ObservableCollection<double> result
-        {
-            get { return _result; }
-            set { _result = value; }
-        }
-       
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
             continuationCallback(true);

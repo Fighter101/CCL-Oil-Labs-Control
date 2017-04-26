@@ -58,7 +58,6 @@ namespace CCL_Oil_Labs_Control.ViewModels
                 SetProperty(ref _currentSelectedRow, value);
             }
         }
-        //o => analysis.ElementAt(currentSelectedRow).Type = (o as AnalysisType).ID
         private DelegateCommand<object[]> _comboBoxSelectionChangedCommand;
         public DelegateCommand<object[]> comboBoxSelectionChangedCommand =>
             _comboBoxSelectionChangedCommand ?? (_comboBoxSelectionChangedCommand = new DelegateCommand<object[]>(o => analysis.ElementAt(currentSelectedRow).Type = (o[0] as AnalysisType).ID  , o => true));
