@@ -82,8 +82,12 @@
         <Border Style="{StaticResource BasicBorder}"
                 Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="15">
             <Grid Background="LightGray">
-                <DataGrid  Name="chemElecAnlDataGrid" 
-                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}" FlowDirection="LeftToRight"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid  Name="chemElecAnlDataGrid" AutoGenerateColumns="False" Style="{StaticResource BasicDataGrid}"
+                           Grid.Column="0"  FlowDirection="LeftToRight"
                            ItemsSource="{Binding expirments}" SelectedIndex="{Binding currentSelectedRow}"  IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
@@ -97,6 +101,13 @@
                                             CellStyle="{StaticResource BasicGridCell}" Binding="{Binding testingMethod}"/>
 
 
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Grid.Column="1" Style="{StaticResource BasicDataGrid}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="1*" Header="{StaticResource EnRes}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
