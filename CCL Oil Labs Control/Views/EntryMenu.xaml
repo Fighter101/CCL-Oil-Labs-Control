@@ -87,14 +87,16 @@
                 <Button Name="EntryMenuButtonClose" Command="{Binding closeCommand}"
                         Style="{StaticResource BasicButton}"  
                         Grid.Column="1" Grid.Row="4">
-                    <TextBlock Text="{StaticResource ArClose}" />
+                    <TextBlock Text="{StaticResource ArClose}"
+                               Style="{StaticResource BaicBrownText}"/>
                 </Button>
 
                 <!--Fourth Right-->
                 <Button Name="EntryMenuButtonMainMenu" IsTabStop="True" TabIndex="3"
                         Style="{StaticResource BasicButton}"  Grid.Column="2" Grid.Row="4"
                         Command="{Binding fillAndNavigateCommand.fillDataAndNavigateCommand}" CommandParameter="{StaticResource MainMenu}">
-                    <TextBlock Text="{StaticResource ArMainMenu}"/>
+                    <TextBlock Text="{StaticResource ArMainMenu}"
+                               Style="{StaticResource BaicBrownText}"/>
                 </Button>
                 <!--Fifth Right-->
                 <TextBlock
