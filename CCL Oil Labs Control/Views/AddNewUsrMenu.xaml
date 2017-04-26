@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Style="{StaticResource BasicUserControl}">
@@ -72,18 +73,31 @@
                            Text="{StaticResource ArPassword}"
                            />
                 <!--Second left-->
-                <PasswordBox Style="{StaticResource BasicPassBox}" 
-                           Grid.Row="3" Grid.Column="1" PasswordChanged="PasswordBox_PasswordChanged" 
-                           />
+                <PasswordBox Name="newPasswordBox" Style="{StaticResource BasicPassBox}" 
+                           Grid.Row="3" Grid.Column="1"  >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <prism:InvokeCommandAction Command="{Binding passwordChangedCommand}" CommandParameter="{Binding ElementName=newPasswordBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+
+                </PasswordBox>
                 <!--Third right-->
                 <TextBlock Style="{StaticResource BaicBlackText}"
                            Grid.Row="5" Grid.Column="3"
                            Text="{StaticResource ArConfirmPassword}"
                            />
                 <!--Third left-->
-                <PasswordBox Style="{StaticResource BasicPassBox}"
-                           Grid.Row="5" Grid.Column="1" PasswordChanged="PasswordBox_PasswordChanged_1"                        
-                           />
+                <PasswordBox Name="confirmPassowrdBox" Style="{StaticResource BasicPassBox}"
+                           Grid.Row="5" Grid.Column="1">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <prism:InvokeCommandAction Command="{Binding confirmPasswordChangedCommand}" CommandParameter="{Binding ElementName=confirmPassowrdBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>                        
+
             </Grid>
         </Border>
         <!--Back button-->

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.Entity;
 namespace CCL_Oil_Labs_Control.Model
 {
     public partial class CompanyType
@@ -18,6 +18,7 @@ namespace CCL_Oil_Labs_Control.Model
                                 select company).ToList();
             }
             return companyTypes;
+
         }
         public static IList<CompanyType> getCompanyTypes(int companyType)
         {

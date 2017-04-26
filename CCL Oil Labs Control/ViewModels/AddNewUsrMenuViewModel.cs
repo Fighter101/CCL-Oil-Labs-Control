@@ -10,6 +10,8 @@ using System.Security;
 using CCL_Oil_Labs_Control.Model;
 using System.Windows;
 using CCL_Oil_Labs_Control.Utils;
+using System.Windows.Controls;
+
 namespace CCL_Oil_Labs_Control.ViewModels
 {
     public class AddNewUsrMenuViewModel : BindableBase 
@@ -35,13 +37,41 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _confirmPassword; }
             set { SetProperty(ref _confirmPassword, value); }
         }
-
+        private PasswordBox newPasswordBox;
+        private PasswordBox confirmPasswordBox;
         private GlobalNavigateCommand _globalNavigateCommand;
         public GlobalNavigateCommand globalNavigateCommand
         {
             get { return _globalNavigateCommand; }
             set { SetProperty(ref _globalNavigateCommand, value); }
         }
+
+        private DelegateCommand<object> _passwordChangedCommand;
+        public DelegateCommand<object> passwordChangedCommand =>
+            _passwordChangedCommand ?? (_passwordChangedCommand = new DelegateCommand<object>(
+                delegate (object passwordBox)
+                {
+                    password = (passwordBox as PasswordBox).SecurePassword;
+                    this.newPasswordBox = passwordBox as PasswordBox;
+
+                }
+                , passwordBox => passwordBox != null && passwordBox is PasswordBox)
+            );
+
+
+        private DelegateCommand<object> _confirmPasswordChangedCommand;
+        public DelegateCommand<object> confirmPasswordChangedCommand =>
+            _confirmPasswordChangedCommand ?? (_confirmPasswordChangedCommand = new DelegateCommand<object>(
+                delegate (object passwordBox)
+                {
+                    confirmPassword = (passwordBox as PasswordBox).SecurePassword;
+                    this.confirmPasswordBox = passwordBox as PasswordBox;
+
+                }
+                , passwordBox => passwordBox != null && passwordBox is PasswordBox)
+            );
+
+
 
         private DelegateCommand _saveCommand;
         public DelegateCommand saveCommand =>
@@ -52,6 +82,9 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private void save()
         {
+            newPasswordBox.Clear();
+            confirmPasswordBox.Clear();
+            
             if (!Utils.Utils.SecureStringEqual(password, confirmPassword))
             {
                 MessageBox.Show("Your Passwords don't match, please confirm your password!");

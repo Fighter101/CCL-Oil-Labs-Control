@@ -64,7 +64,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
         {
             get { return _confirmNewPassword; }
             set { SetProperty(ref _confirmNewPassword, value); }
-        }
+        } 
 
         private DelegateCommand <object> _saveCommand;
         public DelegateCommand<object> saveCommand =>
@@ -85,14 +85,38 @@ namespace CCL_Oil_Labs_Control.ViewModels
                 MessageBox.Show("Save Successful");
             }
             (((passwordGrid as Grid).FindName("oldPasswordBox")) as PasswordBox).Clear();
+            newPasswordBox.Clear();
+            confirmPasswordBox.Clear();
         }
 
-
+        private PasswordBox newPasswordBox;
+        private PasswordBox confirmPasswordBox;
         private DelegateCommand<object> _passwordChangedCommand;
         public DelegateCommand<object> passwordChangedCommand =>
             _passwordChangedCommand ?? (_passwordChangedCommand = new DelegateCommand<object>(
                 passwordBox => oldPassword = (passwordBox as PasswordBox).SecurePassword
                 , passwordBox=>passwordBox!=null && passwordBox is PasswordBox)
             );
+
+        private DelegateCommand<object> _newPasswordChangedCommand;
+        public DelegateCommand<object> newPasswordChangedCommand =>
+            _newPasswordChangedCommand ?? (_newPasswordChangedCommand = new DelegateCommand<object>(delegate(object o)
+            {
+                newPasswordBox = (o as PasswordBox);
+                newPassword = newPasswordBox.SecurePassword;
+            }
+
+                , passwordBox => passwordBox != null && passwordBox is PasswordBox));
+
+
+        private DelegateCommand<object> _confirmPasswordChangedCommand;
+        public DelegateCommand<object> confirmPasswordChangedCommand =>
+            _confirmPasswordChangedCommand ?? (_confirmPasswordChangedCommand = new DelegateCommand<object>(delegate (object o)
+            {
+                confirmPasswordBox = (o as PasswordBox);
+                confirmNewPassword = confirmPasswordBox.SecurePassword;
+            }
+
+                , passwordBox => passwordBox != null && passwordBox is PasswordBox));
     }
 }

@@ -59,10 +59,15 @@ namespace CCL_Oil_Labs_Control.ViewModels
         }
 
 
-        private DelegateCommand<object> _comboBoxSelectionChangedCommand;
-        public DelegateCommand<object> comboBoxSelectionChangedCommand =>
-            _comboBoxSelectionChangedCommand ?? (_comboBoxSelectionChangedCommand = new DelegateCommand<object>(
-                o => companies.ElementAt(currentSelectedRow).CompanyType = (o as CompanyType) , o => true));
+        private DelegateCommand<object[]> _comboBoxSelectionChangedCommand;
+        public DelegateCommand<object[]> comboBoxSelectionChangedCommand =>
+            _comboBoxSelectionChangedCommand ?? (_comboBoxSelectionChangedCommand = new DelegateCommand<object[]>(
+                delegate(object[] o)
+                {
+                    companies.ElementAt(currentSelectedRow).Type = (o[0] as CompanyType).ID;
+                    companies.ElementAt(currentSelectedRow).CompanyType = (o[0] as CompanyType);
+                }
+                , o => currentSelectedRow >= 0)).ObservesProperty(()=>currentSelectedRow);
 
         private DelegateCommand _deleteCommand;
         public DelegateCommand deleteCommand =>

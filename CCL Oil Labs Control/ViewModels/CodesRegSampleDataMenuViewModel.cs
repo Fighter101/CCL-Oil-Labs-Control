@@ -9,17 +9,26 @@ using Prism.Commands;
 using Prism.Regions;
 using System.Windows.Controls;
 using System.Windows;
+using CCL_Oil_Labs_Control.Events;
+using Prism.Events;
 
 namespace CCL_Oil_Labs_Control.ViewModels
 {
-    public class CodesRegSampleDataMenuViewModel:BindableBase
+    public class CodesRegSampleDataMenuViewModel:BindableBase, IConfirmNavigationRequest
     {
-        public CodesRegSampleDataMenuViewModel (GlobalNavigateCommand globalNavigateCommand)
+        public CodesRegSampleDataMenuViewModel (GlobalNavigateCommand globalNavigateCommand , IEventAggregator eventAggregator)
         {
             this.globalNavigateCommand = globalNavigateCommand;
             currentRecord = new Record();
+            this.eventAggregator = eventAggregator;
         }
 
+        private IEventAggregator _eventAggregator;
+        public IEventAggregator eventAggregator
+        {
+            get { return _eventAggregator; }
+            set { SetProperty(ref _eventAggregator, value); }
+        }
         public Record currentRecord { get; set; }
 
         private GlobalNavigateCommand _globalNavigateCommand;
@@ -231,6 +240,25 @@ namespace CCL_Oil_Labs_Control.ViewModels
         {
             get { return _price; }
             set { SetProperty(ref _price, value); }
+        }
+
+        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
+        {
+            eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
+            continuationCallback(true);
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
         }
     }
 }

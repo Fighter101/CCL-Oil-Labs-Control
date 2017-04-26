@@ -58,7 +58,7 @@
                                 <DataTemplate>
                                     <ComboBox   Style="{StaticResource BasicComboBox}"   SelectedIndex="0"
                                                     ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.oilTypes}" 
-                                                    DisplayMemberPath="TypeName" >
+                                                    DisplayMemberPath="TypeName" SelectedValuePath="ID" SelectedValue="{Binding Type}" >
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="SelectionChanged">
                                                 <prism:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},

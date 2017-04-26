@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Util ="clr-namespace:CCL_Oil_Labs_Control.Utils"
              prism:ViewModelLocator.AutoWireViewModel="True"
              Style="{StaticResource BasicUserControl}"
              >
@@ -48,7 +49,7 @@
         <Separator Style="{StaticResource BasicSeparator}"
                    Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="10"/>
         <!--Transformer Voltage TextBox-->
-        <TextBox Style="{StaticResource BasicTextBox}" 
+        <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding transformerPotential, Mode=TwoWay}" FlowDirection="RightToLeft" Language="ar-EG"
                   Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9"
                    />
         <!--Transformer Voltage TextBlock-->
@@ -57,8 +58,9 @@
                    Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="3"
                    />
         <!--Equipment Name ComboBox-->
-        <ComboBox Style="{StaticResource BasicComboBox}" 
-                  Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="5"
+        <ComboBox Style="{StaticResource BasicComboBox}" ItemsSource="{Binding equipment}" DisplayMemberPath="Name" 
+                  SelectedValuePath="ID" SelectedValue="{Binding selectedEquipmentID, Mode=TwoWay}"
+                  Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="5" IsEditable="True"
                    />
         <!--Equipment Name  TextBlock-->
         <TextBlock Style="{StaticResource AdvBlackText}"
@@ -66,14 +68,14 @@
                    Grid.Row="4" Grid.Column="13"
                    />
         <!--Samples number TextBlock-->
-        <TextBlock Style="{StaticResource AdvBlueText}"
+        <TextBlock Style="{StaticResource AdvBlueText}" 
                    Text="{StaticResource ArSamplesNum}" 
                    Grid.Row="4" Grid.Column="3"
                    />
         <!--Equipment Number TextBlock-->
         <Border Style="{StaticResource BasicBlackBorder}"
             Grid.Row="4" Grid.Column="1">
-            <TextBlock Style="{StaticResource AdvBlackText}" 
+            <TextBlock Style="{StaticResource AdvBlackText}" Text="{Binding numSamples , Converter={Util:StringToIntConveter}}"
                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                    Background="Transparent"
                    />
@@ -86,7 +88,7 @@
                     <ColumnDefinition Width="10*"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid  Name="chemElecAnlDataGrid" AutoGenerateColumns="False" Style="{StaticResource BasicDataGrid}"
+                <DataGrid  Name="chemElecAnlDataGrid" AutoGenerateColumns="False" Style="{StaticResource BasicDataGrid}" CanUserSortColumns="False" CanUserDeleteRows="False"
                            Grid.Column="0"  FlowDirection="LeftToRight"
                            ItemsSource="{Binding expirments}" SelectedIndex="{Binding currentSelectedRow}"  IsReadOnly="True">
                     <DataGrid.Columns>
@@ -103,11 +105,11 @@
 
                     </DataGrid.Columns>
                 </DataGrid>
-                <DataGrid Grid.Column="1" Style="{StaticResource BasicDataGrid}" AutoGenerateColumns="False">
+                <DataGrid Grid.Column="1" Style="{StaticResource BasicDataGrid}" ItemsSource="{Binding results}" CanUserDeleteRows="False" CanUserAddRows="False" CanUserSortColumns="False" AutoGenerateColumns="False" FlowDirection="LeftToRight" HorizontalAlignment="Center">
                     <DataGrid.Columns>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
                                             Width="1*" Header="{StaticResource EnRes}" 
-                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result}"/>
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result, Converter={Util:StringToDoubleConverter}}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -122,7 +124,7 @@
                        />
         </Button>
         <!--Previous button-->
-        <Button Style="{StaticResource BasicButton}"
+        <Button Style="{StaticResource BasicButton}" Command="{Binding previousCommand}"
                 Grid.Row="7" Grid.Column="3">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArPrev}"
@@ -130,7 +132,7 @@
                        />
         </Button>
         <!--Next button-->
-        <Button Style="{StaticResource BasicButton}"
+        <Button Style="{StaticResource BasicButton}" Command="{Binding nextCommand}"
                 Grid.Row="7" Grid.Column="5">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArNext}"
