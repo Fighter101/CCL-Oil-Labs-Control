@@ -120,19 +120,27 @@
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AnalysisController.cs" />
+    <Compile Include="Controllers\AnalysisTypeController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyTypeController.cs" />
+    <Compile Include="Controllers\LabController.cs" />
     <Compile Include="Controllers\OilController.cs" />
     <Compile Include="Controllers\OilTypeController.cs" />
+    <Compile Include="Controllers\RecordController.cs" />
+    <Compile Include="Controllers\StationController.cs" />
     <Compile Include="Events\UpdatedEvent.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
     <Compile Include="Exceptions\WrongUserNameException.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Utils\StringToDoubleConverter.cs" />
+    <Compile Include="Utils\StringToIntConveter.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModels\AddNewUsrMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesAddingMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegCoMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegCoTypeMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegSampleDataMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegStationsMenuViewModel.cs" />
     <Compile Include="ViewModels\CodesRegEquipNamesMenuViewModel.cs" />
     <Compile Include="ViewModels\EditUsrMenuViewModel.cs" />
