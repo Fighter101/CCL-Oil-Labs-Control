@@ -301,6 +301,7 @@
         <clr:String x:Key="ArCoCode">كود الشركة</clr:String>
         <clr:String x:Key="ArStationName">اسم المحطة</clr:String>
         <clr:String x:Key="ArRegAnlType">تسجيل اكواد أنواع التحاليل</clr:String>
+        <clr:String x:Key="ArRegOilType">تسجيل أكواد أنواع الزيوت</clr:String>
         <clr:String x:Key="ArRegAnlCode">تسجيل اكواد التحاليل</clr:String>
         <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
         <clr:String x:Key="ArAnlTypeCode">كود نوع التحليل</clr:String>

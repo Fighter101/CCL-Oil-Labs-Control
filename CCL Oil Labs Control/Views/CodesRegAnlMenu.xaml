@@ -46,7 +46,7 @@
                 </Grid.ColumnDefinitions>
                 <DataGrid  Name="anlCodesDataGrid" 
                            Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}"
-                           ItemsSource="{Binding companies}" SelectedIndex="{Binding currentSelectedRow}" >
+                           ItemsSource="{Binding analysis}" SelectedIndex="{Binding currentSelectedRow}" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectedCellsChanged">
                             <prism:InvokeCommandAction Command="{Binding cellSelectionChangedCommand}" TriggerParameterPath="RemovedCells" />
@@ -57,7 +57,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <ComboBox   Style="{StaticResource BasicComboBox}"   SelectedIndex="0"
-                                                ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.companyTypes}" 
+                                                ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.analysisTypes}" 
                                                 DisplayMemberPath="TypeName" >
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="SelectionChanged">

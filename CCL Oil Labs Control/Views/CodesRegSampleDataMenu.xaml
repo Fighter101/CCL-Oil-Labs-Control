@@ -223,7 +223,7 @@
                 <ComboBox Style="{StaticResource BasicComboBox}"
                          Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="3"
                           ItemsSource="{Binding analysisTypes}"
-                          DisplayMemberPath="Name"
+                          DisplayMemberPath="TypeName"
                           SelectedValuePath="ID"
                           SelectedValue="{Binding selectedAnalysisType, Mode=TwoWay}"
                           IsEditable="True"

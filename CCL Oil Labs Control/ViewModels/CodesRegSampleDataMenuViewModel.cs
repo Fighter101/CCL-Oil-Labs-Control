@@ -185,8 +185,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _selectedOilTypeID, value); }
         }
 
-        private IList<Analysis> _analysisTypes = Analysis.getAnalysis();
-        public IList<Analysis> analysisTypes
+        private IList<OilAnalysisType> _analysisTypes = OilAnalysisType.getAnalysis();
+        public IList<OilAnalysisType> analysisTypes
         {
             get { return _analysisTypes; }
             set { SetProperty(ref _analysisTypes, value); }

@@ -125,6 +125,7 @@
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CompanyTypeController.cs" />
     <Compile Include="Controllers\LabController.cs" />
+    <Compile Include="Controllers\OilAnalysisTypeController.cs" />
     <Compile Include="Controllers\OilController.cs" />
     <Compile Include="Controllers\OilTypeController.cs" />
     <Compile Include="Controllers\RecordController.cs" />

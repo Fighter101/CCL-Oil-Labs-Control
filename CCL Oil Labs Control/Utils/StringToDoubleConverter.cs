@@ -8,7 +8,7 @@ using System.Windows.Data;
 using System.Windows.Markup;
 namespace CCL_Oil_Labs_Control.Utils
 {
-    class StringToDoubleConverter : MarkupExtension, IValueConverter
+    public class StringToDoubleConverter : MarkupExtension, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

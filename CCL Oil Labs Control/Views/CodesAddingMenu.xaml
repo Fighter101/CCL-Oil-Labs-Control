@@ -96,7 +96,7 @@
                         Grid.Row="9" Grid.Column="1" 
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
-                               Text="{StaticResource ArRegAnlType}"/>
+                               Text="{StaticResource ArRegOilType}"/>
                 </Button>
                 <!--Sixth-->
                 <Button Name="CodesAddMenuButtonRegAnlCode" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegAnlMenu}"

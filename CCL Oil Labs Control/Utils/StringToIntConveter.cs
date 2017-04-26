@@ -9,7 +9,7 @@ using System.Windows.Markup;
 
 namespace CCL_Oil_Labs_Control.Utils
 {
-    class StringToIntConveter : MarkupExtension,IValueConverter
+    public class StringToIntConveter : MarkupExtension,IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
