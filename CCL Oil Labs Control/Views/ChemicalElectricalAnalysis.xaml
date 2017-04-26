@@ -5,6 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
              mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Style="{StaticResource BasicUserControl}"
              >
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
@@ -14,9 +18,8 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="73*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -63,6 +66,14 @@
                    Grid.Row="4" Grid.Column="13"
                    />
         <!--Register Equipment Button-->
+        <Button Style="{StaticResource BasicButton}"
+                Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2"
+                Margin="2"
+                >
+            <TextBlock Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArRegEquip}"
+                       />
+        </Button>
         <!--Samples number TextBlock-->
         <TextBlock Style="{StaticResource AdvBlueText}"
                    Text="{StaticResource ArSamplesNum}" 
@@ -76,9 +87,39 @@
                    Background="Transparent"
                    />
         </Border>
+        <!--Center Grid-->
+        <Border Style="{StaticResource BasicBorder}"
+                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="15">
+            <Grid Background="LightGray">
+                <DataGrid  Name="chemElecAnlDataGrid" 
+                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}"
+                           ItemsSource="{Binding ChemElecAnlSetter}" SelectedIndex="{Binding currentSelectedRow}" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectedCellsChanged">
+                            <prism:InvokeCommandAction Command="{Binding cellSelectionChangedCommand}" TriggerParameterPath="RemovedCells" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="2*" Header="{StaticResource EnRes}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result}"/>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="3*" Header="{StaticResource EnStMeth}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding stMethod}"/>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="3*" Header="{StaticResource EnUnit}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding unit}"/>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="4*" Header="{StaticResource EnExp}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding experiment}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
         <!--Back button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="1" >
+                Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegSampleDataMenu}"
+                Grid.Row="7" Grid.Column="1" >
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArBack}"
                        FontSize="32"
@@ -86,7 +127,7 @@
         </Button>
         <!--Previous button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="3">
+                Grid.Row="7" Grid.Column="3">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArPrev}"
                        FontSize="32"
@@ -94,7 +135,7 @@
         </Button>
         <!--Next button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="5">
+                Grid.Row="7" Grid.Column="5">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArNext}"
                        FontSize="32"
@@ -102,7 +143,7 @@
         </Button>
         <!--Delete button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="7">
+                Grid.Row="7" Grid.Column="7">
             <TextBlock Style="{StaticResource BaicRedText}"
                        Text="{StaticResource ArDelete}"
                        FontSize="32"
@@ -110,7 +151,7 @@
         </Button>
         <!--Save button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="3">
+                Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="3">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArSave}"
                        FontSize="32"
@@ -118,7 +159,7 @@
         </Button>
         <!--Add button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="13"
+                Grid.Row="7" Grid.Column="13"
                 >
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArAdd}"

@@ -106,22 +106,22 @@
                                Text="{StaticResource ArRegAnlCode}"/>
                 </Button>
                 <!--Seventh-->
-                <Button Name="CodesAddMenuButtonRegExpDetails" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegExpDetailsMenu}"
+                <!--<Button Name="CodesAddMenuButtonRegExpDetails" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegExpDetailsMenu}"
                         Grid.Row="13" Grid.Column="1" 
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArRegExpDetails}"/>
-                </Button>
+                </Button>-->
                 <!--Eighth-->
                 <Button Name="CodesAddMenuButtonNewUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource AddNewUsrMenu}"
-                        Grid.Row="15" Grid.Column="1" 
+                        Grid.Row="13" Grid.Column="1" 
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArAddNewUsr}"/>
                 </Button>
                 <!--Ninth-->
                 <Button Name="CodesAddMenuButtonEditUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource EditUsrMenu}"
-                        Grid.Row="17" Grid.Column="1"
+                        Grid.Row="15" Grid.Column="1"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArEditUsr}"/>

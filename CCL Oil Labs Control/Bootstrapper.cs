@@ -39,6 +39,7 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterType<CodesRegAnlMenuViewModel, CodesRegAnlMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<CodesRegAnlTypeMenuViewModel, CodesRegAnlTypeMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<CodesRegExpDetailsMenuViewModel, CodesRegExpDetailsMenuViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<ChemicalElectricalAnalysisViewModel, ChemicalElectricalAnalysisViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterTypeForNavigation<EntryMenu>("EntryMenu");
             Container.RegisterTypeForNavigation<MainMenu>("MainMenu");
             Container.RegisterTypeForNavigation<CodesAddingMenu>("CodesAddingMenu");
@@ -52,6 +53,7 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterTypeForNavigation<CodesRegAnlMenu>("CodesRegAnlMenu");
             Container.RegisterTypeForNavigation<CodesRegAnlTypeMenu>("CodesRegAnlTypeMenu");
             Container.RegisterTypeForNavigation<CodesRegExpDetailsMenu>("CodesRegExpDetailsMenu");
+            Container.RegisterTypeForNavigation<ChemicalElectricalAnalysis>("ChemicalElectricalAnalysis");
         }
     }
 }

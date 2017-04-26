@@ -241,6 +241,10 @@
         <clr:String x:Key="EnNameManager">Dr: Naser Sami</clr:String>
         <clr:String x:Key="EnChElecAnl">Chemical_Electrical Analysis</clr:String>
         <clr:String x:Key="EnOkay">ok</clr:String>
+        <clr:String x:Key="EnExp">Experiment</clr:String>
+        <clr:String x:Key="EnUnit">Unit</clr:String>
+        <clr:String x:Key="EnStMeth">St. Method</clr:String>
+        <clr:String x:Key="EnRes">result</clr:String>
         <!--Arabic-->
         <clr:String x:Key="ArEgyElecHoldCo.">الشركة القابضة لكهرباء مصر</clr:String>
         <clr:String x:Key="ArEgyElecTransCo.">الشركة المصرية لنقل الكهرباء</clr:String>
@@ -264,6 +268,7 @@
         <clr:String x:Key="ArRegCoCode">تسجيل اكواد الشركات</clr:String>
         <clr:String x:Key="ArAddStationCode">إضافة اكواد المحطات</clr:String>
         <clr:String x:Key="ArAddEquipNamesCode">إضافة اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArRegEquip">تسجيل المعدة</clr:String>
         <clr:String x:Key="ArRegEquipNamesCode">تسجيل اكواد اسماء المعدات</clr:String>
         <clr:String x:Key="ArRegStationsCode">تسجيل اكواد محطات</clr:String>
         <clr:String x:Key="ArAddNewUsr">إضافة مستخدم جديد</clr:String>
@@ -295,7 +300,6 @@
         <clr:String x:Key="ArTransVolt">جهد المحول ك.ف</clr:String>
         <clr:String x:Key="ArPrev">السابق</clr:String>
         <clr:String x:Key="ArEquipName">اسم المعدة</clr:String>
-        <clr:String x:Key="ArRegEquip">تسجيل معدة</clr:String>
         <clr:String x:Key="ArSamplesNum">عدد العينات</clr:String>
         <clr:String x:Key="ArCompany">الشركة</clr:String>
         <clr:String x:Key="ArCoCode">كود الشركة</clr:String>
@@ -325,6 +329,7 @@
         <clr:String x:Key="CodesRegAnlMenu">CodesRegAnlMenu</clr:String>
         <clr:String x:Key="CodesRegAnlTypeMenu">CodesRegAnlTypeMenu</clr:String>
         <clr:String x:Key="CodesRegExpDetailsMenu">CodesRegExpDetailsMenu</clr:String>
+        <clr:String x:Key="ChemicalElectricalAnalysis">ChemicalElectricalAnalysis</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>

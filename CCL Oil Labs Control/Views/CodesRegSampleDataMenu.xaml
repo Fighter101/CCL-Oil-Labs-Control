@@ -75,25 +75,25 @@
             <Grid Background="WhiteSmoke">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -221,7 +221,7 @@
                 <!--Sixth row-->
                 <!--Analysis Type ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
-                         Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="3"
+                         Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="2"
                           ItemsSource="{Binding analysisTypes}"
                           DisplayMemberPath="TypeName"
                           SelectedValuePath="ID"
@@ -234,6 +234,14 @@
                     <TextBlock Style="{StaticResource AdvBlueText}"
                            Text="{StaticResource ArAnlType}"/>
                 </Border>
+                <!--Add Basic Data button-->
+                <Button Style="{StaticResource BasicButton}" 
+                        Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource ChemicalElectricalAnalysis}"
+                Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="3" Margin="3">
+                    <TextBlock Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArAddBasicData}"
+                       />
+                </Button>
                 <!--Lab ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
                          Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="2"
