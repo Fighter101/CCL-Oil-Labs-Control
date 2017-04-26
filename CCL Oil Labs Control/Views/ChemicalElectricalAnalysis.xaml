@@ -91,8 +91,12 @@
         <Border Style="{StaticResource BasicBorder}"
                 Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="15">
             <Grid Background="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
                 <DataGrid  Name="chemElecAnlDataGrid" 
-                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}"
+                           Grid.Column="0" 
                            ItemsSource="{Binding ChemElecAnlSetter}" SelectedIndex="{Binding currentSelectedRow}" >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectedCellsChanged">
@@ -100,9 +104,6 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                     <DataGrid.Columns>
-                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
-                                            Width="2*" Header="{StaticResource EnRes}" 
-                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result}"/>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
                                             Width="3*" Header="{StaticResource EnStMeth}" 
                                             CellStyle="{StaticResource BasicGridCell}" Binding="{Binding stMethod}"/>
@@ -112,6 +113,13 @@
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
                                             Width="4*" Header="{StaticResource EnExp}" 
                                             CellStyle="{StaticResource BasicGridCell}" Binding="{Binding experiment}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Grid.Column="1" Style="{StaticResource BasicDataGrid}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="1*" Header="{StaticResource EnRes}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
