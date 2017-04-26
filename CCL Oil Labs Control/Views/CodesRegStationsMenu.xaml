@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:prism ="http://prismlibrary.com/"
+             xmlns:Util ="clr-namespace:CCL_Oil_Labs_Control.Utils"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
              Style="{StaticResource BasicUserControl}">
     <Grid Background="WhiteSmoke">
@@ -96,7 +98,7 @@
                        />
                     </Button>
                     <!--Delete button-->
-                    <Button Name="CodesRegStationsMenuButtonDelete" 
+                    <Button Name="CodesRegStationsMenuButtonDelete" Command="{Binding deleteCommand}"
                             Style="{StaticResource BasicButton}"
                             Grid.Row="6" Grid.Column="3">
                         <TextBlock Name="CodesRegStationsMenuTextBlockDelete"
@@ -105,7 +107,7 @@
                        />
                     </Button>
                     <!--Ok button-->
-                    <Button Name="CodesRegStationsMenuButtonOk" 
+                    <Button Name="CodesRegStationsMenuButtonOk" Command="{Binding okButtonCommand}"
                             Style="{StaticResource BasicButton}"
                             Grid.Row="0" Grid.Column="5" Grid.RowSpan="7">
                         <TextBlock Name="CodesRegStationsMenuTextBlockOk"
@@ -143,12 +145,22 @@
                        />
                     </Border>
                     <!--First Row ComboBox-->
-                    <ComboBox Name="CodesRegStationsMenuComboBoxCoTypeCode" 
+                    <ComboBox Name="CodesRegStationsMenuComboBoxCoTypeCode" ItemsSource="{Binding companyTypes}"
+                              DisplayMemberPath="TypeName"
+                              SelectedValuePath="ID"
+                              SelectedValue="{Binding selectedCompanyType}"
+                              IsEditable="True"
+                              SelectedIndex="1"
                                Style="{StaticResource BasicComboBox}"
-                               Grid.Column="3" Grid.Row="1"
-                       />
+                               Grid.Column="3" Grid.Row="1">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <prism:InvokeCommandAction Command="{Binding companyTypeComboBoxSelectionChangedCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
                     <!--Second Row TextBlock-->
-                    <Border Style="{StaticResource BasicBlueBorder}"
+                    <Border Style="{StaticResource BasicBlueBorder}" 
                             Grid.Column="5" Grid.Row="3">
                         <TextBlock Name="CodesRegStationsMenuTextBlockCoCode" 
                                Style="{StaticResource AdvBlackText}"
@@ -156,7 +168,12 @@
                        />
                     </Border>
                     <!--Second Row ComboBox-->
-                    <ComboBox Name="CodesRegStationsMenuComboBoxCoCode" 
+                    <ComboBox Name="CodesRegStationsMenuComboBoxCoCode" ItemsSource="{Binding companies}"
+                              DisplayMemberPath="Name"
+                              SelectedValuePath="ID"
+                              SelectedValue="{Binding selectedCompany}"
+                              SelectedIndex="0"
+                              IsEditable="True"
                                Style="{StaticResource BasicComboBox}"
                                Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"
                        />
@@ -169,7 +186,7 @@
                        />
                     </Border>
                     <!--Third Row TextBox-->
-                    <TextBox Name="CodesRegStationsMenuTextBoxStationName" 
+                    <TextBox Name="CodesRegStationsMenuTextBoxStationName" Text="{Binding stationName}"
                                Style="{StaticResource BasicTextBox}"
                                Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4"
                        />
@@ -180,47 +197,14 @@
         <Border Style="{StaticResource BasicBlueBorder}"
                 Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid Background="LightGray">
-                <DataGrid  Name="stationCodesDataGrid" 
+                <DataGrid  Name="stationCodesDataGrid" IsReadOnly="True"
                            Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource BasicEditableDataGrid}"
-                           SelectedIndex="{Binding currentSelectedRow}" >
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectedCellsChanged">
-                            <prism:InvokeCommandAction Command="{Binding cellSelectionChangedCommand}" TriggerParameterPath="RemovedCells" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
+                           SelectedIndex="{Binding currentSelectedRow}" ItemsSource="{Binding stations}" >
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="{StaticResource ArCoType}" Width="2*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <ComboBox   Style="{StaticResource BasicComboBox}"   SelectedIndex="0"
-                                                ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.companyTypes}" 
-                                                DisplayMemberPath="TypeName" >
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="SelectionChanged">
-                                                <prism:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},
-                                                    Path=DataContext.comboBoxSelectionChangedCommand}" TriggerParameterPath="AddedItems"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </ComboBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="{StaticResource ArCompany}" Width="5*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <ComboBox   Style="{StaticResource BasicComboBox}"   SelectedIndex="0"
-                                                ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.companyTypes}" 
-                                                DisplayMemberPath="TypeName" >
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="SelectionChanged">
-                                                <prism:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},
-                                                    Path=DataContext.comboBoxSelectionChangedCommand}" TriggerParameterPath="AddedItems"/>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
-                                    </ComboBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" 
+                                            Header="{StaticResource ArCoType}" Width="2*" Binding="{Binding CompanyType , Converter={Util:CompanyTypeToStringConverter}}" />
+                        <DataGridTextColumn Header="{StaticResource ArCompany}" Width="5*" 
+                                            HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Binding="{Binding CompanyName, Converter={Util:CompanyToStringConverter}}"/>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Width="5*" 
                                             Header="{StaticResource ArStation}" CellStyle="{StaticResource BasicGridCell}" Binding="{Binding Name}"/>
                     </DataGrid.Columns>

@@ -134,6 +134,8 @@
     <Compile Include="Exceptions\WrongPasswordException.cs" />
     <Compile Include="Exceptions\WrongUserNameException.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Utils\CompanyToStringConverter.cs" />
+    <Compile Include="Utils\CompanyTypeToStringConverter.cs" />
     <Compile Include="Utils\StringToDoubleConverter.cs" />
     <Compile Include="Utils\StringToIntConveter.cs" />
     <Compile Include="Utils\Utils.cs" />

@@ -22,5 +22,21 @@ namespace CCL_Oil_Labs_Control.Model
             }
                 return stationList;
         }
+
+        public static IList<Station> getStations(int companyName, int CompanyType,string stationName)
+        {
+            var stationList = new List<Station>();
+
+            using (var model = new DatabaseEntities())
+            {
+                stationList = (from station in model.Stations
+                               where station.CompanyName == companyName &&
+                               station.CompanyType == CompanyType && station.Name == stationName
+                               select station).ToList();
+            }
+            return stationList;
+        }
+
+
     }
 }

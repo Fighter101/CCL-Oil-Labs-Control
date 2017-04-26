@@ -12,21 +12,28 @@ namespace CCL_Oil_Labs_Control.Utils
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (value).ToString();
+            if ((Double)value == 0)
+                return string.Empty;
+            else return (value).ToString();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            double returnedValue;
-            Double.TryParse(value as String, out returnedValue);
-            return returnedValue;
+            if (string.IsNullOrWhiteSpace(value as string))
+                return 0;
+            else
+            {
+                Double returnedValue;
+                Double.TryParse(value as String, out returnedValue);
+                return returnedValue;
+            }
         }
-        private static StringToIntConveter _converter = null;
+        private static StringToDoubleConverter _converter = null;
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             if (_converter == null)
             {
-                _converter = new StringToIntConveter();
+                _converter = new StringToDoubleConverter();
             }
 
             return _converter;

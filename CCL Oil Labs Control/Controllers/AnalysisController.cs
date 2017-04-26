@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,6 @@ namespace CCL_Oil_Labs_Control.Model
                                 select analysis).ToList();
             }
             return analysisList;
-        }
+        }  
     }
 }

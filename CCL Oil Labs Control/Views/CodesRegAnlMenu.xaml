@@ -56,9 +56,9 @@
                         <DataGridTemplateColumn Header="{StaticResource ArAnlTypeCode}" Width="1*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <ComboBox   Style="{StaticResource BasicComboBox}"   SelectedIndex="0"
+                                    <ComboBox   Style="{StaticResource BasicComboBox}"
                                                 ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.analysisTypes}" 
-                                                DisplayMemberPath="TypeName" >
+                                                DisplayMemberPath="TypeName" SelectedValuePath="ID" SelectedValue="{Binding Type}" >
                                         <i:Interaction.Triggers>
                                             <i:EventTrigger EventName="SelectionChanged">
                                                 <prism:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},
