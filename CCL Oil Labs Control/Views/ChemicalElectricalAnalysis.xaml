@@ -76,13 +76,6 @@
                    Background="Transparent"
                    />
         </Border>
-        <!--Center ScrollViewer-->
-        <Border Style="{StaticResource BasicBorder}"
-                Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="13">
-            <ScrollViewer Width="Auto">
-              
-            </ScrollViewer>
-        </Border>
         <!--Back button-->
         <Button Style="{StaticResource BasicButton}"
                 Grid.Row="8" Grid.Column="1" >

@@ -12,11 +12,11 @@
     <Grid Background="WhiteSmoke">
         <!--Title, line, Grid, Button, Space-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <!--Space Grid Space-->
         <Grid.ColumnDefinitions>
@@ -37,19 +37,25 @@
             <Grid Background="LightGray">
                 <!--Space, 6 Buttons, Space-->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <!--Space Button Space-->
                 <Grid.ColumnDefinitions>
@@ -86,15 +92,36 @@
                                Text="{StaticResource ArAddEquipNamesCode}"/>
                 </Button>
                 <!--Fifth-->
-                <Button Name="CodesAddMenuButtonNewUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource AddNewUsrMenu}"
+                <Button Name="CodesAddMenuButtonRegAnlType" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegAnlTypeMenu}"
                         Grid.Row="9" Grid.Column="1" 
+                        Style="{StaticResource BasicButton}">
+                    <TextBlock Style="{StaticResource BaicBlueText}"
+                               Text="{StaticResource ArRegAnlType}"/>
+                </Button>
+                <!--Sixth-->
+                <Button Name="CodesAddMenuButtonRegAnlCode" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegAnlMenu}"
+                        Grid.Row="11" Grid.Column="1" 
+                        Style="{StaticResource BasicButton}">
+                    <TextBlock Style="{StaticResource BaicBlueText}"
+                               Text="{StaticResource ArRegAnlCode}"/>
+                </Button>
+                <!--Seventh-->
+                <Button Name="CodesAddMenuButtonRegExpDetails" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegExpDetailsMenu}"
+                        Grid.Row="13" Grid.Column="1" 
+                        Style="{StaticResource BasicButton}">
+                    <TextBlock Style="{StaticResource BaicBlueText}"
+                               Text="{StaticResource ArRegExpDetails}"/>
+                </Button>
+                <!--Eighth-->
+                <Button Name="CodesAddMenuButtonNewUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource AddNewUsrMenu}"
+                        Grid.Row="15" Grid.Column="1" 
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArAddNewUsr}"/>
                 </Button>
-                <!--Sixth-->
+                <!--Ninth-->
                 <Button Name="CodesAddMenuButtonEditUsr" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource EditUsrMenu}"
-                        Grid.Row="11" Grid.Column="1"
+                        Grid.Row="17" Grid.Column="1"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicBlueText}"
                                Text="{StaticResource ArEditUsr}"/>

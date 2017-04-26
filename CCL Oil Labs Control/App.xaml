@@ -262,7 +262,6 @@
         <clr:String x:Key="ArRegCoTypes">تسجيل أنواع الشركات</clr:String>
         <clr:String x:Key="ArAddCoCode">إضافة اكواد الشركات</clr:String>
         <clr:String x:Key="ArRegCoCode">تسجيل اكواد الشركات</clr:String>
-        <clr:String x:Key="ArRegAnlCode">تسجيل اكواد التحاليل</clr:String>
         <clr:String x:Key="ArAddStationCode">إضافة اكواد المحطات</clr:String>
         <clr:String x:Key="ArAddEquipNamesCode">إضافة اكواد اسماء المعدات</clr:String>
         <clr:String x:Key="ArRegEquipNamesCode">تسجيل اكواد اسماء المعدات</clr:String>
@@ -287,9 +286,6 @@
         <clr:String x:Key="ArExportNum">رقم الصادر</clr:String>
         <clr:String x:Key="ArStation">المحطة</clr:String>
         <clr:String x:Key="ArOilType">نوع الزيت</clr:String>
-        <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
-        <clr:String x:Key="ArAnlTypeCode">كود نوع التحليل</clr:String>
-        <clr:String x:Key="ArAnlName">اسم التحليل</clr:String>
         <clr:String x:Key="ArLab">المعمل</clr:String>
         <clr:String x:Key="ArResults">النتائج</clr:String>
         <clr:String x:Key="ArRecomm">التوصيات</clr:String>
@@ -304,6 +300,12 @@
         <clr:String x:Key="ArCompany">الشركة</clr:String>
         <clr:String x:Key="ArCoCode">كود الشركة</clr:String>
         <clr:String x:Key="ArStationName">اسم المحطة</clr:String>
+        <clr:String x:Key="ArRegAnlType">تسجيل اكواد أنواع التحاليل</clr:String>
+        <clr:String x:Key="ArRegAnlCode">تسجيل اكواد التحاليل</clr:String>
+        <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
+        <clr:String x:Key="ArAnlTypeCode">كود نوع التحليل</clr:String>
+        <clr:String x:Key="ArAnlName">اسم التحليل</clr:String>
+        <clr:String x:Key="ArRegExpDetails">تسجيل تفاصيل التجارب</clr:String>
         <!--Contributors-->
         <clr:String x:Key="NameContrib0">Ahmad Sameh</clr:String>
         <clr:String x:Key="NameContrib1">Hassan Saied</clr:String>
@@ -319,6 +321,9 @@
         <clr:String x:Key="CodesRegCoTypeMenu">CodesRegCoTypeMenu</clr:String>
         <clr:String x:Key="CodesRegEquipNamesMenu">CodesRegEquipNamesMenu</clr:String>
         <clr:String x:Key="CodesRegStationsMenu">CodesRegStationsMenu</clr:String>
+        <clr:String x:Key="CodesRegAnlMenu">CodesRegAnlMenu</clr:String>
+        <clr:String x:Key="CodesRegAnlTypeMenu">CodesRegAnlTypeMenu</clr:String>
+        <clr:String x:Key="CodesRegExpDetailsMenu">CodesRegExpDetailsMenu</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>
