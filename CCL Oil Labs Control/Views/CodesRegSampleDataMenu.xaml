@@ -4,6 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Utils="clr-namespace:CCL_Oil_Labs_Control.Utils"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
              Style="{StaticResource BasicUserControl}">
     <Grid Background="WhiteSmoke">
@@ -45,8 +49,8 @@
         <Separator Style="{StaticResource BasicSeparator}"
                    Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="8"/>
         <!--Check by Import Date TextBox-->
-        <TextBox Style="{StaticResource BasicTextBox}"
-                 Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <DatePicker Style="{StaticResource BasicDatePicker}" DisplayDate="{Binding importCheckDate}"
+                 Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="برجاء إدخال التاريخ"/>
         <!--Check by Import Date TextBlock-->
         <Border Style="{StaticResource BasicBorder}"
                 Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="4">
@@ -55,7 +59,7 @@
                        FontSize="16"/>
         </Border>
         <!--Check by Import Num TextBox-->
-        <TextBox Style="{StaticResource BasicTextBox}"
+        <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding importCheckNumber , Converter={Utils:StringToIntConveter}}"
                  Grid.Row="2" Grid.Column="9" Grid.ColumnSpan="3"/>
         <!--Check by Import Num TextBlock-->
         <Border Style="{StaticResource BasicBorder}"
@@ -71,28 +75,27 @@
             <Grid Background="WhiteSmoke">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <!--Space Button Space-->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="4*"/>
@@ -110,16 +113,16 @@
                 </Grid.ColumnDefinitions>
                 <!--First row-->
                 <!--Import day TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
-                         Grid.Column="5" Grid.Row="1"/>
+                <DatePicker Style="{StaticResource BasicDatePicker}" DisplayDate="{Binding importDate, Mode=TwoWay}"
+                         Grid.Column="5" Grid.Row="1" Text="{Binding importDate}" />
                 <!--Import day TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="7" Grid.Row="1">
                     <TextBlock Style="{StaticResource AdvBlueText}"
-                           Text="{StaticResource ArImportDate}"/>
+                           Text="{StaticResource ArImportDate}" />
                 </Border>
                 <!--Import Number TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding importNumber , Converter={Utils:StringToIntConveter},Mode=TwoWay}"
                          Grid.Column="9" Grid.Row="1"/>
                 <!--Import Number TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
@@ -130,8 +133,8 @@
 
                 <!--Second row-->
                 <!--Export day TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
-                         Grid.Column="5" Grid.Row="3"/>
+                <DatePicker Style="{StaticResource BasicDatePicker}" DisplayDate="{Binding exportDate, Mode=TwoWay}" 
+                         Grid.Column="5" Grid.Row="3" Text="{Binding exportDate}"  />
                 <!--Export day TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="7" Grid.Row="3">
@@ -139,7 +142,7 @@
                            Text="{StaticResource ArExportDate}"/>
                 </Border>
                 <!--Export Number TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding exportNumber , Converter={Utils:StringToIntConveter},Mode=TwoWay}"
                          Grid.Column="9" Grid.Row="3"/>
                 <!--Export Number TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
@@ -151,7 +154,14 @@
                 <!--Third row-->
                 <!--Company Name ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
-                         Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="5"/>
+                         Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="5"
+                          ItemsSource="{Binding companies}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="ID"
+                          SelectedValue="{Binding selectedCompanyID, Mode=TwoWay}"
+                          IsEditable="True"
+                          SelectedIndex="0"
+                          />
                 <!--Company Name TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="7" Grid.Row="5">
@@ -160,7 +170,13 @@
                 </Border>
                 <!-- Company Type ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
-                         Grid.Column="9" Grid.Row="5"/>
+                         Grid.Column="9" Grid.Row="5" 
+                          ItemsSource="{Binding companyTypes}"
+                          SelectedValue="{Binding companyTypeSelectedID, Mode=TwoWay}"
+                          SelectedValuePath="ID"
+                          DisplayMemberPath="TypeName"
+                          IsEditable="True"
+                          SelectedIndex="1"/>
                 <!--Company Type TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="11" Grid.Row="5">
@@ -171,7 +187,13 @@
                 <!--Fourth row-->
                 <!-- Station ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
-                         Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="5"/>
+                         Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="5"
+                         ItemsSource="{Binding station}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="ID"
+                          SelectedValue="{Binding selectedStationID, Mode=TwoWay}"
+                          IsEditable="True"
+                          SelectedIndex="0"/>
                 <!--Station TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="11" Grid.Row="7">
@@ -182,7 +204,13 @@
                 <!--Fifth row-->
                 <!--Oil Type ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
-                         Grid.Column="9" Grid.Row="9"/>
+                         Grid.Column="9" Grid.Row="9"
+                          ItemsSource="{Binding oilTypes}"
+                          DisplayMemberPath="TypeName"
+                          SelectedValuePath="ID"
+                          SelectedValue="{Binding selectedOilTypeID, Mode=TwoWay}"
+                          IsEditable="True"
+                          SelectedIndex="0"/>
                 <!--Oil Type TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="11" Grid.Row="9">
@@ -193,16 +221,36 @@
                 <!--Sixth row-->
                 <!--Analysis Type ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
-                         Grid.Column="7" Grid.Row="11" Grid.ColumnSpan="3"/>
+                         Grid.Column="8" Grid.Row="11" Grid.ColumnSpan="2"
+                          ItemsSource="{Binding analysisTypes}"
+                          DisplayMemberPath="TypeName"
+                          SelectedValuePath="ID"
+                          SelectedValue="{Binding selectedAnalysisType, Mode=TwoWay}"
+                          IsEditable="True"
+                          SelectedIndex="0"/>
                 <!--Analysis Type TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="11" Grid.Row="11">
                     <TextBlock Style="{StaticResource AdvBlueText}"
                            Text="{StaticResource ArAnlType}"/>
                 </Border>
+                <!--Add Basic Data button-->
+                <Button Style="{StaticResource BasicButton}" 
+                        Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource ChemicalElectricalAnalysis}"
+                Grid.Row="11" Grid.Column="5" Grid.ColumnSpan="3" Margin="3">
+                    <TextBlock Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArAddBasicData}"
+                       />
+                </Button>
                 <!--Lab ComboBox-->
                 <ComboBox Style="{StaticResource BasicComboBox}"
-                         Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="2"/>
+                         Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="2"
+                          ItemsSource="{Binding labs}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="ID"
+                          SelectedValue="{Binding selectedLab, Mode=TwoWay}"
+                          SelectedIndex="0"
+                          IsEditable="True"/>
                 <!--Lab TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
                         Grid.Column="4" Grid.Row="11">
@@ -212,7 +260,7 @@
 
                 <!--Seventh row-->
                 <!--Results  TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding results}"
                          Grid.Column="1" Grid.Row="13" Grid.ColumnSpan="9" Grid.RowSpan="2"/>
                 <!--Results  TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
@@ -223,7 +271,7 @@
 
                 <!--Eighth row-->
                 <!---Recomm TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding recommendations}"
                          Grid.Column="1" Grid.Row="16" Grid.ColumnSpan="9" Grid.RowSpan="2"/>
                 <!---Recomm TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
@@ -234,7 +282,7 @@
 
                 <!--Ninth row-->
                 <!--Costs TextBox-->
-                <TextBox Style="{StaticResource BasicTextBox}"
+                <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding price, Converter={Utils:StringToDoubleConverter},Mode=TwoWay}"
                          Grid.Column="9" Grid.Row="19"/>
                 <!--Cost TextBlock-->
                 <Border Style="{StaticResource BasicBorder}"
@@ -242,11 +290,10 @@
                     <TextBlock Style="{StaticResource AdvBlueText}"
                            Text="{StaticResource ArCosts}"/>
                 </Border>
-
             </Grid>
         </Border>
         <!--Back button-->
-        <Button Style="{StaticResource BasicButton}"
+        <Button Style="{StaticResource BasicButton}" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource MainMenu}"
                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArBack}"

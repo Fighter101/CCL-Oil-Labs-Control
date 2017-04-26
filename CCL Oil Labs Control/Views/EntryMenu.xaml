@@ -6,8 +6,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCL_Oil_Labs_Control"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        mc:Ignorable="d" FocusManager.FocusedElement="{Binding ElementName=UserEntryGrid}">
+        mc:Ignorable="d">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,8 +17,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--Upper half-->
-        <!--Frequent header-->
-
         <Border Grid.Row="0" Style="{StaticResource BasicBorder}">
             <Grid Grid.Row="0" Background="White">
                 <Grid.ColumnDefinitions>
@@ -74,7 +73,7 @@
                 <!--First-->
                 <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                     Text="{StaticResource ArOilAnlProg}"
-                    Style="{StaticResource BaicText}">
+                    Style="{StaticResource BaicPurpleText}">
                 </TextBlock>
                 <!--Second-->
                 <Separator Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
@@ -89,14 +88,16 @@
                 <Button Name="EntryMenuButtonClose" Command="{Binding closeCommand}"
                         Style="{StaticResource BasicButton}"  
                         Grid.Column="1" Grid.Row="4">
-                    <TextBlock Text="{StaticResource ArClose}" />
+                    <TextBlock Text="{StaticResource ArClose}"
+                               Style="{StaticResource BaicBrownText}"/>
                 </Button>
 
                 <!--Fourth Right-->
                 <Button Name="EntryMenuButtonMainMenu" IsTabStop="True" TabIndex="3"
                         Style="{StaticResource BasicButton}"  Grid.Column="2" Grid.Row="4"
                         Command="{Binding fillAndNavigateCommand.fillDataAndNavigateCommand}" CommandParameter="{StaticResource MainMenu}">
-                    <TextBlock Text="{StaticResource ArMainMenu}"/>
+                    <TextBlock Text="{StaticResource ArMainMenu}"
+                               Style="{StaticResource BaicBrownText}"/>
                 </Button>
                 <!--Fifth Right-->
                 <TextBlock
@@ -113,8 +114,14 @@
                     Text="{StaticResource ArPassword}"/>
                 <!--Sixth Left-->
                 <PasswordBox Name="EntryMenuPassBoxPassword" Grid.Column="1" Grid.Row="6" TabIndex="2"
-                              Background="#F098CADA" PasswordChanged="EntryMenuPassBoxPassword_LostFocus" 
-                            />
+                              Background="#F098CADA">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <prism:InvokeCommandAction Command="{Binding passwordChangedCommand}" CommandParameter="{Binding ElementName=EntryMenuPassBoxPassword}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
+                            
                 <!--Contributors list in bottom left-->
                 <TextBlock Grid.Column="0" Grid.Row="8" 
                    Style="{StaticResource ContributorsText}"

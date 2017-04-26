@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5341548852de48018d3076da114a13be" Name="Diagram1">
-        <EntityTypeShape EntityType="DatabaseModel.Analysis" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.AnalysisType" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="5341548852de48018d3076da114a13be" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="DatabaseModel.Analysis" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.AnalysisType" Width="1.5" PointX="0.875" PointY="0.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Company" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.CompanyType" Width="1.5" PointX="1.5" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Furan" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
@@ -14,13 +14,13 @@
         <EntityTypeShape EntityType="DatabaseModel.Lab" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Oil" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.OilType" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Record" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Record" Width="1.5" PointX="5.875" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Station" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.sysdiagram" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.Transformer" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.Turbine" Width="1.5" PointX="8.25" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.OilAnalysisType" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Turbine" Width="1.5" PointX="3.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.OilAnalysisType" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="DatabaseModel.CODE__ANALYSIS__6308EB7E_336F_402B_A13E_718F33632BBA_" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.CODE__COMPANY__09DB7D3A_881F_4A6D_ACAA_7130D5C37067_" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.CODE_STATION__A5E3FEF7_7851_439B_A741_73000EABC488_" ManuallyRouted="false" />

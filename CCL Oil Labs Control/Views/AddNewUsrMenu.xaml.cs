@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CCL_Oil_Labs_Control.ViewModels;
 namespace CCL_Oil_Labs_Control.Views
 {
     /// <summary>
@@ -18,9 +19,22 @@ namespace CCL_Oil_Labs_Control.Views
     /// </summary>
     public partial class AddNewUsrMenu : UserControl
     {
-        public AddNewUsrMenu()
+
+        public AddNewUsrMenuViewModel viewModel { get; set; }
+        public AddNewUsrMenu(AddNewUsrMenuViewModel viewModel )
         {
             InitializeComponent();
+            this.viewModel = viewModel;
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            viewModel.password = (sender as PasswordBox).SecurePassword;
+        }
+
+        private void PasswordBox_PasswordChanged_1(object sender, RoutedEventArgs e)
+        {
+            viewModel.confirmPassword = (sender as PasswordBox).SecurePassword;
         }
     }
 }

@@ -72,13 +72,31 @@
             <Setter Property="Height" Value="Auto"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
+        <!--Advanced style for DatePicker-->
+        <Style TargetType="DatePickerTextBox" x:Key="AdvDatePicker">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
         <!--Advanced black-->
         <Style TargetType="TextBlock" x:Key="AdvBlackText" BasedOn="{StaticResource AdvTextBlock}">
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
+        <Style TargetType="DatePickerTextBox" x:Key="AdvBlackDatePicker" BasedOn="{StaticResource AdvDatePicker}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
         <!--Advanced blue-->
         <Style TargetType="TextBlock" x:Key="AdvBlueText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="DatePickerTextBox" x:Key="AdvBlueDatePicker" BasedOn="{StaticResource AdvDatePicker}">
             <Setter Property="Foreground" Value="DarkBlue"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
@@ -105,7 +123,31 @@
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Margin" Value="1.5"/>
         </Style>
-        
+
+        <Style TargetType="DatePicker" x:Key="BasicDatePicker">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+
+        <Style TargetType="DataGridCell" x:Key="BasicGridCell">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+
         <!--Basic style for PasswordBox-->
         <Style TargetType="PasswordBox" x:Key="BasicPassBox">
             <Setter Property="Background" Value="WhiteSmoke"/>
@@ -133,6 +175,18 @@
             <Setter Property="BorderThickness" Value="3.5"/>
             <Setter Property="Margin" Value="1.5"/>
         </Style>
+        <!--Basic black-->
+        <Style TargetType="Border" x:Key="BasicBlackBorder" BasedOn="{StaticResource BasicBorder}">
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <!--Basic blue-->
+        <Style TargetType="Border" x:Key="BasicBlueBorder" BasedOn="{StaticResource BasicBorder}">
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+        </Style>
+        <!--Basic brown-->
+        <Style TargetType="Border" x:Key="BasicBrownBorder" BasedOn="{StaticResource BasicBorder}">
+            <Setter Property="BorderBrush" Value="Brown"/>
+        </Style>
 
         <!--Basic style for ComboBox-->
         <Style TargetType="ComboBox" x:Key="BasicComboBox">
@@ -145,12 +199,52 @@
             <Setter Property="BorderBrush" Value="DarkBlue"/>
         </Style>
 
+        <!--Basic style for DataGridColumnHeader-->
+        <Style TargetType="DataGrid" x:Key="BasicDataGrid">
+            <Setter Property="FlowDirection" Value="RightToLeft"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <!--Basic Editable-->
+        <Style TargetType="DataGrid" x:Key="BasicEditableDataGrid" BasedOn="{StaticResource BasicDataGrid}">
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="True"/>
+            <Setter Property="CanUserDeleteRows" Value="True"/>
+        </Style>
+        <!--Basic style for DataGridColumnHeader-->
+        <Style TargetType="DataGridColumnHeader" x:Key="BasicDataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+            <Setter Property="BorderThickness" Value="3"/>
+        </Style>
+        <!--Basic style for DataGridRow-->
+        <Style TargetType="DataGridRow" x:Key="BasicDataGridRow">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
         <!--String Resources-->
         <!--English-->
         <clr:String x:Key="EnEgyElecHoldCo.">Egyptian Electricity Holding Co.</clr:String>
         <clr:String x:Key="EnEgyElecTransCo.">Egyptian Transmission Holding Co.</clr:String>
         <clr:String x:Key="EnCCL">Central Chemical Labs</clr:String>
         <clr:String x:Key="EnNameManager">Dr: Naser Sami</clr:String>
+        <clr:String x:Key="EnChElecAnl">Chemical_Electrical Analysis</clr:String>
+        <clr:String x:Key="EnOkay">ok</clr:String>
+        <clr:String x:Key="EnExp">Experiment</clr:String>
+        <clr:String x:Key="EnUnit">Unit</clr:String>
+        <clr:String x:Key="EnStMeth">St. Method</clr:String>
+        <clr:String x:Key="EnRes">result</clr:String>
         <!--Arabic-->
         <clr:String x:Key="ArEgyElecHoldCo.">الشركة القابضة لكهرباء مصر</clr:String>
         <clr:String x:Key="ArEgyElecTransCo.">الشركة المصرية لنقل الكهرباء</clr:String>
@@ -169,11 +263,14 @@
         <clr:String x:Key="ArReports">تقارير</clr:String>
         <clr:String x:Key="ArAppCodes">أكواد التطبيق</clr:String>
         <clr:String x:Key="ArAddCoTypesCode">إضافة اكواد أنواع الشركات</clr:String>
+        <clr:String x:Key="ArRegCoTypes">تسجيل أنواع الشركات</clr:String>
         <clr:String x:Key="ArAddCoCode">إضافة اكواد الشركات</clr:String>
         <clr:String x:Key="ArRegCoCode">تسجيل اكواد الشركات</clr:String>
         <clr:String x:Key="ArAddStationCode">إضافة اكواد المحطات</clr:String>
         <clr:String x:Key="ArAddEquipNamesCode">إضافة اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArRegEquip">تسجيل المعدة</clr:String>
         <clr:String x:Key="ArRegEquipNamesCode">تسجيل اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArRegStationsCode">تسجيل اكواد محطات</clr:String>
         <clr:String x:Key="ArAddNewUsr">إضافة مستخدم جديد</clr:String>
         <clr:String x:Key="ArEditUsr">تعديل بيانات مستخدم</clr:String>
         <clr:String x:Key="ArAddUsrSuccess">تم إضافة المستخدم جديد بنجاح</clr:String> 
@@ -181,10 +278,12 @@
         <clr:String x:Key="ArBack">عودة</clr:String>
         <clr:String x:Key="ArDelete">حذف</clr:String>
         <clr:String x:Key="ArDelReport">حذف بيان</clr:String>
+        <clr:String x:Key="ArDelRecord">حذف سجل</clr:String>
         <clr:String x:Key="ArAdd">إضافة</clr:String>
         <clr:String x:Key="ArCoName">اسم الشركة</clr:String>
         <clr:String x:Key="ArCoType">نوع الشركة</clr:String>
         <clr:String x:Key="ArCoTypeCode">كود نوع الشركة</clr:String>
+        <clr:String x:Key="ArOilTypeCode">كود نوع الزيت</clr:String>
         <clr:String x:Key="ArNext">التالي</clr:String>
         <clr:String x:Key="ArImportDate">تاريخ الوارد</clr:String>
         <clr:String x:Key="ArImportNum">رقم الوارد</clr:String> 
@@ -192,13 +291,26 @@
         <clr:String x:Key="ArExportNum">رقم الصادر</clr:String>
         <clr:String x:Key="ArStation">المحطة</clr:String>
         <clr:String x:Key="ArOilType">نوع الزيت</clr:String>
-        <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
         <clr:String x:Key="ArLab">المعمل</clr:String>
         <clr:String x:Key="ArResults">النتائج</clr:String>
         <clr:String x:Key="ArRecomm">التوصيات</clr:String>
         <clr:String x:Key="ArCosts">التكاليف</clr:String>
         <clr:String x:Key="ArCheckRegByImpDate">التحقق من سابقة تسجيل تاريخ الوارد</clr:String>
         <clr:String x:Key="ArCheckRegByImpNum">التحقق من سابقة تسجيل رقم وارد</clr:String>
+        <clr:String x:Key="ArTransVolt">جهد المحول ك.ف</clr:String>
+        <clr:String x:Key="ArPrev">السابق</clr:String>
+        <clr:String x:Key="ArEquipName">اسم المعدة</clr:String>
+        <clr:String x:Key="ArSamplesNum">عدد العينات</clr:String>
+        <clr:String x:Key="ArCompany">الشركة</clr:String>
+        <clr:String x:Key="ArCoCode">كود الشركة</clr:String>
+        <clr:String x:Key="ArStationName">اسم المحطة</clr:String>
+        <clr:String x:Key="ArRegAnlType">تسجيل اكواد أنواع التحاليل</clr:String>
+        <clr:String x:Key="ArRegOilType">تسجيل أكواد أنواع الزيوت</clr:String>
+        <clr:String x:Key="ArRegAnlCode">تسجيل اكواد التحاليل</clr:String>
+        <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
+        <clr:String x:Key="ArAnlTypeCode">كود نوع التحليل</clr:String>
+        <clr:String x:Key="ArAnlName">اسم التحليل</clr:String>
+        <clr:String x:Key="ArRegExpDetails">تسجيل تفاصيل التجارب</clr:String>
         <!--Contributors-->
         <clr:String x:Key="NameContrib0">Ahmad Sameh</clr:String>
         <clr:String x:Key="NameContrib1">Hassan Saied</clr:String>
@@ -208,6 +320,16 @@
         <clr:String x:Key="MainMenu">MainMenu</clr:String>
         <clr:String x:Key="CodesAddingMenu">CodesAddingMenu</clr:String>
         <clr:String x:Key="CodesRegSampleDataMenu">CodesRegSampleDataMenu</clr:String>
+        <clr:String x:Key="CodesRegCoMenu">CodesRegCoMenu</clr:String>
+        <clr:String x:Key="AddNewUsrMenu">AddNewUsrMenu</clr:String>
+        <clr:String x:Key="EditUsrMenu">EditUsrMenu</clr:String>
+        <clr:String x:Key="CodesRegCoTypeMenu">CodesRegCoTypeMenu</clr:String>
+        <clr:String x:Key="CodesRegEquipNamesMenu">CodesRegEquipNamesMenu</clr:String>
+        <clr:String x:Key="CodesRegStationsMenu">CodesRegStationsMenu</clr:String>
+        <clr:String x:Key="CodesRegAnlMenu">CodesRegAnlMenu</clr:String>
+        <clr:String x:Key="CodesRegAnlTypeMenu">CodesRegAnlTypeMenu</clr:String>
+        <clr:String x:Key="CodesRegExpDetailsMenu">CodesRegExpDetailsMenu</clr:String>
+        <clr:String x:Key="ChemicalElectricalAnalysis">ChemicalElectricalAnalysis</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>

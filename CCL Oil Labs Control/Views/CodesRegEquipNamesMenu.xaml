@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="CCL_Oil_Labs_Control.Views.CodesRegEquipNamesMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             Style="{StaticResource BasicUserControl}">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+        <!--Title-->
+        <TextBlock Style="{StaticResource BaicPurpleText}"
+                   Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="7"
+                   Text="{StaticResource ArRegEquipNamesCode}"/>
+        <!--Separator-->
+        <Separator Style="{StaticResource BasicSeparator}"
+                   Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7"/>
+        <!--Center Grid-->
+        <Border Style="{StaticResource BasicBorder}"
+                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="7">
+            <Grid Background="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid  Name="equipmentDataGrid" 
+                           Grid.Column="1" Style="{StaticResource BasicEditableDataGrid}"
+                           ItemsSource="{Binding equipments}" SelectedIndex="{Binding currentSelectedRow}" AutoGenerateColumns="False" >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectedCellsChanged">
+                                <prism:InvokeCommandAction Command="{Binding cellSelectionChangedCommand}" TriggerParameterPath="RemovedCells" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="{StaticResource ArOilTypeCode}" Width="1*" HeaderStyle="{StaticResource BasicDataGridColumnHeader}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ComboBox   Style="{StaticResource BasicComboBox}"   SelectedIndex="0"
+                                                    ItemsSource="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=DataContext.oilTypes}" 
+                                                    DisplayMemberPath="TypeName" SelectedValuePath="ID" SelectedValue="{Binding Type}" >
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <prism:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl},
+                                                        Path=DataContext.comboBoxSelectionChangedCommand}" TriggerParameterPath="AddedItems"/>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </ComboBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Width="3*" Header="{StaticResource ArEquipName}" CellStyle="{StaticResource BasicGridCell}" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+        <!--Back button-->
+        <Button Style="{StaticResource BasicButton}" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
+                Grid.Row="3" Grid.Column="1" >
+            <TextBlock Style="{StaticResource BaicRedText}"
+                       Text="{StaticResource ArBack}"
+                       FontSize="32"
+                       />
+        </Button>
+        <!--Delete button-->
+        <Button Style="{StaticResource BasicButton}" Command="{Binding deleteCommand}"
+                Grid.Row="3" Grid.Column="3">
+            <TextBlock Style="{StaticResource BaicRedText}"
+                       Text="{StaticResource ArDelete}"
+                       FontSize="32"
+                       />
+        </Button>
+        <!--Save button-->
+        <Button Style="{StaticResource BasicButton}"
+                Grid.Row="3" Grid.Column="5">
+            <TextBlock Style="{StaticResource BaicBlueText}"
+                       Text="{StaticResource ArSave}"
+                       FontSize="32"
+                       />
+        </Button>
+        <!--Add button-->
+        <Button Style="{StaticResource BasicButton}"
+                Grid.Row="3" Grid.Column="7">
+            <TextBlock Style="{StaticResource BaicBlueText}"
+                       Text="{StaticResource ArAdd}"
+                       FontSize="32"
+                       />
+        </Button>
+    </Grid>
+</UserControl>

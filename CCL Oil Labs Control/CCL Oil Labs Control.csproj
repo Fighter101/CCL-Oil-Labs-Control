@@ -57,6 +57,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Blend.Sdk.WPF.1.0.1\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -115,19 +118,66 @@
     <Compile Include="CompositeCommands\GlobalNavigateCommand.cs" />
     <Compile Include="CompositeCommands\IApplicationCommands.cs" />
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
-    <Compile Include="Controller\UserController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AnalysisController.cs" />
+    <Compile Include="Controllers\AnalysisTypeController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\CompanyTypeController.cs" />
+    <Compile Include="Controllers\LabController.cs" />
+    <Compile Include="Controllers\OilAnalysisTypeController.cs" />
+    <Compile Include="Controllers\OilController.cs" />
+    <Compile Include="Controllers\OilTypeController.cs" />
+    <Compile Include="Controllers\RecordController.cs" />
+    <Compile Include="Controllers\StationController.cs" />
+    <Compile Include="Events\RecordedEvent.cs" />
     <Compile Include="Events\UpdatedEvent.cs" />
     <Compile Include="Exceptions\WrongPasswordException.cs" />
     <Compile Include="Exceptions\WrongUserNameException.cs" />
-    <Compile Include="Model\UserController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Utils\ChemElecAnlSetter.cs" />
+    <Compile Include="Utils\CompanyToStringConverter.cs" />
+    <Compile Include="Utils\CompanyTypeToStringConverter.cs" />
+    <Compile Include="Utils\ResultWrapper.cs" />
+    <Compile Include="Utils\StringToDoubleConverter.cs" />
+    <Compile Include="Utils\StringToIntConveter.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModels\AddNewUsrMenuViewModel.cs" />
+    <Compile Include="ViewModels\ChemicalElectricalAnalysisViewModel.cs" />
     <Compile Include="ViewModels\CodesAddingMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegAnlMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegAnlTypeMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegCoMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegCoTypeMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegExpDetailsMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegSampleDataMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegStationsMenuViewModel.cs" />
+    <Compile Include="ViewModels\CodesRegEquipNamesMenuViewModel.cs" />
+    <Compile Include="ViewModels\EditUsrMenuViewModel.cs" />
     <Compile Include="ViewModels\EntryMenuViewModel.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\ChemicalElectricalAnalysis.xaml.cs">
+      <DependentUpon>ChemicalElectricalAnalysis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegAnlMenu.xaml.cs">
+      <DependentUpon>CodesRegAnlMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegAnlTypeMenu.xaml.cs">
+      <DependentUpon>CodesRegAnlTypeMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegCoTypeMenu.xaml.cs">
+      <DependentUpon>CodesRegCoTypeMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegEquipNamesMenu.xaml.cs">
+      <DependentUpon>CodesRegEquipNamesMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegExpDetailsMenu.xaml.cs">
+      <DependentUpon>CodesRegExpDetailsMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CodesRegStationsMenu.xaml.cs">
+      <DependentUpon>CodesRegStationsMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EntryMenu.xaml.cs">
       <DependentUpon>EntryMenu.xaml</DependentUpon>
     </Compile>
@@ -283,6 +333,34 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ChemicalElectricalAnalysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegAnlMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegAnlTypeMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegCoTypeMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegEquipNamesMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegExpDetailsMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CodesRegStationsMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EntryMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -316,5 +394,6 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
