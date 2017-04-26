@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CCL_Oil_Labs_Control"
         xmlns:prism="http://prismlibrary.com/"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d">
 
@@ -113,8 +114,14 @@
                     Text="{StaticResource ArPassword}"/>
                 <!--Sixth Left-->
                 <PasswordBox Name="EntryMenuPassBoxPassword" Grid.Column="1" Grid.Row="6" TabIndex="2"
-                              Background="#F098CADA" PasswordChanged="EntryMenuPassBoxPassword_LostFocus" 
-                            />
+                              Background="#F098CADA">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <prism:InvokeCommandAction Command="{Binding passwordChangedCommand}" CommandParameter="{Binding ElementName=EntryMenuPassBoxPassword}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
+                            
                 <!--Contributors list in bottom left-->
                 <TextBlock Grid.Column="0" Grid.Row="8" 
                    Style="{StaticResource ContributorsText}"
