@@ -118,6 +118,10 @@
     <Compile Include="CompositeCommands\GlobalNavigateCommand.cs" />
     <Compile Include="CompositeCommands\IApplicationCommands.cs" />
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
+    <Compile Include="ViewModels\ReportsMainMenuViewModel.cs" />
+    <Compile Include="Views\ReportsMainMenu.xaml.cs">
+      <DependentUpon>ReportsMainMenu.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AnalysisController.cs" />
@@ -366,6 +370,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml" />
+    <Page Include="Views\ReportsMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Resource Include="Images\Logos.png" />
   </ItemGroup>
   <ItemGroup>

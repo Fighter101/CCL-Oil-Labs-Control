@@ -55,19 +55,22 @@
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button  Name="MainMenuButtonAddCodes" Command="{Binding  addingCodesNavigationCommand.addingCodesNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
+                <Button  Name="MainMenuButtonAddCodes" 
+                         Command="{Binding  addingCodesNavigationCommand.addingCodesNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
                         Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"
                         Style="{StaticResource BasicButton}"  >
                     <TextBlock Style="{StaticResource BaicRedText}"
                                Text="{StaticResource ArAddCodes}"/>
                 </Button>
-                <Button Name="MainMenuButtonAddBasicData" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegSampleDataMenu}"
+                <Button Name="MainMenuButtonAddBasicData" 
+                        Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegSampleDataMenu}"
                         Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicRedText}"
                                Text="{StaticResource ArAddBasicData}"/>
                 </Button>
                 <Button Name="MainMenuButtonReports"
+                        Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource ReportsMainMenu}"
                         Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2"
                         Style="{StaticResource BasicButton}">
                     <TextBlock Style="{StaticResource BaicRedText}"
