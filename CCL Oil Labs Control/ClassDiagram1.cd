@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CCL_Oil_Labs_Control.App" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Bootstrapper" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAIAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bootstrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.CompositeCommands.AddingCodesNavigateCommand" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAgA=</HashCode>
+      <FileName>CompositeCommands\AddingCodesNavigateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.CompositeCommands.CloseCommand" Collapsed="true">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompositeCommands\CloseCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.CompositeCommands.FillDataAndNavigateCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompositeCommands\FillDataAndNavigateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.CompositeCommands.GlobalNavigateCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>CompositeCommands\GlobalNavigateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Analysis" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgAAAAAAIAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AnalysisController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.AnalysisType" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAQAAABAAAEAAAAAAAAA=</HashCode>
+      <FileName>Controllers\AnalysisTypeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Company" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAgAAAAIAAAAQBAAAAAAAAAQAAAAAAAIA=</HashCode>
+      <FileName>Controllers\CompanyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.CompanyType" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAgABgAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\CompanyTypeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Lab" Collapsed="true">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Controllers\LabController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.OilAnalysisType" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAgAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\OilAnalysisTypeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Oil" Collapsed="true">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQgAAAAAAAAAQEAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Controllers\OilController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.OilType" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAgAAAAAAAAAAAAAAACBAAAAAgAAAAAAA=</HashCode>
+      <FileName>Controllers\OilTypeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Record" Collapsed="true">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QRAAAwCAACAQgAAAEAKAABAACAACAAAAAQEABAAAQYA=</HashCode>
+      <FileName>Controllers\RecordController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Station" Collapsed="true">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAQACAAAAAgAAAAAAAAAQAAAAAAAAAAAAABAAAAIA=</HashCode>
+      <FileName>Controllers\StationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.User" Collapsed="true">
+    <Position X="2.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAABQAAAAAAAAABAAAEQAAAAgAAEAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.DatabaseEntities" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAAAEakAAAAAAAAAAAIAAAAAEAAgAAAAAEEgEAAAAIA=</HashCode>
+      <FileName>Model\DatabaseModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Furan" Collapsed="true">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BSBAAAAAAACAgAABQAAAAAAAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Model\Furan.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Gas" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQABAAAAAAEIgAAIwAAAIA0AAAAAAAAAAAAAKiAAFAA=</HashCode>
+      <FileName>Model\Gas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.sysdiagram" Collapsed="true">
+    <Position X="11.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\sysdiagram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Transformer" Collapsed="true">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAABAEAAQEAgAAAQAAQIBAAIAAAAAAAACAAAAAAZAA=</HashCode>
+      <FileName>Model\Transformer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Model.Turbine" Collapsed="true">
+    <Position X="15" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DQAACAEAIAEAgAAAQAAQAAAAAAkAAAAAACAAEAAABAA=</HashCode>
+      <FileName>Model\Turbine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Events.RecordedEvent" Collapsed="true">
+    <Position X="15" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events\RecordedEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Events.UpdatedEvent" Collapsed="true">
+    <Position X="16.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Events\UpdatedEvent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Exceptions.WrongPasswordException" Collapsed="true">
+    <Position X="6.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\WrongPasswordException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Exceptions.WrongUserNameException" Collapsed="true">
+    <Position X="8" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\WrongUserNameException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Properties.Resources" Collapsed="true">
+    <Position X="16.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Properties.Settings" Collapsed="true">
+    <Position X="4.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.ChemElecAnlSetter" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAgAAACBAAAAIAAAAAAAAAQAEAAAAAIAAI=</HashCode>
+      <FileName>Utils\ChemElecAnlSetter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.Expirments" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\ChemElecAnlSetter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.CompanyToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABACAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\CompanyToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.CompanyTypeToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABACAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\CompanyTypeToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.ResultWrapper" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\ResultWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.StringToDoubleConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Utils\StringToDoubleConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.StringToIntConveter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Utils\StringToIntConveter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Utils.Utils" Collapsed="true">
+    <Position X="4.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Utils\Utils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.AddNewUsrMenuViewModel" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQgAAAAAACAAAQAAACAWAAAAAAAAACAAE4AAgEAAAI=</HashCode>
+      <FileName>ViewModels\AddNewUsrMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.ChemicalElectricalAnalysisViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BDAAAABSAAAEAAEAAAsQDCRAAQIEQQ4wIQgEwAAAAAA=</HashCode>
+      <FileName>ViewModels\ChemicalElectricalAnalysisViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesAddingMenuViewModel" Collapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ViewModels\CodesAddingMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegAnlMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAABAAAEAABAAACIAiAQAAAAIAQUAIAgAwAAAAQQ=</HashCode>
+      <FileName>ViewModels\CodesRegAnlMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegAnlTypeMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQAAABAAAEAAAAAAAIAiAQAAAAAAQQAIAgAwAAgAQA=</HashCode>
+      <FileName>ViewModels\CodesRegAnlTypeMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegCoMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAABAAAEAABAAAEIAiCQAAAAIAQQAIAgAwAAAAQA=</HashCode>
+      <FileName>ViewModels\CodesRegCoMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegCoTypeMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAAABAAAEAAAAAAEIAiAQAAAAAEQQAIAgAwABAAQA=</HashCode>
+      <FileName>ViewModels\CodesRegCoTypeMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegEquipNamesMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAQCAABAAAEAABAAAAIAiASAAAAIAQQAIAgAwAAgAQA=</HashCode>
+      <FileName>ViewModels\CodesRegEquipNamesMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegExpDetailsMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAQAAAAAAAQAAAgAwAAAAAA=</HashCode>
+      <FileName>ViewModels\CodesRegExpDetailsMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegSampleDataMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>owKBEAASACAQABAAAEAAiCQIAQAIkE8AAQwRwEhjAoI=</HashCode>
+      <FileName>ViewModels\CodesRegSampleDataMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.CodesRegStationsMenuViewModel" Collapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAQAAAECAARAAAAAAFIACDEAAgAAAAAAIAgBgCAAAQA=</HashCode>
+      <FileName>ViewModels\CodesRegStationsMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.EditUsrMenuViewModel" Collapsed="true">
+    <Position X="16.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBSCAAABCACAAAQAABIAWAACAAAAAATAAUwAIAEAAAI=</HashCode>
+      <FileName>ViewModels\EditUsrMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.EntryMenuViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAAACAAAAAQAQAAIRAAASAAYIAwkEAAAA=</HashCode>
+      <FileName>ViewModels\EntryMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.MainMenuViewModel" Collapsed="true">
+    <Position X="2.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAACAAAAAACAAEAASQAAAABAAAgAAQgAAAAAgAI=</HashCode>
+      <FileName>ViewModels\MainMenuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.ViewModels.MainWindowViewModel" Collapsed="true">
+    <Position X="6.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAgAAAAAAAAAAAACAAAAAAAABAAAAgCAAAAAIA=</HashCode>
+      <FileName>ViewModels\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.AddNewUsrMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Views\AddNewUsrMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.ChemicalElectricalAnalysis" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ChemicalElectricalAnalysis.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesAddingMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesAddingMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegAnlMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegAnlMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegAnlTypeMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegAnlTypeMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegCoMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegCoMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegCoTypeMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegCoTypeMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegEquipNamesMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegEquipNamesMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegExpDetailsMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegExpDetailsMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegSampleDataMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegSampleDataMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.CodesRegStationsMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CodesRegStationsMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.EditUsrMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAIAAAAQAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Views\EditUsrMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.EntryMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\EntryMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.MainMenu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CCL_Oil_Labs_Control.Views.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAgAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="CCL_Oil_Labs_Control.CompositeCommands.IApplicationCommands" Collapsed="true">
+    <Position X="2.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompositeCommands\IApplicationCommands.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CCL_Oil_Labs_Control.CompositeCommands.IGLobalNavigateCommand" Collapsed="true">
+    <Position X="4.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CompositeCommands\IGLobalNavigateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

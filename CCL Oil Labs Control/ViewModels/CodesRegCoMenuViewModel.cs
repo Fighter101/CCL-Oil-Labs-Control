@@ -34,7 +34,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _companyTypes, value); }
         }
 
-        private ObservableCollection<Company> _companies = new ObservableCollection<Company>(Company.getCompanies());
+        private ObservableCollection<Company> _companies = Company.getCompanies();
         public ObservableCollection<Company> companies
         {
             get { return _companies; }
@@ -64,8 +64,11 @@ namespace CCL_Oil_Labs_Control.ViewModels
             _comboBoxSelectionChangedCommand ?? (_comboBoxSelectionChangedCommand = new DelegateCommand<object[]>(
                 delegate(object[] o)
                 {
-                    companies.ElementAt(currentSelectedRow).Type = (o[0] as CompanyType).ID;
-                    companies.ElementAt(currentSelectedRow).CompanyType = (o[0] as CompanyType);
+                    if (o is object[] && (o as object[]).Count() > 0 && o[0] is CompanyType && (o[0] as CompanyType).ID !=0)
+                    {
+                        companies.ElementAt(currentSelectedRow).Type = (o[0] as CompanyType).ID;
+                        companies.ElementAt(currentSelectedRow).CompanyType = (o[0] as CompanyType);
+                    }
                 }
                 , o => currentSelectedRow >= 0)).ObservesProperty(()=>currentSelectedRow);
 
@@ -104,7 +107,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            //TODO code to Save in DB
+            DatabaseEntities.Initiate().SaveChanges();
         }
     }
 }
