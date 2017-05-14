@@ -10,7 +10,7 @@ namespace CCL_Oil_Labs_Control.Model
     {
         public Record exists()
         {
-            var model = new DatabaseEntities();
+            var model = DatabaseEntities.Initiate();
             return (from record in model.Records
                     where record.ImportNo == this.ImportNo ||
                     record.ImportDate == this.ImportDate

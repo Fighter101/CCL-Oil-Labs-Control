@@ -12,10 +12,30 @@ namespace CCL_Oil_Labs_Control.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.IO;
+    using System.Linq;
 
     public partial class DatabaseEntities : DbContext
     {
-        public DatabaseEntities()
+        
+        private static DatabaseEntities context = null;
+        public static DatabaseEntities Initiate()
+        {
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            path = Path.Combine(path, "CCL Labs");
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            Directory.CreateDirectory(path);
+            var files = Directory.GetFiles(path).ToList();
+            if (files.FindAll(e => e.Contains("Database")).Count < 2)
+            {
+                File.Copy("Database.mdf", Path.Combine(path, "Database.mdf"));
+                File.Copy("Database_log.ldf", Path.Combine(path, "Database_log.ldf"));
+            }
+            if (context == null)
+                context = new DatabaseEntities();
+            return context;
+        }
+        private DatabaseEntities()
             : base("name=DatabaseEntities")
         {
         }
@@ -24,7 +44,13 @@ namespace CCL_Oil_Labs_Control.Model
         {
             throw new UnintentionalCodeFirstException();
         }
-
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            context = null;
+            //context.Turbines.Load();
+            //context.Turbines.Local;
+        }
         public virtual DbSet<Analysis> Analyses { get; set; }
         public virtual DbSet<AnalysisType> AnalysisTypes { get; set; }
         public virtual DbSet<Company> Companies { get; set; }

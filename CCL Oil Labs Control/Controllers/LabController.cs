@@ -11,7 +11,7 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<Lab> getLabs()
         {
             var labsList = new List<Lab>();
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 labsList = (from lab in model.Labs
                             select lab).ToList();
