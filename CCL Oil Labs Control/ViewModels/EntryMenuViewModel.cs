@@ -12,12 +12,17 @@ using System.Windows;
 using CCL_Oil_Labs_Control.CompositeCommands;
 using CCL_Oil_Labs_Control.Model;
 using CCL_Oil_Labs_Control.Events;
+using System.Windows.Controls;
+
 namespace CCL_Oil_Labs_Control.ViewModels
 {
-    public class EntryMenuViewModel : BindableBase , IConfirmNavigationRequest
+    public class EntryMenuViewModel : BindableBase, IConfirmNavigationRequest
     {
+
+        private User currentUser;
+
+
         private IApplicationCommands _fillAndNavigateCommand;
-        public User currentUser;
         public IApplicationCommands fillAndNavigateCommand
         {
             get { return _fillAndNavigateCommand; }
@@ -31,8 +36,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set
             { SetProperty(ref _userName, value); }
         }
-        private  SecureString _password = null;
-        public  SecureString password
+        private SecureString _password = null;
+        public SecureString password
         {
             get { return _password; }
             set { SetProperty(ref _password, value); }
@@ -40,22 +45,22 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public DelegateCommand loginCommand { get; private set; }
         public DelegateCommand closeCommand { get; private set; }
-        public EntryMenuViewModel (IApplicationCommands m_fillAndNavigateCommand, IEventAggregator _eventAggregator)
+        public EntryMenuViewModel(CloseCommand closeCommand, IApplicationCommands fillAndNavigateCommand, IEventAggregator _eventAggregator)
         {
             eventAggregator = _eventAggregator;
-            loginCommand = new DelegateCommand(fillUserData, ()=>(!string.IsNullOrWhiteSpace(_userName) && !((_password!=null&&_password.Length==0)))).ObservesProperty(()=>userName).ObservesProperty(()=>password);
-            closeCommand = new DelegateCommand(closeProgram, () => true);
-            fillAndNavigateCommand = m_fillAndNavigateCommand;
-            fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(loginCommand);
-            var navigateCommand = fillAndNavigateCommand.fillDataAndNavigateCommand.RegisteredCommands[0];
-            fillAndNavigateCommand.fillDataAndNavigateCommand.UnregisterCommand(navigateCommand);
-            fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(navigateCommand);
+            loginCommand = new DelegateCommand(fillUserData, () => (!string.IsNullOrWhiteSpace(userName) && password != null && password.Length > 0)).ObservesProperty(() => userName).ObservesProperty(() => password);
+            this.closeCommand = new DelegateCommand(closeProgram, () => true);
+            closeCommand.closeCommand.RegisterCommand(this.closeCommand);
+            this.fillAndNavigateCommand = fillAndNavigateCommand;
+            this.fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(loginCommand);
+            var navigateCommand = this.fillAndNavigateCommand.fillDataAndNavigateCommand.RegisteredCommands[0];
+            this.fillAndNavigateCommand.fillDataAndNavigateCommand.UnregisterCommand(navigateCommand);
+            this.fillAndNavigateCommand.fillDataAndNavigateCommand.RegisterCommand(navigateCommand);
 
         }
-        private void fillUserData ()
+        private void fillUserData()
         {
-            currentUser = new User(_userName, _password);
-            password = null;
+            currentUser = new User(userName, password);
         }
 
 
@@ -66,16 +71,32 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
             if (currentUser.login())
+            {
                 continuationCallback(true);
+                eventAggregator.GetEvent<UpdatedEvent>().Publish(currentUser);
+                currentUser = null;
+            }
             else
             {
                 MessageBox.Show("Wrong User Name or Password");
+                passwordBox.Clear();
                 continuationCallback(false);
             }
         }
-
+        private PasswordBox passwordBox;
+        private DelegateCommand<object> _passwordChangedCommand;
+        public DelegateCommand<object> passwordChangedCommand =>
+            _passwordChangedCommand ?? (_passwordChangedCommand = new DelegateCommand<object>(
+                delegate (object passwordBox)
+                {
+                    password = (passwordBox as PasswordBox).SecurePassword;
+                    this.passwordBox = passwordBox as PasswordBox;
+                   
+                }
+                , passwordBox => passwordBox != null && passwordBox is PasswordBox)
+            );
         public void OnNavigatedTo(NavigationContext navigationContext)
-        {
+        {           
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
@@ -85,7 +106,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            eventAggregator.GetEvent<UpdatedEvent>().Publish(currentUser);
+            this.passwordBox.Clear();
         }
     }
 }

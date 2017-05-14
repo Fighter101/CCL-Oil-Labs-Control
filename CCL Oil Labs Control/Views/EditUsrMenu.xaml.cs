@@ -11,17 +11,34 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using CCL_Oil_Labs_Control.ViewModels;
 namespace CCL_Oil_Labs_Control.Views
 {
     /// <summary>
     /// Interaction logic for EditUsrMenu.xaml
     /// </summary>
-    public partial class EditUsrMenu : Window
+    public partial class EditUsrMenu : UserControl
     {
-        public EditUsrMenu()
+        public EditUsrMenuViewModel viewModel { get; set; }
+        public EditUsrMenu(EditUsrMenuViewModel viewModel)
         {
             InitializeComponent();
+            this.viewModel = viewModel;
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            //this.viewModel.oldPassword = (sender as PasswordBox).SecurePassword;
+        }
+
+        private void PasswordBox_PasswordChanged_1(object sender, RoutedEventArgs e)
+        {
+            this.viewModel.newPassword = (sender as PasswordBox).SecurePassword;
+        }
+
+        private void PasswordBox_PasswordChanged_2(object sender, RoutedEventArgs e)
+        {
+            this.viewModel.confirmNewPassword = (sender as PasswordBox).SecurePassword;
         }
     }
 }

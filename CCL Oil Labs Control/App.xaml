@@ -39,6 +39,11 @@
         </Style>
         <!--Basic blue-->
         <Style TargetType="TextBlock" x:Key="BaicBlueText" BasedOn="{StaticResource BaicText}">
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+        <!--Basic DarkBlue-->
+        <Style TargetType="TextBlock" x:Key="BaicDarkBlueText" BasedOn="{StaticResource BaicText}">
             <Setter Property="Foreground" Value="DarkBlue"/>
             <Setter Property="FontSize" Value="26"/>
         </Style>
@@ -77,8 +82,33 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
+        <Style TargetType="DatePickerTextBox" x:Key="AdvBlackDatePicker" BasedOn="{StaticResource AdvDatePicker}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
         <!--Advanced blue-->
         <Style TargetType="TextBlock" x:Key="AdvBlueText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="DarkBlue"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <!--Advanced red-->
+        <Style TargetType="TextBlock" x:Key="AdvRedText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <!--Advanced brown-->
+        <Style TargetType="TextBlock" x:Key="AdvBrownText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="Brown"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <!--Advanced NormalBlue-->
+        <Style TargetType="TextBlock" x:Key="AdvNormalBlueText" BasedOn="{StaticResource AdvTextBlock}">
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <!--Advanced DatePickerTextBox-->
+        <Style TargetType="DatePickerTextBox" x:Key="AdvBlueDatePicker" BasedOn="{StaticResource AdvDatePicker}">
             <Setter Property="Foreground" Value="DarkBlue"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
@@ -92,7 +122,15 @@
             <Setter Property="BorderBrush" Value="BlueViolet"/>
             <Setter Property="BorderThickness" Value="2.5"/>
         </Style>
-        
+        <!--LightGray style for Button-->
+        <Style TargetType="Button" x:Key="LightGrayBasicButton" BasedOn="{StaticResource BasicButton}">
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+        <!--AliceBlue style for Button-->
+        <Style TargetType="Button" x:Key="AliceBlueBasicButton" BasedOn="{StaticResource BasicButton}">
+            <Setter Property="Background" Value="AliceBlue"/>
+        </Style>
+
         <!--Basic style for TextBox-->
         <Style TargetType="TextBox" x:Key="BasicTextBox">
             <Setter Property="Background" Value="WhiteSmoke"/>
@@ -105,7 +143,43 @@
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Margin" Value="1.5"/>
         </Style>
-        
+
+        <!--Basic style for DatePicker-->
+        <Style TargetType="DatePicker" x:Key="BasicDatePicker">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+        <!--Advanced style for DatePicker-->
+        <Style TargetType="DatePickerTextBox" x:Key="AdvDatePicker">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <!--Basic style for DataGridCell-->
+        <Style TargetType="DataGridCell" x:Key="BasicGridCell">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Margin" Value="1.5"/>
+        </Style>
+
         <!--Basic style for PasswordBox-->
         <Style TargetType="PasswordBox" x:Key="BasicPassBox">
             <Setter Property="Background" Value="WhiteSmoke"/>
@@ -126,12 +200,18 @@
             <Setter Property="Background" Value="Black"/>
             <Setter Property="Foreground" Value="Black"/>
         </Style>
+        <!--Basic Bluer-->
+        <Style TargetType="Separator" x:Key="BasicBlueSeparator" BasedOn="{StaticResource BasicSeparator}">
+            <Setter Property="Background" Value="Blue"/>
+            <Setter Property="Foreground" Value="Blue"/>
+            <Setter Property="Height" Value="1.5"/>
+        </Style>
 
         <!--Basic style for Border-->
         <Style TargetType="Border" x:Key="BasicBorder">
             <Setter Property="BorderBrush" Value="DarkBlue"/>
             <Setter Property="BorderThickness" Value="3.5"/>
-            <Setter Property="Margin" Value="1.5"/>
+            <Setter Property="Margin" Value="1"/>
         </Style>
         <!--Basic black-->
         <Style TargetType="Border" x:Key="BasicBlackBorder" BasedOn="{StaticResource BasicBorder}">
@@ -139,11 +219,27 @@
         </Style>
         <!--Basic blue-->
         <Style TargetType="Border" x:Key="BasicBlueBorder" BasedOn="{StaticResource BasicBorder}">
+            <Setter Property="BorderBrush" Value="Blue"/>
+        </Style>
+        <!--Basic DarkBlue-->
+        <Style TargetType="Border" x:Key="BasicDarkBlueBorder" BasedOn="{StaticResource BasicBorder}">
             <Setter Property="BorderBrush" Value="DarkBlue"/>
         </Style>
         <!--Basic brown-->
         <Style TargetType="Border" x:Key="BasicBrownBorder" BasedOn="{StaticResource BasicBorder}">
             <Setter Property="BorderBrush" Value="Brown"/>
+        </Style>
+        <!--Marginless style for Border-->
+        <Style TargetType="Border" x:Key="MarginlessBorder">
+            <Setter Property="BorderThickness" Value="1.5"/>
+        </Style>
+        <!--Marginless Blue-->
+        <Style TargetType="Border" x:Key="MarginlessBlueBorder" BasedOn="{StaticResource MarginlessBorder}">
+            <Setter Property="BorderBrush" Value="Blue"/>
+        </Style>
+        <!--Marginless Black-->
+        <Style TargetType="Border" x:Key="MarginlessBlackBorder" BasedOn="{StaticResource MarginlessBorder}">
+            <Setter Property="BorderBrush" Value="Black"/>
         </Style>
 
         <!--Basic style for ComboBox-->
@@ -157,6 +253,40 @@
             <Setter Property="BorderBrush" Value="DarkBlue"/>
         </Style>
 
+        <!--Basic style for DataGridColumnHeader-->
+        <Style TargetType="DataGrid" x:Key="BasicDataGrid">
+            <Setter Property="FlowDirection" Value="RightToLeft"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <!--Basic Editable-->
+        <Style TargetType="DataGrid" x:Key="BasicEditableDataGrid" BasedOn="{StaticResource BasicDataGrid}">
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="True"/>
+            <Setter Property="CanUserDeleteRows" Value="True"/>
+        </Style>
+        <!--Basic style for DataGridColumnHeader-->
+        <Style TargetType="DataGridColumnHeader" x:Key="BasicDataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="DarkBlue"/>
+            <Setter Property="BorderThickness" Value="3"/>
+        </Style>
+        <!--Basic style for DataGridRow-->
+        <Style TargetType="DataGridRow" x:Key="BasicDataGridRow">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
         <!--String Resources-->
         <!--English-->
         <clr:String x:Key="EnEgyElecHoldCo.">Egyptian Electricity Holding Co.</clr:String>
@@ -164,7 +294,33 @@
         <clr:String x:Key="EnCCL">Central Chemical Labs</clr:String>
         <clr:String x:Key="EnNameManager">Dr: Naser Sami</clr:String>
         <clr:String x:Key="EnChElecAnl">Chemical_Electrical Analysis</clr:String>
-        <clr:String x:Key="EnOk">ok</clr:String>
+        <clr:String x:Key="EnOkay">ok</clr:String>
+        <clr:String x:Key="EnExp">Experiment</clr:String>
+        <clr:String x:Key="EnUnit">Unit</clr:String>
+        <clr:String x:Key="EnStMeth">St. Method</clr:String>
+        <clr:String x:Key="EnRes">result</clr:String>
+        <clr:String x:Key="EnKV">KV</clr:String>
+        <clr:String x:Key="EnFurAnl">Furanic Analysis</clr:String>
+        <clr:String x:Key="EnTurbChemAnl">Turbine Chemical Analysis</clr:String>
+        <clr:String x:Key="EnTransChemAnl">Transformer Chemical Analysis</clr:String>
+        <clr:String x:Key="EnDisGasAnl">Dissolved Gas Analysis</clr:String>
+        <clr:String x:Key="EnSpecGravity">Specific Gravity</clr:String>
+        <clr:String x:Key="EnColor">Color</clr:String>
+        <clr:String x:Key="EnImpur">Impurities</clr:String>
+        <clr:String x:Key="EnWaterCont">Water Content</clr:String>
+        <clr:String x:Key="EnKinemVisc">Kinematics Viscosity</clr:String>
+        <clr:String x:Key="EnFlshPntOpen">Flash Point open</clr:String>
+        <clr:String x:Key="EnWaterPerc">Water %</clr:String>
+        <clr:String x:Key="EnTtlAcdty">Total Acidity</clr:String>
+        <clr:String x:Key="EnBrkDwnVolt">Break down Voltage</clr:String>
+        <clr:String x:Key="EnPwrFctr">Power Factor</clr:String>
+        <clr:String x:Key="EnDmlsfctn">Demulsification</clr:String>
+        <clr:String x:Key="EnFoamin">Foaming</clr:String>
+        <clr:String x:Key="EnPrtclSz">Particle Size</clr:String>
+        <clr:String x:Key="EnCpprCrrssn">Copper Corrossion</clr:String>
+        <clr:String x:Key="EnIntrFclTnsn">Inter Facial Tension</clr:String>
+        <clr:String x:Key="EnTtlFrnc">Total Furanic</clr:String>
+        <clr:String x:Key="EnTtlGas">Total Gas</clr:String>
         <!--Arabic-->
         <clr:String x:Key="ArEgyElecHoldCo.">الشركة القابضة لكهرباء مصر</clr:String>
         <clr:String x:Key="ArEgyElecTransCo.">الشركة المصرية لنقل الكهرباء</clr:String>
@@ -186,11 +342,12 @@
         <clr:String x:Key="ArRegCoTypes">تسجيل أنواع الشركات</clr:String>
         <clr:String x:Key="ArAddCoCode">إضافة اكواد الشركات</clr:String>
         <clr:String x:Key="ArRegCoCode">تسجيل اكواد الشركات</clr:String>
-        <clr:String x:Key="ArRegAnlCode">تسجيل اكواد التحاليل</clr:String>
         <clr:String x:Key="ArAddStationCode">إضافة اكواد المحطات</clr:String>
         <clr:String x:Key="ArRegStationCode">تسجيل اكواد المحطات</clr:String>
         <clr:String x:Key="ArAddEquipNamesCode">إضافة اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArRegEquip">تسجيل المعدة</clr:String>
         <clr:String x:Key="ArRegEquipNamesCode">تسجيل اكواد اسماء المعدات</clr:String>
+        <clr:String x:Key="ArRegStationsCode">تسجيل اكواد محطات</clr:String>
         <clr:String x:Key="ArAddNewUsr">إضافة مستخدم جديد</clr:String>
         <clr:String x:Key="ArEditUsr">تعديل بيانات مستخدم</clr:String>
         <clr:String x:Key="ArAddUsrSuccess">تم إضافة المستخدم جديد بنجاح</clr:String> 
@@ -211,9 +368,6 @@
         <clr:String x:Key="ArExportNum">رقم الصادر</clr:String>
         <clr:String x:Key="ArStation">المحطة</clr:String>
         <clr:String x:Key="ArOilType">نوع الزيت</clr:String>
-        <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
-        <clr:String x:Key="ArAnlTypeCode">كود نوع التحليل</clr:String>
-        <clr:String x:Key="ArAnlName">اسم التحليل</clr:String>
         <clr:String x:Key="ArLab">المعمل</clr:String>
         <clr:String x:Key="ArResults">النتائج</clr:String>
         <clr:String x:Key="ArRecomm">التوصيات</clr:String>
@@ -223,13 +377,57 @@
         <clr:String x:Key="ArTransVolt">جهد المحول ك.ف</clr:String>
         <clr:String x:Key="ArPrev">السابق</clr:String>
         <clr:String x:Key="ArEquipName">اسم المعدة</clr:String>
-        <clr:String x:Key="ArRegEquip">تسجيل معدة</clr:String>
         <clr:String x:Key="ArSamplesNum">عدد العينات</clr:String>
+        <clr:String x:Key="ArCompany">الشركة</clr:String>
+        <clr:String x:Key="ArCoCode">كود الشركة</clr:String>
+        <clr:String x:Key="ArStationName">اسم المحطة</clr:String>
+        <clr:String x:Key="ArRegAnlType">تسجيل اكواد أنواع التحاليل</clr:String>
+        <clr:String x:Key="ArRegOilType">تسجيل أكواد أنواع الزيوت</clr:String>
+        <clr:String x:Key="ArRegAnlCode">تسجيل اكواد التحاليل</clr:String>
+        <clr:String x:Key="ArAnlType">نوع التحليل</clr:String>
+        <clr:String x:Key="ArAnlTypeCode">كود نوع التحليل</clr:String>
+        <clr:String x:Key="ArAnlName">اسم التحليل</clr:String>
+        <clr:String x:Key="ArRegExpDetails">تسجيل تفاصيل التجارب</clr:String>
+        <clr:String x:Key="ArOilName">اسم الزيت</clr:String>
+        <clr:String x:Key="ArTransAnlResults">نتائج تحاليل المحولات</clr:String>
+        <clr:String x:Key="ArDurFrom">الفترة من</clr:String>
+        <clr:String x:Key="ArTo">الي</clr:String>
+        <clr:String x:Key="ArOpType">نوع العملية</clr:String>
+        <clr:String x:Key="ArFollowAllTurbsEquip">متابعة التربينات لكل المعدات</clr:String>
+        <clr:String x:Key="ArFollowAllTransEquip">متابعة محولات لكل المعدات</clr:String>
+        <clr:String x:Key="ArFollowAllDisGasEquip">متابعة عن الغازات الذائبة لكل المعدات</clr:String>
+        <clr:String x:Key="ArFollowAllFuranOilEquip">متابعة عن زيوت الفيوران لكل المعدات</clr:String>
+        <clr:String x:Key="ArFollowTrans">متابعة محولات</clr:String>
+        <clr:String x:Key="ArFollowTurbs">متابعة تربينات</clr:String>
+        <clr:String x:Key="ArBiggerThan">اكبر من</clr:String>
+        <clr:String x:Key="ArSmallerThan">اصغر من</clr:String>
+        <clr:String x:Key="ArComparisonType">نوع المقارنة</clr:String>
+        <clr:String x:Key="ArSrch">بحث</clr:String>
+        <clr:String x:Key="ArRprtDisGas">تقرير عن الغازات الذائبة في زيوت المحولات خلال فترة</clr:String>
+        <clr:String x:Key="ArRprtTransOilMob">تقرير عينات زيوت المحولات معمل المتنقله خلال فترة</clr:String>
+        <clr:String x:Key="ArRprtTransOilLab">تقرير عينات زيوت المحولات معمل الزيوت خلال فترة</clr:String>
+        <clr:String x:Key="ArRprtTurbsOil">تقرير عينات زيوت التربينات خلال فترة</clr:String>
+        <clr:String x:Key="ArRprtFuranTransOil">تقرير عينات زيوت الفيوران لزيوت المحولات</clr:String>
         <!--Contributors-->
         <clr:String x:Key="NameContrib0">Ahmad Sameh</clr:String>
         <clr:String x:Key="NameContrib1">Hassan Saied</clr:String>
         <clr:String x:Key="NameContrib2">Mina Samy</clr:String>
         <clr:String x:Key="NameContrib3">Muhammad Hamdy</clr:String>
+        <!--Navigations-->
+        <clr:String x:Key="MainMenu">MainMenu</clr:String>
+        <clr:String x:Key="CodesAddingMenu">CodesAddingMenu</clr:String>
+        <clr:String x:Key="CodesRegSampleDataMenu">CodesRegSampleDataMenu</clr:String>
+        <clr:String x:Key="CodesRegCoMenu">CodesRegCoMenu</clr:String>
+        <clr:String x:Key="AddNewUsrMenu">AddNewUsrMenu</clr:String>
+        <clr:String x:Key="EditUsrMenu">EditUsrMenu</clr:String>
+        <clr:String x:Key="CodesRegCoTypeMenu">CodesRegCoTypeMenu</clr:String>
+        <clr:String x:Key="CodesRegEquipNamesMenu">CodesRegEquipNamesMenu</clr:String>
+        <clr:String x:Key="CodesRegStationsMenu">CodesRegStationsMenu</clr:String>
+        <clr:String x:Key="CodesRegAnlMenu">CodesRegAnlMenu</clr:String>
+        <clr:String x:Key="CodesRegAnlTypeMenu">CodesRegAnlTypeMenu</clr:String>
+        <clr:String x:Key="CodesRegExpDetailsMenu">CodesRegExpDetailsMenu</clr:String>
+        <clr:String x:Key="ChemicalElectricalAnalysis">ChemicalElectricalAnalysis</clr:String>
+        <clr:String x:Key="ReportsMainMenu">ReportsMainMenu</clr:String>
         <!--End String Resources-->
 
     </Application.Resources>

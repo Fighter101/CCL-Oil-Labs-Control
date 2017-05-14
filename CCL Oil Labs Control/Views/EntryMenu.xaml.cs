@@ -25,12 +25,5 @@ namespace CCL_Oil_Labs_Control.Views
             InitializeComponent();
             viewModel = _viewModel;
         }
-
-        private void EntryMenuPassBoxPassword_LostFocus(object sender, RoutedEventArgs e)
-        {
-            //For security reasons Binding is not allowed here
-
-            viewModel.password = (sender as PasswordBox).SecurePassword;
-        }
     }
 }

@@ -5,7 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
              mc:Ignorable="d" 
-             Width="720" Height="1024">
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Util ="clr-namespace:CCL_Oil_Labs_Control.Utils"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Style="{StaticResource BasicUserControl}"
+             >
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"/>
@@ -14,9 +19,8 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="73*"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -45,7 +49,7 @@
         <Separator Style="{StaticResource BasicSeparator}"
                    Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="10"/>
         <!--Transformer Voltage TextBox-->
-        <TextBox Style="{StaticResource BasicTextBox}" 
+        <TextBox Style="{StaticResource BasicTextBox}" Text="{Binding transformerPotential, Mode=TwoWay}" FlowDirection="RightToLeft" Language="ar-EG"
                   Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="9"
                    />
         <!--Transformer Voltage TextBlock-->
@@ -54,61 +58,82 @@
                    Grid.Row="2" Grid.Column="11" Grid.ColumnSpan="3"
                    />
         <!--Equipment Name ComboBox-->
-        <ComboBox Style="{StaticResource BasicComboBox}" 
-                  Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="5"
+        <ComboBox Style="{StaticResource BasicComboBox}" ItemsSource="{Binding equipment}" DisplayMemberPath="Name" 
+                  SelectedValuePath="ID" SelectedValue="{Binding selectedEquipmentID, Mode=TwoWay}"
+                  Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="5" IsEditable="True"
                    />
         <!--Equipment Name  TextBlock-->
         <TextBlock Style="{StaticResource AdvBlackText}"
                    Text="{StaticResource ArEquipName}" 
                    Grid.Row="4" Grid.Column="13"
                    />
-        <!--Register Equipment Button-->
-        <Button Style="{StaticResource BasicButton}"
-                Grid.Row="4" Grid.Column="5">
-            <TextBlock Style="{StaticResource BaicBrownText}"
-                   Text="{StaticResource ArRegEquip}" 
-                       FontSize="16"
-                    />
-        </Button>
         <!--Samples number TextBlock-->
-        <TextBlock Style="{StaticResource AdvBlueText}"
+        <TextBlock Style="{StaticResource AdvBlueText}" 
                    Text="{StaticResource ArSamplesNum}" 
                    Grid.Row="4" Grid.Column="3"
                    />
         <!--Equipment Number TextBlock-->
         <Border Style="{StaticResource BasicBlackBorder}"
             Grid.Row="4" Grid.Column="1">
-            <TextBlock Style="{StaticResource AdvBlackText}" 
+            <TextBlock Style="{StaticResource AdvBlackText}" Text="{Binding numSamples , Converter={Util:StringToIntConveter}}"
                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                    Background="Transparent"
                    />
         </Border>
-        <!--Center ScrollViewer-->
+        <!--Center Grid-->
         <Border Style="{StaticResource BasicBorder}"
-                Grid.Row="6" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="13">
-            <ScrollViewer Width="Auto">
-              
-            </ScrollViewer>
+                Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="15">
+            <Grid Background="LightGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid  Name="chemElecAnlDataGrid" AutoGenerateColumns="False" Style="{StaticResource BasicDataGrid}" CanUserSortColumns="False" CanUserDeleteRows="False"
+                           Grid.Column="0"  FlowDirection="LeftToRight"
+                           ItemsSource="{Binding expirments}" SelectedIndex="{Binding currentSelectedRow}"  IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="4*" Header="{StaticResource EnExp}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding name}"/>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="3*" Header="{StaticResource EnUnit}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding unit}"/>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="3*" Header="{StaticResource EnStMeth}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding testingMethod}"/>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid Grid.Column="1" Style="{StaticResource BasicDataGrid}" ItemsSource="{Binding results}" CanUserDeleteRows="False" CanUserAddRows="False" CanUserSortColumns="False" AutoGenerateColumns="False" FlowDirection="LeftToRight" HorizontalAlignment="Center">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
+                                            Width="1*" Header="{StaticResource EnRes}" 
+                                            CellStyle="{StaticResource BasicGridCell}" Binding="{Binding result, Converter={Util:StringToDoubleConverter}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
         </Border>
         <!--Back button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="1" >
+                Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesRegSampleDataMenu}"
+                Grid.Row="7" Grid.Column="1" >
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArBack}"
                        FontSize="32"
                        />
         </Button>
         <!--Previous button-->
-        <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="3">
+        <Button Style="{StaticResource BasicButton}" Command="{Binding previousCommand}"
+                Grid.Row="7" Grid.Column="3">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArPrev}"
                        FontSize="32"
                        />
         </Button>
         <!--Next button-->
-        <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="5">
+        <Button Style="{StaticResource BasicButton}" Command="{Binding nextCommand}"
+                Grid.Row="7" Grid.Column="5">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArNext}"
                        FontSize="32"
@@ -116,7 +141,7 @@
         </Button>
         <!--Delete button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="7">
+                Grid.Row="7" Grid.Column="7">
             <TextBlock Style="{StaticResource BaicRedText}"
                        Text="{StaticResource ArDelete}"
                        FontSize="32"
@@ -124,7 +149,7 @@
         </Button>
         <!--Save button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="9" Grid.ColumnSpan="3">
+                Grid.Row="7" Grid.Column="9" Grid.ColumnSpan="3">
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArSave}"
                        FontSize="32"
@@ -132,7 +157,7 @@
         </Button>
         <!--Add button-->
         <Button Style="{StaticResource BasicButton}"
-                Grid.Row="8" Grid.Column="13"
+                Grid.Row="7" Grid.Column="13"
                 >
             <TextBlock Style="{StaticResource BaicBrownText}"
                        Text="{StaticResource ArAdd}"

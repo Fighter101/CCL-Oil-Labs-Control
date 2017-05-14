@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CCL_Oil_Labs_Control.Views
 {
     /// <summary>
-    /// Interaction logic for CodesEquipNames.xaml
+    /// Interaction logic for CodesRegCoMenu.xaml
     /// </summary>
-    public partial class CodesEquipNames : UserControl
+    public partial class CodesRegCoMenu : UserControl
     {
-        public CodesEquipNames()
+        public CodesRegCoMenu()
         {
             InitializeComponent();
         }

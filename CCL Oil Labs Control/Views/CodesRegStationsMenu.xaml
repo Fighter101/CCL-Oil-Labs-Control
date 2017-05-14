@@ -4,115 +4,211 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
-             mc:Ignorable="d"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:prism ="http://prismlibrary.com/"
+             xmlns:Util ="clr-namespace:CCL_Oil_Labs_Control.Utils"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
              Style="{StaticResource BasicUserControl}">
-    <Grid>
+    <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
-            <RowDefinition Height="7"/>
-            <RowDefinition Height="3"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="2"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="40"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <!--Title-->
         <TextBlock Style="{StaticResource BaicPurpleText}"
-                   Text="{StaticResource ArRegStationCode}"
-                   Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3"
-                   />
+                   Grid.Row="0" Grid.Column="1"
+                   Text="{StaticResource ArRegStationsCode}"/>
         <!--Separator-->
         <Separator Style="{StaticResource BasicSeparator}"
-                   Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" 
-                   />
+                   Grid.Row="1" Grid.Column="1"/>
         <!--Upper Grid-->
         <Border Style="{StaticResource BasicBrownBorder}"
-                Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4">
-            <Grid >
+                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid Background="LightGray">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="60"/>
-                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
-                <!--Upper Left Grid-->
-                <Grid Grid.Column="1">
+                <!--Left Upper Grid-->
+                <Grid Background="LightGray"
+                      Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="30"/>
-                        <ColumnDefinition Width="2"/>
-                        <ColumnDefinition Width="60"/>
-                        <ColumnDefinition Width="2"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="2"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="2"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="2"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="2"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="2"/>
-                        <RowDefinition Height="25"/>
-                        <RowDefinition Height="2"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
-                    <!--Back Button-->
-                    <Button Style="{StaticResource BasicButton}"
-                            Grid.Column="0" Grid.Row="1" Grid.RowSpan="8"
-                            >
-                        <TextBlock Style="{StaticResource BaicBrownText}"
-                                   Text="{StaticResource ArBack}"
-                                   />
+                    <!--Back button-->
+                    <Button Name="CodesRegStationsMenuButtonBack" 
+                            Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="{StaticResource CodesAddingMenu}"
+                            Style="{StaticResource BasicButton}"
+                            Grid.Row="0" Grid.Column="1" Grid.RowSpan="7">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockBack"
+                       Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArBack}"
+                       FontSize="32"
+                       />
                     </Button>
-                    <!--Add Button-->
-                    <Button Style="{StaticResource BasicButton}"
-                            Grid.Column="1" Grid.Row="1" 
-                            >
-                        <TextBlock Style="{StaticResource BaicBrownText}"
-                                   Text="{StaticResource ArAdd}"
-                                   />
+                    <!--Add button-->
+                    <Button Name="CodesRegStationsMenuButtonAdd" 
+                            Style="{StaticResource BasicButton}"
+                            Grid.Row="0" Grid.Column="3">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockAdd"
+                       Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArAdd}"
+                       />
                     </Button>
-                    <!--Save Button-->
-                    <Button Style="{StaticResource BasicButton}"
-                            Grid.Column="1" Grid.Row="3" 
-                            >
-                        <TextBlock Style="{StaticResource BaicBrownText}"
-                                   Text="{StaticResource ArSave}"
-                                   />
+                    <!--Save button-->
+                    <Button Name="CodesRegStationsMenuButtonSave" 
+                            Style="{StaticResource BasicButton}"
+                            Grid.Row="2" Grid.Column="3">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockSave"
+                       Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArSave}"
+                       />
                     </Button>
-                    <!--Next Button-->
-                    <Button Style="{StaticResource BasicButton}"
-                            Grid.Column="1" Grid.Row="5" 
-                            >
-                        <TextBlock Style="{StaticResource BaicBrownText}"
-                                   Text="{StaticResource ArNext}"
-                                   />
+                    <!--Next button-->
+                    <Button Name="CodesRegStationsMenuButtonNext" 
+                            Style="{StaticResource BasicButton}"
+                            Grid.Row="4" Grid.Column="3">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockNext"
+                       Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArNext}"
+                       />
                     </Button>
-                    <!--Delete Button-->
-                    <Button Style="{StaticResource BasicButton}"
-                            Grid.Column="1" Grid.Row="7" 
-                            >
-                        <TextBlock Style="{StaticResource BaicBrownText}"
-                                   Text="{StaticResource ArDelete}"
-                                   />
+                    <!--Delete button-->
+                    <Button Name="CodesRegStationsMenuButtonDelete" Command="{Binding deleteCommand}"
+                            Style="{StaticResource BasicButton}"
+                            Grid.Row="6" Grid.Column="3">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockDelete"
+                       Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource ArDelete}"
+                       />
                     </Button>
-                    <!--Ok Button-->
-                    <Button Style="{StaticResource BasicButton}"
-                            Grid.Column="3" Grid.Row="1" Grid.RowSpan="8"
-                            >
-                        <TextBlock Style="{StaticResource BaicBrownText}"
-                                   Text="{StaticResource EnOk}"
-                                   />
+                    <!--Ok button-->
+                    <Button Name="CodesRegStationsMenuButtonOk" Command="{Binding okButtonCommand}"
+                            Style="{StaticResource BasicButton}"
+                            Grid.Row="0" Grid.Column="5" Grid.RowSpan="7">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockOk"
+                       Style="{StaticResource BaicBrownText}"
+                       Text="{StaticResource EnOkay}"
+                       FontSize="32"
+                       />
                     </Button>
                 </Grid>
-                <!--Upper Right Grid-->
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="15*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="15*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="15*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <!--First Row TextBlock-->
+                    <Border Style="{StaticResource BasicBlueBorder}"
+                            Grid.Column="5" Grid.Row="1">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockCoTypeCode" 
+                               Style="{StaticResource AdvBlackText}"
+                               Text="{StaticResource ArCoTypeCode}"
+                       />
+                    </Border>
+                    <!--First Row ComboBox-->
+                    <ComboBox Name="CodesRegStationsMenuComboBoxCoTypeCode" ItemsSource="{Binding companyTypes}"
+                              DisplayMemberPath="TypeName"
+                              SelectedValuePath="ID"
+                              SelectedValue="{Binding selectedCompanyType}"
+                              IsEditable="True"
+                              SelectedIndex="1"
+                               Style="{StaticResource BasicComboBox}"
+                               Grid.Column="3" Grid.Row="1">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <prism:InvokeCommandAction Command="{Binding companyTypeComboBoxSelectionChangedCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <!--Second Row TextBlock-->
+                    <Border Style="{StaticResource BasicBlueBorder}" 
+                            Grid.Column="5" Grid.Row="3">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockCoCode" 
+                               Style="{StaticResource AdvBlackText}"
+                               Text="{StaticResource ArCoCode}"
+                       />
+                    </Border>
+                    <!--Second Row ComboBox-->
+                    <ComboBox Name="CodesRegStationsMenuComboBoxCoCode" ItemsSource="{Binding companies}"
+                              DisplayMemberPath="Name"
+                              SelectedValuePath="ID"
+                              SelectedValue="{Binding selectedCompany}"
+                              SelectedIndex="0"
+                              IsEditable="True"
+                               Style="{StaticResource BasicComboBox}"
+                               Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"
+                       />
+                    <!--Third Row TextBlock-->
+                    <Border Style="{StaticResource BasicBlueBorder}"
+                            Grid.Column="5" Grid.Row="5">
+                        <TextBlock Name="CodesRegStationsMenuTextBlockStationName" 
+                               Style="{StaticResource AdvBlackText}"
+                               Text="{StaticResource ArStationName}"
+                       />
+                    </Border>
+                    <!--Third Row TextBox-->
+                    <TextBox Name="CodesRegStationsMenuTextBoxStationName" Text="{Binding stationName}"
+                               Style="{StaticResource BasicTextBox}"
+                               Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4"
+                       />
+                </Grid>
+            </Grid>
+        </Border>
+        <!--Lower Grid-->
+        <Border Style="{StaticResource BasicBlueBorder}"
+                Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid Background="LightGray">
+                <DataGrid  Name="stationCodesDataGrid" IsReadOnly="True"
+                           Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource BasicEditableDataGrid}"
+                           SelectedIndex="{Binding currentSelectedRow}" ItemsSource="{Binding stations}" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" 
+                                            Header="{StaticResource ArCoType}" Width="2*" Binding="{Binding CompanyType , Converter={Util:CompanyTypeToStringConverter}}" />
+                        <DataGridTextColumn Header="{StaticResource ArCompany}" Width="5*" 
+                                            HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Binding="{Binding CompanyName, Converter={Util:CompanyToStringConverter}}"/>
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Width="5*" 
+                                            Header="{StaticResource ArStation}" CellStyle="{StaticResource BasicGridCell}" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </Border>
     </Grid>

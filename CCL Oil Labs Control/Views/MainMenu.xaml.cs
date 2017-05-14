@@ -17,7 +17,7 @@ namespace CCL_Oil_Labs_Control.Views
     /// <summary>
     /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class MainMenu : UserControl
     {
         public MainMenu()
         {
