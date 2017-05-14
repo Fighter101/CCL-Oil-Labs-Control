@@ -64,6 +64,15 @@ namespace CCL_Oil_Labs_Control.ViewModels
             _comboBoxSelectionChangedCommand ?? (_comboBoxSelectionChangedCommand = new DelegateCommand<object[]>(
                 delegate(object[] o)
                 {
+                    if(currentSelectedRow == companies.Count)
+                    {
+                        //What the duck am i doing here ?
+                        var newCompany = new Company();
+                        newCompany.Type = 1;
+                        //Because Types in the DB start from zero--> am gonna kill that dev
+                        companies.Add(newCompany);
+                        currentSelectedRow--;
+                    }
                     if (o is object[] && (o as object[]).Count() > 0 && o[0] is CompanyType && (o[0] as CompanyType).ID !=0)
                     {
                         companies.ElementAt(currentSelectedRow).Type = (o[0] as CompanyType).ID;
