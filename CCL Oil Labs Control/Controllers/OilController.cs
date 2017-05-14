@@ -12,7 +12,7 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<Oil> getEquipment()
         {
             List<Oil> equipmentList;
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 equipmentList = (from equipment in model.Oils
                                  select equipment).ToList();

@@ -12,7 +12,7 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<AnalysisType> getAnalysisTypes()
         {
             var analysisTypesList = new List<AnalysisType>();
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 analysisTypesList = (from analysisType in model.AnalysisTypes
                                      select analysisType).ToList();

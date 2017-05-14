@@ -13,7 +13,7 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<Company> getCompanies()
         {
             List<Company> companiesList;
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 companiesList = (from company in model.Companies
                                  select company).ToList();
@@ -24,7 +24,7 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<Company> getCompanies(int companyType)
         {
             List<Company> companiesList;
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 companiesList = (from company in model.Companies
                                  where company.Type == companyType
@@ -35,7 +35,7 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<Company> getCompaniesByID(int companyID)
         {
             List<Company> companiesList;
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 companiesList = (from company in model.Companies
                                  where company.ID == companyID
@@ -46,7 +46,7 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<Company> getCompanies(String companyName)
         {
             List<Company> companiesList;
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 companiesList = (from company in model.Companies
                                  where company.Name == companyName

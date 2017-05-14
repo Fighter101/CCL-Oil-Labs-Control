@@ -13,7 +13,7 @@ namespace CCL_Oil_Labs_Control.Model
         {
             var stationList = new List<Station>();
 
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 stationList = (from station in model.Stations
                                where station.CompanyName == companyName &&
@@ -27,7 +27,7 @@ namespace CCL_Oil_Labs_Control.Model
         {
             var stationList = new List<Station>();
 
-            using (var model = new DatabaseEntities())
+            using (var model = DatabaseEntities.Initiate())
             {
                 stationList = (from station in model.Stations
                                where station.CompanyName == companyName &&

@@ -19,7 +19,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
         private int emptyCellsCounter = 0;
 
         private DataGrid dataGrid;
-        private ObservableCollection<CompanyType> _companyTypes = new ObservableCollection<CompanyType>(CompanyType.getCompanyTypes());
+        private ObservableCollection<CompanyType> _companyTypes = CompanyType.getCompanyTypes();
         public ObservableCollection<CompanyType> companyTypes
         {
             get { return _companyTypes  ; }
@@ -105,8 +105,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            //TODO 
-            //save The new Codes
+            DatabaseEntities.Initiate().SaveChanges();
         }
     }
 }
