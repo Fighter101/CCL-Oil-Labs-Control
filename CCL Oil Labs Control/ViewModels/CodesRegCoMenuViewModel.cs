@@ -83,7 +83,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private DelegateCommand _deleteCommand;
         public DelegateCommand deleteCommand =>
-            _deleteCommand ?? (_deleteCommand = new DelegateCommand(() => companies.RemoveAt(currentSelectedRow), () => currentSelectedRow >= 0));
+            _deleteCommand ?? (_deleteCommand = new DelegateCommand(() => companies.RemoveAt(currentSelectedRow), () => currentSelectedRow >= 0 && currentSelectedRow < companies.Count()));
 
         private DelegateCommand<object> _cellSelectionChangedCommand;
         public DelegateCommand<object> cellSelectionChangedCommand =>
