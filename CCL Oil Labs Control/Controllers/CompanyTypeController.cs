@@ -11,6 +11,7 @@ namespace CCL_Oil_Labs_Control.Model
     {
         public static ObservableCollection<CompanyType> getCompanyTypes()
         {
+            DatabaseEntities.clearEntity<CompanyType>();
             var model = DatabaseEntities.Initiate();
                 (from company in model.CompanyTypes select company).Load();
                 return model.CompanyTypes.Local;
@@ -18,6 +19,7 @@ namespace CCL_Oil_Labs_Control.Model
         }
         public static ObservableCollection<CompanyType> getCompanyTypes(int companyType)
         {
+            DatabaseEntities.clearEntity<CompanyType>();
             var model = DatabaseEntities.Initiate();
             (from company in model.CompanyTypes where company.ID == companyType select company).Load();
             return model.CompanyTypes.Local;
@@ -25,6 +27,7 @@ namespace CCL_Oil_Labs_Control.Model
 
         public static ObservableCollection<CompanyType> getCompanyTypes(string companyTypeName)
         {
+            DatabaseEntities.clearEntity<CompanyType>();
             var model = DatabaseEntities.Initiate();
             (from company in model.CompanyTypes where company.TypeName == companyTypeName select company).Load();
             return model.CompanyTypes.Local;

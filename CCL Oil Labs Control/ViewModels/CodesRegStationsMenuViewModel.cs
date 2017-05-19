@@ -70,8 +70,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private DelegateCommand _companyTypeComboBoxSelectionChangedCommand;
         public DelegateCommand companyTypeComboBoxSelectionChangedCommand =>
-            _companyTypeComboBoxSelectionChangedCommand ?? (_companyTypeComboBoxSelectionChangedCommand = new DelegateCommand(delegate{ () => companies = Company.getCompanies(selectedCompanyType);
-            DatabaseEntities.clearEntity<Company>;, () => true));
+            _companyTypeComboBoxSelectionChangedCommand ?? (_companyTypeComboBoxSelectionChangedCommand = new DelegateCommand(() => companies = Company.getCompanies(selectedCompanyType), () => true));
 
         private string _stationName;
         public string stationName

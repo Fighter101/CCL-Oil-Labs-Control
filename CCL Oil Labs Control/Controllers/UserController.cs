@@ -22,6 +22,7 @@ namespace CCL_Oil_Labs_Control.Model
 
         public bool login()
         {
+            DatabaseEntities.clearEntity<User>();
             var model = DatabaseEntities.Initiate();
             var userList = from user in model.Users
                            where user.Username == this.Username
@@ -45,6 +46,7 @@ namespace CCL_Oil_Labs_Control.Model
         }
         public bool Register()
         {
+            DatabaseEntities.clearEntity<User>();
             var model = DatabaseEntities.Initiate();
             if (model.Users.Any(u => u.Username == this.Username))
                 return false;
@@ -65,6 +67,7 @@ namespace CCL_Oil_Labs_Control.Model
         }
         public static IList<string> getuserNames()
         {
+            DatabaseEntities.clearEntity<User>();
             List<string> userNames;
             var model = DatabaseEntities.Initiate();
                 var names = from user in model.Users

@@ -13,6 +13,7 @@ namespace CCL_Oil_Labs_Control.Model
     {
         public static ObservableCollection<Oil> getEquipment()
         {
+            DatabaseEntities.clearEntity<Oil>();
             var model = DatabaseEntities.Initiate();
             (from equipment in model.Oils select equipment).Load();
             return model.Oils.Local;

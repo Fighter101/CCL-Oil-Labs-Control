@@ -44,7 +44,7 @@ namespace CCL_Oil_Labs_Control.Model
         {
             if (context == null)
                 return;
-            context.SaveChanges();
+            //context.SaveChanges();
             context.Set<T>().Local.ToList().ForEach(p => context.Entry(p).State = EntityState.Detached);
         }
         public static void save()

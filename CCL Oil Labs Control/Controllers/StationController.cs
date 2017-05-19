@@ -21,6 +21,7 @@ namespace CCL_Oil_Labs_Control.Model
 
         public static ObservableCollection<Station> getStations(int companyName, int CompanyType,string stationName)
         {
+            DatabaseEntities.clearEntity<Station>();
             var model = DatabaseEntities.Initiate();
             return new ObservableCollection<Station>((from station in model.Stations
              where station.CompanyName == companyName && 

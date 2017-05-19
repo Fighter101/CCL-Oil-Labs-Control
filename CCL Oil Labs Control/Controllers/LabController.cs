@@ -11,6 +11,7 @@ namespace CCL_Oil_Labs_Control.Model
     {
         public static IList<Lab> getLabs()
         {
+            DatabaseEntities.clearEntity<Lab>();
             var model = DatabaseEntities.Initiate();
             (from lab in model.Labs select lab).Load();
             return DatabaseEntities.Initiate().Labs.Local;
