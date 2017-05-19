@@ -116,7 +116,14 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            DatabaseEntities.Initiate().SaveChanges();
+            try
+            {
+                DatabaseEntities.Initiate().SaveChanges();
+            }
+            catch (System.InvalidOperationException)
+            {
+                MessageBox.Show("You don't want to change this, I know better :P");
+            }
         }
     }
 }

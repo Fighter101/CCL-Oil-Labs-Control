@@ -14,7 +14,7 @@ namespace CCL_Oil_Labs_Control.Utils
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             int company = (int)value;
-            return Company.getCompaniesByID(company).FirstOrDefault().Name;
+            return Company.getCompaniesByID(company).FirstOrDefault()?.Name == null  ? "" : Company.getCompaniesByID(company).FirstOrDefault().Name;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

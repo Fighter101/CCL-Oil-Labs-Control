@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,9 @@ namespace CCL_Oil_Labs_Control.Model
     {
         public static IList<Lab> getLabs()
         {
-            var labsList = new List<Lab>();
-            using (var model = DatabaseEntities.Initiate())
-            {
-                labsList = (from lab in model.Labs
-                            select lab).ToList();
-            }
-            return labsList;
+            var model = DatabaseEntities.Initiate();
+            (from lab in model.Labs select lab).Load();
+            return DatabaseEntities.Initiate().Labs.Local;
         }
     }
 }

@@ -22,28 +22,26 @@ namespace CCL_Oil_Labs_Control.Model
 
         public bool login()
         {
-            using (var model = DatabaseEntities.Initiate())
+            var model = DatabaseEntities.Initiate();
+            var userList = from user in model.Users
+                           where user.Username == this.Username
+                           select user;
+            var currentuser = userList.FirstOrDefault();
+            if (currentuser == null)
             {
-                var userList = from user in model.Users
-                               where user.Username == this.Username
-                               select user;
-                var currentuser = userList.FirstOrDefault();
-                if (currentuser == null)
-                {
-                    return false;
-                }
-                else
-                {
-                    this.Salt = currentuser.Salt;
-                    this.HashedString = Utils.Utils.hash(this.Salt, password);
-                    this.AuthorizationLevel = currentuser.AuthorizationLevel;
-                }
-                var userListWithHash = from user in model.Users
-                               where (user.Username == this.Username && user.HashedString == this.HashedString)
-                               select user;
-                User currentUser = userListWithHash?.FirstOrDefault();
-                return currentUser != null;
+                return false;
             }
+            else
+            {
+                this.Salt = currentuser.Salt;
+                this.HashedString = Utils.Utils.hash(this.Salt, password);
+                this.AuthorizationLevel = currentuser.AuthorizationLevel;
+            }
+            var userListWithHash = from user in model.Users
+                                   where (user.Username == this.Username && user.HashedString == this.HashedString)
+                                   select user;
+            User currentUser = userListWithHash?.FirstOrDefault();
+            return currentUser != null;
         }
         public bool Register()
         {
@@ -68,12 +66,10 @@ namespace CCL_Oil_Labs_Control.Model
         public static IList<string> getuserNames()
         {
             List<string> userNames;
-            using (var model = DatabaseEntities.Initiate())
-            {
+            var model = DatabaseEntities.Initiate();
                 var names = from user in model.Users
                             select user.Username;
                 userNames = names.ToList();
-            }
             return userNames;
 
         }

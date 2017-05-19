@@ -16,14 +16,14 @@ namespace CCL_Oil_Labs_Control.Model
                 return model.CompanyTypes.Local;
            
         }
-        public static IList<CompanyType> getCompanyTypes(int companyType)
+        public static ObservableCollection<CompanyType> getCompanyTypes(int companyType)
         {
             var model = DatabaseEntities.Initiate();
             (from company in model.CompanyTypes where company.ID == companyType select company).Load();
             return model.CompanyTypes.Local;
         }
 
-        public static IList<CompanyType> getCompanyTypes(string companyTypeName)
+        public static ObservableCollection<CompanyType> getCompanyTypes(string companyTypeName)
         {
             var model = DatabaseEntities.Initiate();
             (from company in model.CompanyTypes where company.TypeName == companyTypeName select company).Load();

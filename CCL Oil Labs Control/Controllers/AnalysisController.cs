@@ -6,20 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System;
 using System.Data.Entity;
+using System.Collections.ObjectModel;
 
 namespace CCL_Oil_Labs_Control.Model
 {
     public partial class Analysis
     {
-        public static IList<Analysis> getAnalysis()
+        public static ObservableCollection<Analysis> getAnalysis()
         {
-            var analysisList = new List<Analysis>();
-            using (var model = DatabaseEntities.Initiate())
-            {
-                analysisList = (from analysis in model.Analyses
-                                select analysis).ToList();
-            }
-            return analysisList;
+            var model = DatabaseEntities.Initiate();
+            ((from analysis in model.Analyses select analysis)).Load();
+            return model.Analyses.Local;
         }
                 
 

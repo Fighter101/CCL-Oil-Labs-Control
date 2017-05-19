@@ -40,6 +40,17 @@ namespace CCL_Oil_Labs_Control.Model
         {
         }
 
+        public static void clearEntity <T>() where T : class
+        {
+            if (context == null)
+                return;
+            context.SaveChanges();
+            context.Set<T>().Local.ToList().ForEach(p => context.Entry(p).State = EntityState.Detached);
+        }
+        public static void save()
+        {
+            context.SaveChanges();
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -67,5 +78,6 @@ namespace CCL_Oil_Labs_Control.Model
         public virtual DbSet<Turbine> Turbines { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<OilAnalysisType> OilAnalysisTypes { get; set; }
+        public object OilAnalysisTypesselect { get; internal set; }
     }
 }
