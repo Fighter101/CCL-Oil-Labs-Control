@@ -248,8 +248,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private void print()
         {
-            MessageBox.Show("Yay");
-
+            Utils.pdfCreator.createPDF("Hamdy Station", DateTime.Now, DateTime.Now, null, "It works :P");
         }
         private bool canPrint()
         {
