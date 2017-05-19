@@ -13,6 +13,7 @@ namespace CCL_Oil_Labs_Control.Model
 
         public static ObservableCollection<AnalysisType> getAnalysisTypes()
         {
+            DatabaseEntities.clearEntity<AnalysisType>();
             var model = DatabaseEntities.Initiate();
             (from analysisType in model.AnalysisTypes select analysisType).Load();
             return model.AnalysisTypes.Local;

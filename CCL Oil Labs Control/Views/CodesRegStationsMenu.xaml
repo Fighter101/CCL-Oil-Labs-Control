@@ -201,8 +201,8 @@
                            Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource BasicEditableDataGrid}"
                            SelectedIndex="{Binding currentSelectedRow}" ItemsSource="{Binding stations}" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" 
-                                            Header="{StaticResource ArCoType}" Width="2*" Binding="{Binding CompanyType , Converter={Util:CompanyTypeToStringConverter}}" IsReadOnly="True" />
+                        <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"  
+                                            Header="{StaticResource ArCoType}" Width="2*" Binding="{Binding CompanyType, Mode=TwoWay, Converter={Util:CompanyTypeToStringConverter}}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="{StaticResource ArCompany}" Width="5*" 
                                             HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Binding="{Binding CompanyName, Converter={Util:CompanyToStringConverter}}" IsReadOnly="True"/>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Width="5*" 

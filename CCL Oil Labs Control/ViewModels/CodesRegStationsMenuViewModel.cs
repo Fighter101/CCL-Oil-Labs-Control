@@ -11,9 +11,11 @@ using System.Windows;
 using System.Security;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
+using Prism.Regions;
+
 namespace CCL_Oil_Labs_Control.ViewModels
 {
-    public class CodesRegStationsMenuViewModel : BindableBase
+    public class CodesRegStationsMenuViewModel : BindableBase, IConfirmNavigationRequest
     {
 
         public CodesRegStationsMenuViewModel(GlobalNavigateCommand globalNavigateCommand)
@@ -68,7 +70,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private DelegateCommand _companyTypeComboBoxSelectionChangedCommand;
         public DelegateCommand companyTypeComboBoxSelectionChangedCommand =>
-            _companyTypeComboBoxSelectionChangedCommand ?? (_companyTypeComboBoxSelectionChangedCommand = new DelegateCommand(()=>companies = Company.getCompanies(selectedCompanyType), () => true));
+            _companyTypeComboBoxSelectionChangedCommand ?? (_companyTypeComboBoxSelectionChangedCommand = new DelegateCommand(() => companies = Company.getCompanies(selectedCompanyType), () => true));
 
         private string _stationName;
         public string stationName
@@ -77,7 +79,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set
             {
                 SetProperty(ref _stationName, value);
-                stations = new ObservableCollection<Station>(Station.getStations(selectedCompany, selectedCompanyType));
+                stations = (Station.getStations(selectedCompany, selectedCompanyType));
                 var returnedStation = Station.getStations(selectedCompany, selectedCompanyType, stationName);
                 if(returnedStation?.Count == 0 )
                 {
@@ -86,7 +88,11 @@ namespace CCL_Oil_Labs_Control.ViewModels
                     addedStation.CompanyType = selectedCompanyType;
                     addedStation.Name = stationName;
                     stations.Add(addedStation);
-                    //TODO Save in DB
+                    DatabaseEntities.Initiate().SaveChanges();
+                }
+                else
+                {
+                    stations = returnedStation;
                 }
             }
         }
@@ -100,12 +106,30 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private DelegateCommand _okButtonCommand;
         public DelegateCommand okButtonCommand =>
-            _okButtonCommand ?? (_okButtonCommand = new DelegateCommand(() => stations = new ObservableCollection<Station>(Station.getStations(selectedCompany,selectedCompanyType)), ()=>true));
+            _okButtonCommand ?? (_okButtonCommand = new DelegateCommand(() => stations = Station.getStations(selectedCompany,selectedCompanyType), ()=>selectedCompany!=0 && selectedCompanyType!=0)).ObservesProperty(()=>selectedCompany).ObservesProperty(()=>selectedCompanyType);
 
         private DelegateCommand _deleteCommand;
         public DelegateCommand deleteCommand =>
             _deleteCommand ?? (_deleteCommand = new DelegateCommand(()=>stations.RemoveAt(currentSelectedRow), ()=>currentSelectedRow >=0)).ObservesProperty(()=>currentSelectedRow);
 
+        public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
+        {
+            continuationCallback (true);
+        }
+
+        public void OnNavigatedTo(NavigationContext navigationContext)
+        {
+        }
+
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            DatabaseEntities.Initiate().SaveChanges();
+        }
     }
 
 

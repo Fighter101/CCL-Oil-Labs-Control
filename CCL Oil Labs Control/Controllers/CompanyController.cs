@@ -14,38 +14,36 @@ namespace CCL_Oil_Labs_Control.Model
 
         public static ObservableCollection<Company> getCompanies()
         {
+            DatabaseEntities.clearEntity<Company>();
             var model = DatabaseEntities.Initiate();
-            (from company in model.Companies select company).Load();
+            ((from company in model.Companies select company)).Load();
             return model.Companies.Local;
         }
 
-        public static IList<Company> getCompanies(int companyType)
+        public static ObservableCollection<Company> getCompanies(int companyType)
         {
+            DatabaseEntities.clearEntity<Company>();
             var model = DatabaseEntities.Initiate();
             (from company in model.Companies where company.Type == companyType select company).Load();
             return model.Companies.Local;
         }
-        public static IList<Company> getCompaniesByID(int companyID)
+        public static ObservableCollection<Company> getCompaniesByID(int companyID)
         {
-            List<Company> companiesList;
-            using (var model = DatabaseEntities.Initiate())
-            {
-                companiesList = (from company in model.Companies
-                                 where company.ID == companyID
-                                 select company).ToList();
-            }
-            return companiesList;
+            DatabaseEntities.clearEntity<Company>();
+            var model = DatabaseEntities.Initiate();
+            (from company in model.Companies
+                             where company.ID == companyID
+                             select company).Load();
+            return model.Companies.Local;
         }
-        public static IList<Company> getCompanies(String companyName)
+        public static ObservableCollection<Company> getCompanies(String companyName)
         {
-            List<Company> companiesList;
-            using (var model = DatabaseEntities.Initiate())
-            {
-                companiesList = (from company in model.Companies
-                                 where company.Name == companyName
-                                 select company).ToList();
-            }
-            return companiesList;
+            DatabaseEntities.clearEntity<Company>();
+            var model = DatabaseEntities.Initiate();
+                (from company in model.Companies
+                 where company.Name == companyName
+                 select company).Load();
+            return model.Companies.Local;
         }
 
     }
