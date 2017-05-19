@@ -8,9 +8,10 @@ namespace CCL_Oil_Labs_Control.Utils
 {
     public static class pdfCreator
     {
-        public static void createPDF(IList<Transformer> transformers , string evaluation)
+        public static void createPDF(string stationName , DateTime importNumber , DateTime analysisDate , IList<Transformer> transformers , string evaluation)
         {
             throw new NotImplementedException();
+          
         }
 
     }
