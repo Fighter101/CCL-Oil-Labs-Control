@@ -197,16 +197,16 @@
         <Border Style="{StaticResource BasicBlueBorder}"
                 Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid Background="LightGray">
-                <DataGrid  Name="stationCodesDataGrid" IsReadOnly="True"
+                <DataGrid  Name="stationCodesDataGrid" 
                            Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource BasicEditableDataGrid}"
                            SelectedIndex="{Binding currentSelectedRow}" ItemsSource="{Binding stations}" >
                     <DataGrid.Columns>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" 
-                                            Header="{StaticResource ArCoType}" Width="2*" Binding="{Binding CompanyType , Converter={Util:CompanyTypeToStringConverter}}" />
+                                            Header="{StaticResource ArCoType}" Width="2*" Binding="{Binding CompanyType , Converter={Util:CompanyTypeToStringConverter}}" IsReadOnly="True" />
                         <DataGridTextColumn Header="{StaticResource ArCompany}" Width="5*" 
-                                            HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Binding="{Binding CompanyName, Converter={Util:CompanyToStringConverter}}"/>
+                                            HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Binding="{Binding CompanyName, Converter={Util:CompanyToStringConverter}}" IsReadOnly="True"/>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}" Width="5*" 
-                                            Header="{StaticResource ArStation}" CellStyle="{StaticResource BasicGridCell}" Binding="{Binding Name}"/>
+                                            Header="{StaticResource ArStation}" CellStyle="{StaticResource BasicGridCell}" Binding="{Binding Name, Mode=TwoWay}" IsReadOnly="False"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

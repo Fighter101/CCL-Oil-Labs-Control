@@ -26,7 +26,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _globalNavigateCommand, value); }
         }
 
-        private ObservableCollection<OilType> _oilTypes = new ObservableCollection<OilType>(OilType.getOilTypes());
+        private ObservableCollection<OilType> _oilTypes = OilType.getOilTypes();
         public ObservableCollection<OilType> oilTypes
         {
             get { return _oilTypes; }
@@ -87,7 +87,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            //TODO code to Save in DB
+            DatabaseEntities.Initiate().SaveChanges();
         }
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ebe2a8aff1bb4d02b1c834029c2f0939" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.CODE__ANALYSIS" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CODE__COMPANY" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CODE__TYPE_OF_ANALYSIS" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CODE_LAB" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CODE_OIL" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CODE_STATION" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CODE_TYPE_OF_COMPANY" Width="1.5" PointX="1.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.CODE_TYPE_OF_OIL" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.FURAN_OIL" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.GAS" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.MAIN_TAB" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.sysdiagram" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.TRANSFORMER_OIL" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.TURBINE_OIL" Width="1.5" PointX="8.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.OIL_CODE" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.CODE__ANALYSIS__6308EB7E_336F_402B_A13E_718F33632BBA_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.CODE__COMPANY__09DB7D3A_881F_4A6D_ACAA_7130D5C37067_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.CODE_STATION__A5E3FEF7_7851_439B_A741_73000EABC488_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.CODE_OIL__33A87D4D_074E_4618_B1CE_69DEFC915D76_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.MAIN_TAB__F4A11582_E8A8_41E8_AAF4_9BD3F0876AC9_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.MAIN_TAB__A9042493_16FB_401F_8DF2_06D6F96D1872_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FURAN_OIL__D715E5C0_D67B_4FEA_96D3_CFFCE1CFBFB6_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.GAS__A707E278_2141_4C1D_9755_2174827AF3AA_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.TRANSFORMER_OIL__F1786E32_8168_4427_BA44_76E3D3D5B888_" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.TURBINE_OIL__FA80AC58_C2E3_44FE_BC39_A02412F513E7_" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

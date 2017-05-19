@@ -66,7 +66,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             _comboBoxSelectionChangedCommand ?? (_comboBoxSelectionChangedCommand = new DelegateCommand<object[]>(
                 delegate(object[] o)
                 {
-                    if (currentSelectedRow >= 0)
+                    if (currentSelectedRow >= 0 && o.Count() >0)
                     {
                         equipments.ElementAt(currentSelectedRow).OilType = (o[0] as OilType);
                         equipments.ElementAt(currentSelectedRow).Type = (o[0] as OilType).ID;
@@ -111,7 +111,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            //TODO code to Save in DB
+            DatabaseEntities.Initiate().SaveChanges();
         }
 
     }

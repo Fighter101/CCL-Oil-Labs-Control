@@ -322,10 +322,10 @@
                        />
         </Button>
         <!--Add button-->
-        <Button Style="{StaticResource BasicButton}"
+        <Button Style="{StaticResource BasicButton}" Command="{Binding printingCommand}"
                 Grid.Row="4" Grid.Column="13" Grid.ColumnSpan="2">
             <TextBlock Style="{StaticResource BaicBrownText}"
-                       Text="{StaticResource ArAdd}"
+                       Text="{StaticResource ArAdd}" 
                        />
         </Button>
     </Grid>

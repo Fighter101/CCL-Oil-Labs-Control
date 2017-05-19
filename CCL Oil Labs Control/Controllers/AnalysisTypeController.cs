@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +11,11 @@ namespace CCL_Oil_Labs_Control.Model
     public partial class AnalysisType
     {
 
-        public static IList<AnalysisType> getAnalysisTypes()
+        public static ObservableCollection<AnalysisType> getAnalysisTypes()
         {
-            var analysisTypesList = new List<AnalysisType>();
-            using (var model = DatabaseEntities.Initiate())
-            {
-                analysisTypesList = (from analysisType in model.AnalysisTypes
-                                     select analysisType).ToList();
-            }
-            return analysisTypesList;
+            var model = DatabaseEntities.Initiate();
+            (from analysisType in model.AnalysisTypes select analysisType).Load();
+            return model.AnalysisTypes.Local;
         }
     }
 }

@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CODE_ ANALYSIS">
+          <Key>
+            <PropertyRef Name="COD_ ANALYSIS" />
+          </Key>
+          <Property Name="COD_ ANALYSIS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_ TYPE OF ANALYSIS" Type="int" />
+          <Property Name="ANALYSIS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CODE_ COMPANY">
+          <Key>
+            <PropertyRef Name="COD_ COMPANY" />
+            <PropertyRef Name="COD_TYPE" />
+          </Key>
+          <Property Name="COD_ COMPANY" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_TYPE" Type="int" Nullable="false" />
+          <Property Name="COMPANY" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CODE_ TYPE OF ANALYSIS">
+          <Key>
+            <PropertyRef Name="COD_TYPE ANALYSIS" />
+          </Key>
+          <Property Name="COD_TYPE ANALYSIS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TYPE ANALYSIS" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="CODE_LAB">
+          <Key>
+            <PropertyRef Name="LAB_COD" />
+          </Key>
+          <Property Name="LAB_COD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="laboratory" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CODE_OIL">
+          <Key>
+            <PropertyRef Name="COD_OIL" />
+            <PropertyRef Name="COD_TYPEOIL" />
+          </Key>
+          <Property Name="COD_OIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_TYPEOIL" Type="int" Nullable="false" />
+          <Property Name="OIL" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CODE_STATION">
+          <Key>
+            <PropertyRef Name="COD_STATION" />
+            <PropertyRef Name="COD_TYPE" />
+            <PropertyRef Name="COD_ COMPANY" />
+          </Key>
+          <Property Name="COD_STATION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_TYPE" Type="int" Nullable="false" />
+          <Property Name="COD_ COMPANY" Type="int" Nullable="false" />
+          <Property Name="STATION" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CODE_TYPE OF COMPANY">
+          <Key>
+            <PropertyRef Name="COD_TYPE" />
+          </Key>
+          <Property Name="COD_TYPE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TYPE OF COMPANY" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CODE_TYPE OF OIL">
+          <Key>
+            <PropertyRef Name="COD_TYPEOIL" />
+          </Key>
+          <Property Name="COD_TYPEOIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TYPE_OIL" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="FURAN_OIL">
+          <Key>
+            <PropertyRef Name="FURAN_ID" />
+          </Key>
+          <Property Name="FURAN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="OIL" Type="int" />
+          <Property Name="Fu" Type="float" />
+          <Property Name="Hy" Type="float" />
+          <Property Name="Ace" Type="float" />
+          <Property Name="Met" Type="float" />
+          <Property Name="Fur" Type="float" />
+          <Property Name="TOT_F" Type="float" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GAS">
+          <Key>
+            <PropertyRef Name="Gas_ID" />
+          </Key>
+          <Property Name="Gas_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="OIL" Type="int" />
+          <Property Name="H2" Type="float" />
+          <Property Name="O2" Type="float" />
+          <Property Name="N2" Type="float" />
+          <Property Name="CO" Type="float" />
+          <Property Name="CO2" Type="float" />
+          <Property Name="CH4" Type="float" />
+          <Property Name="C2H6" Type="float" />
+          <Property Name="C2H4" Type="float" />
+          <Property Name="C2H2" Type="float" />
+          <Property Name="TOT" Type="float" />
+          <Property Name="KF" Type="nvarchar" MaxLength="10" />
+          <Property Name="TDCG" Type="nvarchar" MaxLength="10" />
+          <Property Name="TDCG Codes" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fault Codes" Type="nvarchar" MaxLength="50" />
+          <Property Name="RECOMMENDATIONS" Type="nvarchar" MaxLength="10" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MAIN_TAB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IN_NO" Type="float" Nullable="false" />
+          <Property Name="IN_DATE" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="OUT_NO" Type="float" />
+          <Property Name="OUT_DATE" Type="datetime2" Precision="0" />
+          <Property Name="TYPE_ COMPANY" Type="int" />
+          <Property Name="COMPANY" Type="int" />
+          <Property Name="STATION" Type="int" />
+          <Property Name="TYPE_OIL" Type="int" />
+          <Property Name="OIL_ ANALYSIS" Type="int" />
+          <Property Name="RESULTS" Type="nvarchar" MaxLength="250" />
+          <Property Name="RECOMMENDATIONS" Type="nvarchar" MaxLength="250" />
+          <Property Name="COAST" Type="money" />
+          <Property Name="laboratory" Type="int" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'E:\CCL-OIL-LABS-CONTROL\CCL OIL LABS CONTROL\DATABASE.MDF.dbo.Name AutoCorrect Save Failures' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Name AutoCorrect Save Failures">
+          <Property Name="Object Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Object Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Failure Reason" Type="nvarchar" MaxLength="255" />
+          <Property Name="Time" Type="datetime2" Precision="0" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'E:\CCL-OIL-LABS-CONTROL\CCL OIL LABS CONTROL\DATABASE.MDF.dbo.OIL_CODE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OIL_CODE">
+          <Key>
+            <PropertyRef Name="OIL_COD" />
+          </Key>
+          <Property Name="OIL_COD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OILANALYSIS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TRANSFORMER_OIL">
+          <Key>
+            <PropertyRef Name="TRANSFORMER_ID" />
+          </Key>
+          <Property Name="TRANSFORMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="OIL" Type="int" />
+          <Property Name="SG" Type="float" />
+          <Property Name="COL" Type="float" />
+          <Property Name="IMP" Type="float" />
+          <Property Name="WA" Type="float" />
+          <Property Name="IPI" Type="float" />
+          <Property Name="KV" Type="float" />
+          <Property Name="PF" Type="float" />
+          <Property Name="ST" Type="float" />
+          <Property Name="KI" Type="float" />
+          <Property Name="FL" Type="float" />
+          <Property Name="CO" Type="float" />
+          <Property Name="KF" Type="nvarchar" MaxLength="10" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TURBINE_OIL">
+          <Key>
+            <PropertyRef Name="TURBINE_ID" />
+          </Key>
+          <Property Name="TURBINE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="SG" Type="float" />
+          <Property Name="KV" Type="float" />
+          <Property Name="FO" Type="float" />
+          <Property Name="WR" Type="float" />
+          <Property Name="COL" Type="float" />
+          <Property Name="TA" Type="float" />
+          <Property Name="IMP" Type="float" />
+          <Property Name="DN" Type="float" />
+          <Property Name="F" Type="float" />
+          <Property Name="PS" Type="float" />
+          <Property Name="OIL" Type="int" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <Association Name="CODE_ ANALYSIS${6308EB7E-336F-402B-A13E-718F33632BBA}">
+          <End Role="CODE_ TYPE OF ANALYSIS" Type="Self.CODE_ TYPE OF ANALYSIS" Multiplicity="0..1" />
+          <End Role="CODE_ ANALYSIS" Type="Self.CODE_ ANALYSIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_ TYPE OF ANALYSIS">
+              <PropertyRef Name="COD_TYPE ANALYSIS" />
+            </Principal>
+            <Dependent Role="CODE_ ANALYSIS">
+              <PropertyRef Name="COD_ TYPE OF ANALYSIS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CODE_ COMPANY${09DB7D3A-881F-4A6D-ACAA-7130D5C37067}">
+          <End Role="CODE_TYPE OF COMPANY" Type="Self.CODE_TYPE OF COMPANY" Multiplicity="1" />
+          <End Role="CODE_ COMPANY" Type="Self.CODE_ COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_TYPE OF COMPANY">
+              <PropertyRef Name="COD_TYPE" />
+            </Principal>
+            <Dependent Role="CODE_ COMPANY">
+              <PropertyRef Name="COD_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CODE_OIL${33A87D4D-074E-4618-B1CE-69DEFC915D76}">
+          <End Role="CODE_TYPE OF OIL" Type="Self.CODE_TYPE OF OIL" Multiplicity="1" />
+          <End Role="CODE_OIL" Type="Self.CODE_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_TYPE OF OIL">
+              <PropertyRef Name="COD_TYPEOIL" />
+            </Principal>
+            <Dependent Role="CODE_OIL">
+              <PropertyRef Name="COD_TYPEOIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CODE_STATION${A5E3FEF7-7851-439B-A741-73000EABC488}">
+          <End Role="CODE_ COMPANY" Type="Self.CODE_ COMPANY" Multiplicity="1" />
+          <End Role="CODE_STATION" Type="Self.CODE_STATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_ COMPANY">
+              <PropertyRef Name="COD_ COMPANY" />
+              <PropertyRef Name="COD_TYPE" />
+            </Principal>
+            <Dependent Role="CODE_STATION">
+              <PropertyRef Name="COD_ COMPANY" />
+              <PropertyRef Name="COD_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FURAN_OIL${D715E5C0-D67B-4FEA-96D3-CFFCE1CFBFB6}">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="FURAN_OIL" Type="Self.FURAN_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FURAN_OIL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GAS${A707E278-2141-4C1D-9755-2174827AF3AA}">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="GAS" Type="Self.GAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GAS">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_TAB${A9042493-16FB-401F-8DF2-06D6F96D1872}">
+          <End Role="CODE_TYPE OF OIL" Type="Self.CODE_TYPE OF OIL" Multiplicity="0..1" />
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_TYPE OF OIL">
+              <PropertyRef Name="COD_TYPEOIL" />
+            </Principal>
+            <Dependent Role="MAIN_TAB">
+              <PropertyRef Name="TYPE_OIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_TAB${F4A11582-E8A8-41E8-AAF4-9BD3F0876AC9}">
+          <End Role="CODE_STATION" Type="Self.CODE_STATION" Multiplicity="0..1" />
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_STATION">
+              <PropertyRef Name="COD_STATION" />
+              <PropertyRef Name="COD_TYPE" />
+              <PropertyRef Name="COD_ COMPANY" />
+            </Principal>
+            <Dependent Role="MAIN_TAB">
+              <PropertyRef Name="STATION" />
+              <PropertyRef Name="TYPE_ COMPANY" />
+              <PropertyRef Name="COMPANY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRANSFORMER_OIL${F1786E32-8168-4427-BA44-76E3D3D5B888}">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="TRANSFORMER_OIL" Type="Self.TRANSFORMER_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRANSFORMER_OIL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TURBINE_OIL${FA80AC58-C2E3-44FE-BC39-A02412F513E7}">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="TURBINE_OIL" Type="Self.TURBINE_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TURBINE_OIL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="CODE_ ANALYSIS" EntityType="Self.CODE_ ANALYSIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CODE_ COMPANY" EntityType="Self.CODE_ COMPANY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CODE_ TYPE OF ANALYSIS" EntityType="Self.CODE_ TYPE OF ANALYSIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CODE_LAB" EntityType="Self.CODE_LAB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CODE_OIL" EntityType="Self.CODE_OIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CODE_STATION" EntityType="Self.CODE_STATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CODE_TYPE OF COMPANY" EntityType="Self.CODE_TYPE OF COMPANY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CODE_TYPE OF OIL" EntityType="Self.CODE_TYPE OF OIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FURAN_OIL" EntityType="Self.FURAN_OIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GAS" EntityType="Self.GAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MAIN_TAB" EntityType="Self.MAIN_TAB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TRANSFORMER_OIL" EntityType="Self.TRANSFORMER_OIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TURBINE_OIL" EntityType="Self.TURBINE_OIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OIL_CODE" EntityType="Self.OIL_CODE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OIL_CODE].[OIL_COD] AS [OIL_COD], 
+    [OIL_CODE].[OILANALYSIS] AS [OILANALYSIS]
+    FROM [dbo].[OIL_CODE] AS [OIL_CODE]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="CODE_ ANALYSIS${6308EB7E-336F-402B-A13E-718F33632BBA}" Association="Self.CODE_ ANALYSIS${6308EB7E-336F-402B-A13E-718F33632BBA}">
+            <End Role="CODE_ TYPE OF ANALYSIS" EntitySet="CODE_ TYPE OF ANALYSIS" />
+            <End Role="CODE_ ANALYSIS" EntitySet="CODE_ ANALYSIS" />
+          </AssociationSet>
+          <AssociationSet Name="CODE_ COMPANY${09DB7D3A-881F-4A6D-ACAA-7130D5C37067}" Association="Self.CODE_ COMPANY${09DB7D3A-881F-4A6D-ACAA-7130D5C37067}">
+            <End Role="CODE_TYPE OF COMPANY" EntitySet="CODE_TYPE OF COMPANY" />
+            <End Role="CODE_ COMPANY" EntitySet="CODE_ COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="CODE_OIL${33A87D4D-074E-4618-B1CE-69DEFC915D76}" Association="Self.CODE_OIL${33A87D4D-074E-4618-B1CE-69DEFC915D76}">
+            <End Role="CODE_TYPE OF OIL" EntitySet="CODE_TYPE OF OIL" />
+            <End Role="CODE_OIL" EntitySet="CODE_OIL" />
+          </AssociationSet>
+          <AssociationSet Name="CODE_STATION${A5E3FEF7-7851-439B-A741-73000EABC488}" Association="Self.CODE_STATION${A5E3FEF7-7851-439B-A741-73000EABC488}">
+            <End Role="CODE_ COMPANY" EntitySet="CODE_ COMPANY" />
+            <End Role="CODE_STATION" EntitySet="CODE_STATION" />
+          </AssociationSet>
+          <AssociationSet Name="FURAN_OIL${D715E5C0-D67B-4FEA-96D3-CFFCE1CFBFB6}" Association="Self.FURAN_OIL${D715E5C0-D67B-4FEA-96D3-CFFCE1CFBFB6}">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="FURAN_OIL" EntitySet="FURAN_OIL" />
+          </AssociationSet>
+          <AssociationSet Name="GAS${A707E278-2141-4C1D-9755-2174827AF3AA}" Association="Self.GAS${A707E278-2141-4C1D-9755-2174827AF3AA}">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="GAS" EntitySet="GAS" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_TAB${A9042493-16FB-401F-8DF2-06D6F96D1872}" Association="Self.MAIN_TAB${A9042493-16FB-401F-8DF2-06D6F96D1872}">
+            <End Role="CODE_TYPE OF OIL" EntitySet="CODE_TYPE OF OIL" />
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_TAB${F4A11582-E8A8-41E8-AAF4-9BD3F0876AC9}" Association="Self.MAIN_TAB${F4A11582-E8A8-41E8-AAF4-9BD3F0876AC9}">
+            <End Role="CODE_STATION" EntitySet="CODE_STATION" />
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+          </AssociationSet>
+          <AssociationSet Name="TRANSFORMER_OIL${F1786E32-8168-4427-BA44-76E3D3D5B888}" Association="Self.TRANSFORMER_OIL${F1786E32-8168-4427-BA44-76E3D3D5B888}">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="TRANSFORMER_OIL" EntitySet="TRANSFORMER_OIL" />
+          </AssociationSet>
+          <AssociationSet Name="TURBINE_OIL${FA80AC58-C2E3-44FE-BC39-A02412F513E7}" Association="Self.TURBINE_OIL${FA80AC58-C2E3-44FE-BC39-A02412F513E7}">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="TURBINE_OIL" EntitySet="TURBINE_OIL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CODE__ANALYSIS">
+          <Key>
+            <PropertyRef Name="COD__ANALYSIS" />
+          </Key>
+          <Property Name="COD__ANALYSIS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD__TYPE_OF_ANALYSIS" Type="Int32" />
+          <Property Name="ANALYSIS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CODE__TYPE_OF_ANALYSIS" Relationship="Self.CODE__ANALYSIS__6308EB7E_336F_402B_A13E_718F33632BBA_" FromRole="CODE__ANALYSIS" ToRole="CODE__TYPE_OF_ANALYSIS" />
+        </EntityType>
+        <EntityType Name="CODE__COMPANY">
+          <Key>
+            <PropertyRef Name="COD__COMPANY" />
+            <PropertyRef Name="COD_TYPE" />
+          </Key>
+          <Property Name="COD__COMPANY" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="COMPANY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CODE_TYPE_OF_COMPANY" Relationship="Self.CODE__COMPANY__09DB7D3A_881F_4A6D_ACAA_7130D5C37067_" FromRole="CODE__COMPANY" ToRole="CODE_TYPE_OF_COMPANY" />
+          <NavigationProperty Name="CODE_STATION" Relationship="Self.CODE_STATION__A5E3FEF7_7851_439B_A741_73000EABC488_" FromRole="CODE__COMPANY" ToRole="CODE_STATION" />
+        </EntityType>
+        <EntityType Name="CODE__TYPE_OF_ANALYSIS">
+          <Key>
+            <PropertyRef Name="COD_TYPE_ANALYSIS" />
+          </Key>
+          <Property Name="COD_TYPE_ANALYSIS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_ANALYSIS" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CODE__ANALYSIS" Relationship="Self.CODE__ANALYSIS__6308EB7E_336F_402B_A13E_718F33632BBA_" FromRole="CODE__TYPE_OF_ANALYSIS" ToRole="CODE__ANALYSIS" />
+        </EntityType>
+        <EntityType Name="CODE_LAB">
+          <Key>
+            <PropertyRef Name="LAB_COD" />
+          </Key>
+          <Property Name="LAB_COD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="laboratory" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CODE_OIL">
+          <Key>
+            <PropertyRef Name="COD_OIL" />
+            <PropertyRef Name="COD_TYPEOIL" />
+          </Key>
+          <Property Name="COD_OIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_TYPEOIL" Type="Int32" Nullable="false" />
+          <Property Name="OIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CODE_TYPE_OF_OIL" Relationship="Self.CODE_OIL__33A87D4D_074E_4618_B1CE_69DEFC915D76_" FromRole="CODE_OIL" ToRole="CODE_TYPE_OF_OIL" />
+        </EntityType>
+        <EntityType Name="CODE_STATION">
+          <Key>
+            <PropertyRef Name="COD_STATION" />
+            <PropertyRef Name="COD_TYPE" />
+            <PropertyRef Name="COD__COMPANY" />
+          </Key>
+          <Property Name="COD_STATION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="COD__COMPANY" Type="Int32" Nullable="false" />
+          <Property Name="STATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CODE__COMPANY" Relationship="Self.CODE_STATION__A5E3FEF7_7851_439B_A741_73000EABC488_" FromRole="CODE_STATION" ToRole="CODE__COMPANY" />
+          <NavigationProperty Name="MAIN_TAB" Relationship="Self.MAIN_TAB__F4A11582_E8A8_41E8_AAF4_9BD3F0876AC9_" FromRole="CODE_STATION" ToRole="MAIN_TAB" />
+        </EntityType>
+        <EntityType Name="CODE_TYPE_OF_COMPANY">
+          <Key>
+            <PropertyRef Name="COD_TYPE" />
+          </Key>
+          <Property Name="COD_TYPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_OF_COMPANY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CODE__COMPANY" Relationship="Self.CODE__COMPANY__09DB7D3A_881F_4A6D_ACAA_7130D5C37067_" FromRole="CODE_TYPE_OF_COMPANY" ToRole="CODE__COMPANY" />
+        </EntityType>
+        <EntityType Name="CODE_TYPE_OF_OIL">
+          <Key>
+            <PropertyRef Name="COD_TYPEOIL" />
+          </Key>
+          <Property Name="COD_TYPEOIL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TYPE_OIL" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CODE_OIL" Relationship="Self.CODE_OIL__33A87D4D_074E_4618_B1CE_69DEFC915D76_" FromRole="CODE_TYPE_OF_OIL" ToRole="CODE_OIL" />
+          <NavigationProperty Name="MAIN_TAB" Relationship="Self.MAIN_TAB__A9042493_16FB_401F_8DF2_06D6F96D1872_" FromRole="CODE_TYPE_OF_OIL" ToRole="MAIN_TAB" />
+        </EntityType>
+        <EntityType Name="FURAN_OIL">
+          <Key>
+            <PropertyRef Name="FURAN_ID" />
+          </Key>
+          <Property Name="FURAN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="OIL" Type="Int32" />
+          <Property Name="Fu" Type="Double" />
+          <Property Name="Hy" Type="Double" />
+          <Property Name="Ace" Type="Double" />
+          <Property Name="Met" Type="Double" />
+          <Property Name="Fur" Type="Double" />
+          <Property Name="TOT_F" Type="Double" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="MAIN_TAB" Relationship="Self.FURAN_OIL__D715E5C0_D67B_4FEA_96D3_CFFCE1CFBFB6_" FromRole="FURAN_OIL" ToRole="MAIN_TAB" />
+        </EntityType>
+        <EntityType Name="GAS">
+          <Key>
+            <PropertyRef Name="Gas_ID" />
+          </Key>
+          <Property Name="Gas_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="OIL" Type="Int32" />
+          <Property Name="H2" Type="Double" />
+          <Property Name="O2" Type="Double" />
+          <Property Name="N2" Type="Double" />
+          <Property Name="CO" Type="Double" />
+          <Property Name="CO2" Type="Double" />
+          <Property Name="CH4" Type="Double" />
+          <Property Name="C2H6" Type="Double" />
+          <Property Name="C2H4" Type="Double" />
+          <Property Name="C2H2" Type="Double" />
+          <Property Name="TOT" Type="Double" />
+          <Property Name="KF" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TDCG" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TDCG_Codes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fault_Codes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RECOMMENDATIONS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="MAIN_TAB" Relationship="Self.GAS__A707E278_2141_4C1D_9755_2174827AF3AA_" FromRole="GAS" ToRole="MAIN_TAB" />
+        </EntityType>
+        <EntityType Name="MAIN_TAB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IN_NO" Type="Double" Nullable="false" />
+          <Property Name="IN_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OUT_NO" Type="Double" />
+          <Property Name="OUT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="TYPE__COMPANY" Type="Int32" />
+          <Property Name="COMPANY" Type="Int32" />
+          <Property Name="STATION" Type="Int32" />
+          <Property Name="TYPE_OIL" Type="Int32" />
+          <Property Name="OIL__ANALYSIS" Type="Int32" />
+          <Property Name="RESULTS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RECOMMENDATIONS" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="COAST" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="laboratory" Type="Int32" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="CODE_STATION" Relationship="Self.MAIN_TAB__F4A11582_E8A8_41E8_AAF4_9BD3F0876AC9_" FromRole="MAIN_TAB" ToRole="CODE_STATION" />
+          <NavigationProperty Name="CODE_TYPE_OF_OIL" Relationship="Self.MAIN_TAB__A9042493_16FB_401F_8DF2_06D6F96D1872_" FromRole="MAIN_TAB" ToRole="CODE_TYPE_OF_OIL" />
+          <NavigationProperty Name="FURAN_OIL" Relationship="Self.FURAN_OIL__D715E5C0_D67B_4FEA_96D3_CFFCE1CFBFB6_" FromRole="MAIN_TAB" ToRole="FURAN_OIL" />
+          <NavigationProperty Name="Gases" Relationship="Self.GAS__A707E278_2141_4C1D_9755_2174827AF3AA_" FromRole="MAIN_TAB" ToRole="GAS" />
+          <NavigationProperty Name="TRANSFORMER_OIL" Relationship="Self.TRANSFORMER_OIL__F1786E32_8168_4427_BA44_76E3D3D5B888_" FromRole="MAIN_TAB" ToRole="TRANSFORMER_OIL" />
+          <NavigationProperty Name="TURBINE_OIL" Relationship="Self.TURBINE_OIL__FA80AC58_C2E3_44FE_BC39_A02412F513E7_" FromRole="MAIN_TAB" ToRole="TURBINE_OIL" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TRANSFORMER_OIL">
+          <Key>
+            <PropertyRef Name="TRANSFORMER_ID" />
+          </Key>
+          <Property Name="TRANSFORMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="OIL" Type="Int32" />
+          <Property Name="SG" Type="Double" />
+          <Property Name="COL" Type="Double" />
+          <Property Name="IMP" Type="Double" />
+          <Property Name="WA" Type="Double" />
+          <Property Name="IPI" Type="Double" />
+          <Property Name="KV" Type="Double" />
+          <Property Name="PF" Type="Double" />
+          <Property Name="ST" Type="Double" />
+          <Property Name="KI" Type="Double" />
+          <Property Name="FL" Type="Double" />
+          <Property Name="CO" Type="Double" />
+          <Property Name="KF" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="MAIN_TAB" Relationship="Self.TRANSFORMER_OIL__F1786E32_8168_4427_BA44_76E3D3D5B888_" FromRole="TRANSFORMER_OIL" ToRole="MAIN_TAB" />
+        </EntityType>
+        <EntityType Name="TURBINE_OIL">
+          <Key>
+            <PropertyRef Name="TURBINE_ID" />
+          </Key>
+          <Property Name="TURBINE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="SG" Type="Double" />
+          <Property Name="KV" Type="Double" />
+          <Property Name="FO" Type="Double" />
+          <Property Name="WR" Type="Double" />
+          <Property Name="COL" Type="Double" />
+          <Property Name="TA" Type="Double" />
+          <Property Name="IMP" Type="Double" />
+          <Property Name="DN" Type="Double" />
+          <Property Name="F" Type="Double" />
+          <Property Name="PS" Type="Double" />
+          <Property Name="OIL" Type="Int32" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="MAIN_TAB" Relationship="Self.TURBINE_OIL__FA80AC58_C2E3_44FE_BC39_A02412F513E7_" FromRole="TURBINE_OIL" ToRole="MAIN_TAB" />
+        </EntityType>
+        <EntityType Name="OIL_CODE">
+          <Key>
+            <PropertyRef Name="OIL_COD" />
+          </Key>
+          <Property Name="OIL_COD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OILANALYSIS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="CODE__ANALYSIS__6308EB7E_336F_402B_A13E_718F33632BBA_">
+          <End Role="CODE__TYPE_OF_ANALYSIS" Type="Self.CODE__TYPE_OF_ANALYSIS" Multiplicity="0..1" />
+          <End Role="CODE__ANALYSIS" Type="Self.CODE__ANALYSIS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE__TYPE_OF_ANALYSIS">
+              <PropertyRef Name="COD_TYPE_ANALYSIS" />
+            </Principal>
+            <Dependent Role="CODE__ANALYSIS">
+              <PropertyRef Name="COD__TYPE_OF_ANALYSIS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CODE__COMPANY__09DB7D3A_881F_4A6D_ACAA_7130D5C37067_">
+          <End Role="CODE_TYPE_OF_COMPANY" Type="Self.CODE_TYPE_OF_COMPANY" Multiplicity="1" />
+          <End Role="CODE__COMPANY" Type="Self.CODE__COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_TYPE_OF_COMPANY">
+              <PropertyRef Name="COD_TYPE" />
+            </Principal>
+            <Dependent Role="CODE__COMPANY">
+              <PropertyRef Name="COD_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CODE_STATION__A5E3FEF7_7851_439B_A741_73000EABC488_">
+          <End Role="CODE__COMPANY" Type="Self.CODE__COMPANY" Multiplicity="1" />
+          <End Role="CODE_STATION" Type="Self.CODE_STATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE__COMPANY">
+              <PropertyRef Name="COD__COMPANY" />
+              <PropertyRef Name="COD_TYPE" />
+            </Principal>
+            <Dependent Role="CODE_STATION">
+              <PropertyRef Name="COD__COMPANY" />
+              <PropertyRef Name="COD_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CODE_OIL__33A87D4D_074E_4618_B1CE_69DEFC915D76_">
+          <End Role="CODE_TYPE_OF_OIL" Type="Self.CODE_TYPE_OF_OIL" Multiplicity="1" />
+          <End Role="CODE_OIL" Type="Self.CODE_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_TYPE_OF_OIL">
+              <PropertyRef Name="COD_TYPEOIL" />
+            </Principal>
+            <Dependent Role="CODE_OIL">
+              <PropertyRef Name="COD_TYPEOIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_TAB__F4A11582_E8A8_41E8_AAF4_9BD3F0876AC9_">
+          <End Role="CODE_STATION" Type="Self.CODE_STATION" Multiplicity="0..1" />
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_STATION">
+              <PropertyRef Name="COD_STATION" />
+              <PropertyRef Name="COD_TYPE" />
+              <PropertyRef Name="COD__COMPANY" />
+            </Principal>
+            <Dependent Role="MAIN_TAB">
+              <PropertyRef Name="STATION" />
+              <PropertyRef Name="TYPE__COMPANY" />
+              <PropertyRef Name="COMPANY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MAIN_TAB__A9042493_16FB_401F_8DF2_06D6F96D1872_">
+          <End Role="CODE_TYPE_OF_OIL" Type="Self.CODE_TYPE_OF_OIL" Multiplicity="0..1" />
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CODE_TYPE_OF_OIL">
+              <PropertyRef Name="COD_TYPEOIL" />
+            </Principal>
+            <Dependent Role="MAIN_TAB">
+              <PropertyRef Name="TYPE_OIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FURAN_OIL__D715E5C0_D67B_4FEA_96D3_CFFCE1CFBFB6_">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="FURAN_OIL" Type="Self.FURAN_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FURAN_OIL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GAS__A707E278_2141_4C1D_9755_2174827AF3AA_">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="GAS" Type="Self.GAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GAS">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TRANSFORMER_OIL__F1786E32_8168_4427_BA44_76E3D3D5B888_">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="TRANSFORMER_OIL" Type="Self.TRANSFORMER_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TRANSFORMER_OIL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TURBINE_OIL__FA80AC58_C2E3_44FE_BC39_A02412F513E7_">
+          <End Role="MAIN_TAB" Type="Self.MAIN_TAB" Multiplicity="0..1" />
+          <End Role="TURBINE_OIL" Type="Self.TURBINE_OIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MAIN_TAB">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TURBINE_OIL">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CODE__ANALYSIS" EntityType="Self.CODE__ANALYSIS" />
+          <EntitySet Name="CODE__COMPANY" EntityType="Self.CODE__COMPANY" />
+          <EntitySet Name="CODE__TYPE_OF_ANALYSIS" EntityType="Self.CODE__TYPE_OF_ANALYSIS" />
+          <EntitySet Name="CODE_LAB" EntityType="Self.CODE_LAB" />
+          <EntitySet Name="CODE_OIL" EntityType="Self.CODE_OIL" />
+          <EntitySet Name="CODE_STATION" EntityType="Self.CODE_STATION" />
+          <EntitySet Name="CODE_TYPE_OF_COMPANY" EntityType="Self.CODE_TYPE_OF_COMPANY" />
+          <EntitySet Name="CODE_TYPE_OF_OIL" EntityType="Self.CODE_TYPE_OF_OIL" />
+          <EntitySet Name="FURAN_OIL" EntityType="Self.FURAN_OIL" />
+          <EntitySet Name="Gases" EntityType="Self.GAS" />
+          <EntitySet Name="MAIN_TAB" EntityType="Self.MAIN_TAB" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TRANSFORMER_OIL" EntityType="Self.TRANSFORMER_OIL" />
+          <EntitySet Name="TURBINE_OIL" EntityType="Self.TURBINE_OIL" />
+          <EntitySet Name="OIL_CODE" EntityType="Self.OIL_CODE" />
+          <AssociationSet Name="CODE__ANALYSIS__6308EB7E_336F_402B_A13E_718F33632BBA_" Association="Self.CODE__ANALYSIS__6308EB7E_336F_402B_A13E_718F33632BBA_">
+            <End Role="CODE__TYPE_OF_ANALYSIS" EntitySet="CODE__TYPE_OF_ANALYSIS" />
+            <End Role="CODE__ANALYSIS" EntitySet="CODE__ANALYSIS" />
+          </AssociationSet>
+          <AssociationSet Name="CODE__COMPANY__09DB7D3A_881F_4A6D_ACAA_7130D5C37067_" Association="Self.CODE__COMPANY__09DB7D3A_881F_4A6D_ACAA_7130D5C37067_">
+            <End Role="CODE_TYPE_OF_COMPANY" EntitySet="CODE_TYPE_OF_COMPANY" />
+            <End Role="CODE__COMPANY" EntitySet="CODE__COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="CODE_STATION__A5E3FEF7_7851_439B_A741_73000EABC488_" Association="Self.CODE_STATION__A5E3FEF7_7851_439B_A741_73000EABC488_">
+            <End Role="CODE__COMPANY" EntitySet="CODE__COMPANY" />
+            <End Role="CODE_STATION" EntitySet="CODE_STATION" />
+          </AssociationSet>
+          <AssociationSet Name="CODE_OIL__33A87D4D_074E_4618_B1CE_69DEFC915D76_" Association="Self.CODE_OIL__33A87D4D_074E_4618_B1CE_69DEFC915D76_">
+            <End Role="CODE_TYPE_OF_OIL" EntitySet="CODE_TYPE_OF_OIL" />
+            <End Role="CODE_OIL" EntitySet="CODE_OIL" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_TAB__F4A11582_E8A8_41E8_AAF4_9BD3F0876AC9_" Association="Self.MAIN_TAB__F4A11582_E8A8_41E8_AAF4_9BD3F0876AC9_">
+            <End Role="CODE_STATION" EntitySet="CODE_STATION" />
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+          </AssociationSet>
+          <AssociationSet Name="MAIN_TAB__A9042493_16FB_401F_8DF2_06D6F96D1872_" Association="Self.MAIN_TAB__A9042493_16FB_401F_8DF2_06D6F96D1872_">
+            <End Role="CODE_TYPE_OF_OIL" EntitySet="CODE_TYPE_OF_OIL" />
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+          </AssociationSet>
+          <AssociationSet Name="FURAN_OIL__D715E5C0_D67B_4FEA_96D3_CFFCE1CFBFB6_" Association="Self.FURAN_OIL__D715E5C0_D67B_4FEA_96D3_CFFCE1CFBFB6_">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="FURAN_OIL" EntitySet="FURAN_OIL" />
+          </AssociationSet>
+          <AssociationSet Name="GAS__A707E278_2141_4C1D_9755_2174827AF3AA_" Association="Self.GAS__A707E278_2141_4C1D_9755_2174827AF3AA_">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="GAS" EntitySet="Gases" />
+          </AssociationSet>
+          <AssociationSet Name="TRANSFORMER_OIL__F1786E32_8168_4427_BA44_76E3D3D5B888_" Association="Self.TRANSFORMER_OIL__F1786E32_8168_4427_BA44_76E3D3D5B888_">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="TRANSFORMER_OIL" EntitySet="TRANSFORMER_OIL" />
+          </AssociationSet>
+          <AssociationSet Name="TURBINE_OIL__FA80AC58_C2E3_44FE_BC39_A02412F513E7_" Association="Self.TURBINE_OIL__FA80AC58_C2E3_44FE_BC39_A02412F513E7_">
+            <End Role="MAIN_TAB" EntitySet="MAIN_TAB" />
+            <End Role="TURBINE_OIL" EntitySet="TURBINE_OIL" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="CODE__ANALYSIS">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE__ANALYSIS">
+              <MappingFragment StoreEntitySet="CODE_ ANALYSIS">
+                <ScalarProperty Name="COD__ANALYSIS" ColumnName="COD_ ANALYSIS" />
+                <ScalarProperty Name="COD__TYPE_OF_ANALYSIS" ColumnName="COD_ TYPE OF ANALYSIS" />
+                <ScalarProperty Name="ANALYSIS" ColumnName="ANALYSIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE__COMPANY">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE__COMPANY">
+              <MappingFragment StoreEntitySet="CODE_ COMPANY">
+                <ScalarProperty Name="COD__COMPANY" ColumnName="COD_ COMPANY" />
+                <ScalarProperty Name="COD_TYPE" ColumnName="COD_TYPE" />
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE__TYPE_OF_ANALYSIS">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE__TYPE_OF_ANALYSIS">
+              <MappingFragment StoreEntitySet="CODE_ TYPE OF ANALYSIS">
+                <ScalarProperty Name="COD_TYPE_ANALYSIS" ColumnName="COD_TYPE ANALYSIS" />
+                <ScalarProperty Name="TYPE_ANALYSIS" ColumnName="TYPE ANALYSIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE_LAB">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE_LAB">
+              <MappingFragment StoreEntitySet="CODE_LAB">
+                <ScalarProperty Name="LAB_COD" ColumnName="LAB_COD" />
+                <ScalarProperty Name="laboratory" ColumnName="laboratory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE_OIL">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE_OIL">
+              <MappingFragment StoreEntitySet="CODE_OIL">
+                <ScalarProperty Name="COD_OIL" ColumnName="COD_OIL" />
+                <ScalarProperty Name="COD_TYPEOIL" ColumnName="COD_TYPEOIL" />
+                <ScalarProperty Name="OIL" ColumnName="OIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE_STATION">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE_STATION">
+              <MappingFragment StoreEntitySet="CODE_STATION">
+                <ScalarProperty Name="COD_STATION" ColumnName="COD_STATION" />
+                <ScalarProperty Name="COD_TYPE" ColumnName="COD_TYPE" />
+                <ScalarProperty Name="COD__COMPANY" ColumnName="COD_ COMPANY" />
+                <ScalarProperty Name="STATION" ColumnName="STATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE_TYPE_OF_COMPANY">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE_TYPE_OF_COMPANY">
+              <MappingFragment StoreEntitySet="CODE_TYPE OF COMPANY">
+                <ScalarProperty Name="COD_TYPE" ColumnName="COD_TYPE" />
+                <ScalarProperty Name="TYPE_OF_COMPANY" ColumnName="TYPE OF COMPANY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CODE_TYPE_OF_OIL">
+            <EntityTypeMapping TypeName="DatabaseModel.CODE_TYPE_OF_OIL">
+              <MappingFragment StoreEntitySet="CODE_TYPE OF OIL">
+                <ScalarProperty Name="COD_TYPEOIL" ColumnName="COD_TYPEOIL" />
+                <ScalarProperty Name="TYPE_OIL" ColumnName="TYPE_OIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FURAN_OIL">
+            <EntityTypeMapping TypeName="DatabaseModel.FURAN_OIL">
+              <MappingFragment StoreEntitySet="FURAN_OIL">
+                <ScalarProperty Name="FURAN_ID" ColumnName="FURAN_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OIL" ColumnName="OIL" />
+                <ScalarProperty Name="Fu" ColumnName="Fu" />
+                <ScalarProperty Name="Hy" ColumnName="Hy" />
+                <ScalarProperty Name="Ace" ColumnName="Ace" />
+                <ScalarProperty Name="Met" ColumnName="Met" />
+                <ScalarProperty Name="Fur" ColumnName="Fur" />
+                <ScalarProperty Name="TOT_F" ColumnName="TOT_F" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gases">
+            <EntityTypeMapping TypeName="DatabaseModel.GAS">
+              <MappingFragment StoreEntitySet="GAS">
+                <ScalarProperty Name="Gas_ID" ColumnName="Gas_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OIL" ColumnName="OIL" />
+                <ScalarProperty Name="H2" ColumnName="H2" />
+                <ScalarProperty Name="O2" ColumnName="O2" />
+                <ScalarProperty Name="N2" ColumnName="N2" />
+                <ScalarProperty Name="CO" ColumnName="CO" />
+                <ScalarProperty Name="CO2" ColumnName="CO2" />
+                <ScalarProperty Name="CH4" ColumnName="CH4" />
+                <ScalarProperty Name="C2H6" ColumnName="C2H6" />
+                <ScalarProperty Name="C2H4" ColumnName="C2H4" />
+                <ScalarProperty Name="C2H2" ColumnName="C2H2" />
+                <ScalarProperty Name="TOT" ColumnName="TOT" />
+                <ScalarProperty Name="KF" ColumnName="KF" />
+                <ScalarProperty Name="TDCG" ColumnName="TDCG" />
+                <ScalarProperty Name="TDCG_Codes" ColumnName="TDCG Codes" />
+                <ScalarProperty Name="Fault_Codes" ColumnName="Fault Codes" />
+                <ScalarProperty Name="RECOMMENDATIONS" ColumnName="RECOMMENDATIONS" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MAIN_TAB">
+            <EntityTypeMapping TypeName="DatabaseModel.MAIN_TAB">
+              <MappingFragment StoreEntitySet="MAIN_TAB">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IN_NO" ColumnName="IN_NO" />
+                <ScalarProperty Name="IN_DATE" ColumnName="IN_DATE" />
+                <ScalarProperty Name="OUT_NO" ColumnName="OUT_NO" />
+                <ScalarProperty Name="OUT_DATE" ColumnName="OUT_DATE" />
+                <ScalarProperty Name="TYPE__COMPANY" ColumnName="TYPE_ COMPANY" />
+                <ScalarProperty Name="COMPANY" ColumnName="COMPANY" />
+                <ScalarProperty Name="STATION" ColumnName="STATION" />
+                <ScalarProperty Name="TYPE_OIL" ColumnName="TYPE_OIL" />
+                <ScalarProperty Name="OIL__ANALYSIS" ColumnName="OIL_ ANALYSIS" />
+                <ScalarProperty Name="RESULTS" ColumnName="RESULTS" />
+                <ScalarProperty Name="RECOMMENDATIONS" ColumnName="RECOMMENDATIONS" />
+                <ScalarProperty Name="COAST" ColumnName="COAST" />
+                <ScalarProperty Name="laboratory" ColumnName="laboratory" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DatabaseModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TRANSFORMER_OIL">
+            <EntityTypeMapping TypeName="DatabaseModel.TRANSFORMER_OIL">
+              <MappingFragment StoreEntitySet="TRANSFORMER_OIL">
+                <ScalarProperty Name="TRANSFORMER_ID" ColumnName="TRANSFORMER_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OIL" ColumnName="OIL" />
+                <ScalarProperty Name="SG" ColumnName="SG" />
+                <ScalarProperty Name="COL" ColumnName="COL" />
+                <ScalarProperty Name="IMP" ColumnName="IMP" />
+                <ScalarProperty Name="WA" ColumnName="WA" />
+                <ScalarProperty Name="IPI" ColumnName="IPI" />
+                <ScalarProperty Name="KV" ColumnName="KV" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="ST" ColumnName="ST" />
+                <ScalarProperty Name="KI" ColumnName="KI" />
+                <ScalarProperty Name="FL" ColumnName="FL" />
+                <ScalarProperty Name="CO" ColumnName="CO" />
+                <ScalarProperty Name="KF" ColumnName="KF" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TURBINE_OIL">
+            <EntityTypeMapping TypeName="DatabaseModel.TURBINE_OIL">
+              <MappingFragment StoreEntitySet="TURBINE_OIL">
+                <ScalarProperty Name="TURBINE_ID" ColumnName="TURBINE_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SG" ColumnName="SG" />
+                <ScalarProperty Name="KV" ColumnName="KV" />
+                <ScalarProperty Name="FO" ColumnName="FO" />
+                <ScalarProperty Name="WR" ColumnName="WR" />
+                <ScalarProperty Name="COL" ColumnName="COL" />
+                <ScalarProperty Name="TA" ColumnName="TA" />
+                <ScalarProperty Name="IMP" ColumnName="IMP" />
+                <ScalarProperty Name="DN" ColumnName="DN" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="PS" ColumnName="PS" />
+                <ScalarProperty Name="OIL" ColumnName="OIL" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OIL_CODE">
+            <EntityTypeMapping TypeName="DatabaseModel.OIL_CODE">
+              <MappingFragment StoreEntitySet="OIL_CODE">
+                <ScalarProperty Name="OIL_COD" ColumnName="OIL_COD" />
+                <ScalarProperty Name="OILANALYSIS" ColumnName="OILANALYSIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -27,7 +27,7 @@ namespace CCL_Oil_Labs_Control.Model
                 var userList = from user in model.Users
                                where user.Username == this.Username
                                select user;
-                var currentuser = userList.First();
+                var currentuser = userList.FirstOrDefault();
                 if (currentuser == null)
                 {
                     return false;

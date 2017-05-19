@@ -242,6 +242,19 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _price, value); }
         }
 
+        private DelegateCommand _printingCommand;
+        public DelegateCommand printingCommand =>
+            _printingCommand ?? (_printingCommand = new DelegateCommand(print, canPrint));
+
+        private void print()
+        {
+            MessageBox.Show("Yay");
+
+        }
+        private bool canPrint()
+        {
+            return true;
+        }
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
             eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
