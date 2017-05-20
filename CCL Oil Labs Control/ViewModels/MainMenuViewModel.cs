@@ -39,7 +39,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _currentUser; }
             set { SetProperty(ref _currentUser, value); }
         }
-        private bool _authorizationLevel;
+        private bool _authorizationLevel = false;
         public bool authorizationLevel
         {
             get { return _authorizationLevel; }

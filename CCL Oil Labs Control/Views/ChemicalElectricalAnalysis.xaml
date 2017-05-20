@@ -59,7 +59,7 @@
                    />
         <!--Equipment Name ComboBox-->
         <ComboBox Style="{StaticResource BasicComboBox}" ItemsSource="{Binding equipment}" DisplayMemberPath="Name" 
-                  SelectedValuePath="ID" SelectedValue="{Binding selectedEquipmentID, Mode=TwoWay}"
+                  SelectedValuePath="ID" SelectedValue="{Binding selectedEquipmentID, Mode=TwoWay}" SelectedItem="{Binding selectedEquipmentItem, Mode=TwoWay}"
                   Grid.Row="4" Grid.Column="7" Grid.ColumnSpan="5" IsEditable="True"
                    />
         <!--Equipment Name  TextBlock-->
@@ -89,7 +89,7 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <DataGrid  Name="chemElecAnlDataGrid" AutoGenerateColumns="False" Style="{StaticResource BasicDataGrid}" CanUserSortColumns="False" CanUserDeleteRows="False"
-                           Grid.Column="0"  FlowDirection="LeftToRight"
+                           Grid.Column="0"  FlowDirection="LeftToRight" 
                            ItemsSource="{Binding expirments}" SelectedIndex="{Binding currentSelectedRow}"  IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
@@ -101,9 +101,12 @@
                         <DataGridTextColumn HeaderStyle="{StaticResource BasicDataGridColumnHeader}"
                                             Width="3*" Header="{StaticResource EnStMeth}" 
                                             CellStyle="{StaticResource BasicGridCell}" Binding="{Binding testingMethod}"/>
-
-
                     </DataGrid.Columns>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <prism:InvokeCommandAction Command="{Binding dataGridLoadedCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
                 </DataGrid>
                 <DataGrid Grid.Column="1" Style="{StaticResource BasicDataGrid}" ItemsSource="{Binding results}" CanUserDeleteRows="False" CanUserAddRows="False" CanUserSortColumns="False" AutoGenerateColumns="False" FlowDirection="LeftToRight" HorizontalAlignment="Center">
                     <DataGrid.Columns>

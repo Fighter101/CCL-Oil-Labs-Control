@@ -15,7 +15,10 @@ namespace CCL_Oil_Labs_Control.Utils
             set { SetProperty(ref _result, value); }
         }
 
-
+        public ResultWrapper()
+        {
+            result = 0;
+        }
         public ResultWrapper (Double value)
         {
             result = value;

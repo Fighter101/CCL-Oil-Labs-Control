@@ -191,7 +191,8 @@
                          ItemsSource="{Binding station}"
                           DisplayMemberPath="Name"
                           SelectedValuePath="ID"
-                          SelectedValue="{Binding selectedStationID, Mode=TwoWay}"
+                          SelectedValue="{Binding actualStationID, Mode=TwoWay}"
+                          SelectedItem="{Binding currentStation, Mode=TwoWay}"
                           IsEditable="True"
                           SelectedIndex="0"/>
                 <!--Station TextBlock-->

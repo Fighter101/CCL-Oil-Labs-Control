@@ -134,6 +134,7 @@
     <Compile Include="CompositeCommands\GlobalNavigateCommand.cs" />
     <Compile Include="CompositeCommands\IApplicationCommands.cs" />
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
+    <Compile Include="Controllers\TransformerController.cs" />
     <Compile Include="Utils\pdfCreator.cs" />
     <Compile Include="ViewModels\ReportsMainMenuViewModel.cs" />
     <Compile Include="Views\ReportsMainMenu.xaml.cs">

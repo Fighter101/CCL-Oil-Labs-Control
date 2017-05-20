@@ -93,7 +93,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
                 }
                 else
                 {
-                    clearData();
+                    //clearData();
                 }
             nulledCurrentRecord = false;
         }
@@ -215,13 +215,13 @@ namespace CCL_Oil_Labs_Control.ViewModels
         }
 
         private int _selectedStationID;
-        private int selectedStationID
+        public int selectedStationID
         {
             get { return _selectedStationID; }
             set
             {
                 SetProperty(ref _selectedStationID, value);
-               actualStationID = station[_selectedStationID].getID(); ;
+               currentRecord.Station = station[_selectedStationID].getID();
             }
         }
         private int _actualStationID;
@@ -231,8 +231,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set
             {
                 SetProperty(ref _actualStationID, value);
-                selectedStationID = station.IndexOf(Station.getSation(_actualStationID));
-                currentRecord.Station = actualStationID;
+                currentStation = Station.getSation(_actualStationID);
             }
         }
 
@@ -283,8 +282,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _labs, value); }
         }
 
-        private int _selectedLab;
-        public int selectedLab
+        private int ? _selectedLab;
+        public int ? selectedLab
         {
             get { return _selectedLab; }
             set
@@ -314,7 +313,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
                 currentRecord.Recommendations = _recommendations;
             }
         }
-
+        private Station _currentStation;
+        public Station currentStation
+        {
+            get { return _currentStation; }
+            set { SetProperty(ref _currentStation, value); }
+        }
         private double _price;
         public double price
         {
@@ -336,8 +340,9 @@ namespace CCL_Oil_Labs_Control.ViewModels
         }
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
-            eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
+           
             continuationCallback(true);
+            eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
@@ -351,8 +356,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            DatabaseEntities.Initiate().Records.Add(currentRecord);
-            DatabaseEntities.Initiate().SaveChanges();
+            currentRecord.sync();
+           // eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
         }
     }
 }

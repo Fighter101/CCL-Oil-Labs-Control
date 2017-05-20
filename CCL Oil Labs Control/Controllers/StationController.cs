@@ -31,7 +31,6 @@ namespace CCL_Oil_Labs_Control.Model
         }
         public int getID()
         {
-            DatabaseEntities.clearEntity<Station>();
             var model = DatabaseEntities.Initiate();
             return
                 (from station in model.Stations
@@ -43,7 +42,6 @@ namespace CCL_Oil_Labs_Control.Model
 
         public static Station getSation(int id)
         {
-            DatabaseEntities.clearEntity<Station>();
             var model = DatabaseEntities.Initiate();
             return (from station in model.Stations
                     where station.ID == id
