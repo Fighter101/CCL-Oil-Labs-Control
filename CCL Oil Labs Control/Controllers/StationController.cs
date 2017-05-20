@@ -13,8 +13,8 @@ namespace CCL_Oil_Labs_Control.Model
 
         public static ObservableCollection<Station> getStations(int companyName , int CompanyType)
         {
+            DatabaseEntities.clearEntity<Station>();
             var model = DatabaseEntities.Initiate();
-            DatabaseEntities.clearEntity<Company>();
             (from station in model.Stations where station.CompanyName == companyName && station.CompanyType == CompanyType select station).Load();
             return DatabaseEntities.Initiate().Stations.Local;
         }
@@ -29,7 +29,26 @@ namespace CCL_Oil_Labs_Control.Model
              station.Name == stationName
              select station));
         }
+        public int getID()
+        {
+            DatabaseEntities.clearEntity<Station>();
+            var model = DatabaseEntities.Initiate();
+            return
+                (from station in model.Stations
+                 where station.CompanyName == this.CompanyName
+                 && station.CompanyType == this.CompanyType
+                 && station.Name == this.Name
+                 select station.ID).ToList().FirstOrDefault();
+        }
 
+        public static Station getSation(int id)
+        {
+            DatabaseEntities.clearEntity<Station>();
+            var model = DatabaseEntities.Initiate();
+            return (from station in model.Stations
+                    where station.ID == id
+                    select station).ToList().FirstOrDefault();
+        }
 
     }
 }

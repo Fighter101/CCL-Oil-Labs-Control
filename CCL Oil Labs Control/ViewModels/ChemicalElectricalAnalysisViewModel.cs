@@ -21,7 +21,11 @@ namespace CCL_Oil_Labs_Control.ViewModels
         private ChemElecAnlSetter chemElecAnlSetter;
         public ChemicalElectricalAnalysisViewModel(GlobalNavigateCommand globalNavigateCommand ,IEventAggregator eventAggregator)
         {
+
+            this.eventAggregator.GetEvent<RecordedEvent>().Subscribe(record => currentRecord = record);
             this.globalNavigateCommand = globalNavigateCommand;
+
+
             chemElecAnlSetter = new ChemElecAnlSetter();
             expirments = chemElecAnlSetter.expirments;
             results = new ObservableCollection<ResultWrapper>();
@@ -31,12 +35,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
             }
             allResults = new List<ObservableCollection<ResultWrapper>>();
             allResults.Add(results);
-            selectedEquipment = new List<int>();
+
             selectedEquipment.Add(1);
             transformerPotentials = new List<string>();
             transformerPotentials.Add(string.Empty);
             this.eventAggregator = eventAggregator;
-            this.eventAggregator.GetEvent<RecordedEvent>().Subscribe(record => currentRecord = record);
+            
         }
         private Record _currentRecord;
         public Record currentRecord

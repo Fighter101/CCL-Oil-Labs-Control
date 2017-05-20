@@ -18,11 +18,11 @@ namespace CCL_Oil_Labs_Control.Utils
             document.Info.Title = "Sample Analysis";
 
             
-            DefineStyles();
+            //DefineStyles();
             
-            CreatePage();
+            //CreatePage();
             
-            FillContent();
+           // FillContent();
             
             return document;
         }

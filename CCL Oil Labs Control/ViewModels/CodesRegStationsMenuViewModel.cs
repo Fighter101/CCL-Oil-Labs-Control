@@ -30,8 +30,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
         }
 
 
-        private IList<CompanyType> _companyTypes = CompanyType.getCompanyTypes();
-        public IList<CompanyType> companyTypes
+        private ObservableCollection<CompanyType> _companyTypes = CompanyType.getCompanyTypes();
+        public ObservableCollection<CompanyType> companyTypes
         {
             get { return _companyTypes; }
             set { SetProperty(ref _companyTypes, value); }
@@ -44,8 +44,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _selectedCompanyType, value); }
         }
 
-        private IList<Company> _companies = Company.getCompanies(2);
-        public IList<Company> companies
+        private ObservableCollection<Company> _companies = Company.getCompanies(2);
+        public ObservableCollection<Company> companies
         {
             get { return _companies; }
             set { SetProperty(ref _companies, value); }
@@ -79,6 +79,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set
             {
                 SetProperty(ref _stationName, value);
+                if (string.IsNullOrWhiteSpace(_stationName))
+                    return;
                 stations = (Station.getStations(selectedCompany, selectedCompanyType));
                 var returnedStation = Station.getStations(selectedCompany, selectedCompanyType, stationName);
                 if(returnedStation?.Count == 0 )
@@ -88,7 +90,6 @@ namespace CCL_Oil_Labs_Control.ViewModels
                     addedStation.CompanyType = selectedCompanyType;
                     addedStation.Name = stationName;
                     stations.Add(addedStation);
-                    DatabaseEntities.Initiate().SaveChanges();
                 }
                 else
                 {
@@ -106,7 +107,14 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private DelegateCommand _okButtonCommand;
         public DelegateCommand okButtonCommand =>
-            _okButtonCommand ?? (_okButtonCommand = new DelegateCommand(() => stations = Station.getStations(selectedCompany,selectedCompanyType), ()=>selectedCompany!=0 && selectedCompanyType!=0)).ObservesProperty(()=>selectedCompany).ObservesProperty(()=>selectedCompanyType);
+            _okButtonCommand ?? (_okButtonCommand = new DelegateCommand(delegate 
+            {
+                DatabaseEntities.Initiate().SaveChanges();
+                //companyTypes = CompanyType.getCompanyTypes();
+                companies = Company.getCompanies(selectedCompanyType);
+                stations = Station.getStations(selectedCompany, selectedCompanyType);
+             }
+            , ()=>selectedCompany!=0 && selectedCompanyType!=0)).ObservesProperty(()=>selectedCompany).ObservesProperty(()=>selectedCompanyType);
 
         private DelegateCommand _deleteCommand;
         public DelegateCommand deleteCommand =>
@@ -119,6 +127,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
+            companyTypes = CompanyType.getCompanyTypes();
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
