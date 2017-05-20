@@ -136,9 +136,17 @@
     <Compile Include="CompositeCommands\IGLobalNavigateCommand.cs" />
     <Compile Include="Controllers\TransformerController.cs" />
     <Compile Include="Utils\pdfCreator.cs" />
+    <Compile Include="ViewModels\recordReportViewModel.cs" />
     <Compile Include="ViewModels\ReportsMainMenuViewModel.cs" />
+    <Compile Include="ViewModels\TransformerReportViewModel.cs" />
+    <Compile Include="Views\recordReport.xaml.cs">
+      <DependentUpon>recordReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportsMainMenu.xaml.cs">
       <DependentUpon>ReportsMainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransformerReport.xaml.cs">
+      <DependentUpon>TransformerReport.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -388,7 +396,15 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainWindow.xaml" />
+    <Page Include="Views\recordReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ReportsMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TransformerReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

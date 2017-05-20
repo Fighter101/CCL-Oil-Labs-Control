@@ -2,9 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CCL_Oil_Labs_Control.Views"
-             mc:Ignorable="d" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
              Style="{StaticResource BasicUserControl}">
     <!--Main Grid-->
     <Border Style="{StaticResource MarginlessBlueBorder}">
@@ -218,7 +219,7 @@
                         </Button>
                         <!--Third Button-->
                         <Button Style="{StaticResource LightGrayBasicButton}"
-                                Grid.Column="5">
+                                Grid.Column="5" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="TransformerReport">
                             <TextBlock Style="{StaticResource BaicRedText}"
                                        Text="{StaticResource ArFollowAllTransEquip}"
                                        FontSize="16"/>
@@ -505,7 +506,7 @@
                                     </Button>
                                     <!--Second Button-->
                                     <Button Style="{StaticResource LightGrayBasicButton}"
-                                            Grid.Column="1" Grid.Row="3">
+                                            Grid.Column="1" Grid.Row="3" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="recordReport">
                                         <TextBlock Style="{StaticResource BaicBrownText}"
                                             FontSize="18"       
                                             Text="{StaticResource ArRprtTransOilMob}"/>
@@ -533,7 +534,7 @@
                                     </Button>
                                     <!--Sixth Button-->
                                     <Button Style="{StaticResource LightGrayBasicButton}"
-                                            Grid.Column="1" Grid.Row="11">
+                                            Grid.Column="1" Grid.Row="11" Command="{Binding globalNavigateCommand.globalNavigateCommand}" CommandParameter="MainMenu">
                                         <TextBlock Style="{StaticResource BaicRedText}"
                                             FontSize="20"       
                                             Text="{StaticResource ArClose}"/>

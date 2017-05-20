@@ -20,6 +20,13 @@ namespace CCL_Oil_Labs_Control.Model
                     select record).ToList().FirstOrDefault();
 
         }
+        public static ObservableCollection<Record> getRecords()
+        {
+            DatabaseEntities.clearEntity<Record>();
+            var model = DatabaseEntities.Initiate();
+            (from record in model.Records select record).Load();
+            return model.Records.Local;
+        }
 
         public void sync()
         {
