@@ -12,6 +12,7 @@ using System.Windows;
 using CCL_Oil_Labs_Control.Utils;
 using CCL_Oil_Labs_Control.Events;
 using Prism.Events;
+using System.Diagnostics;
 
 namespace CCL_Oil_Labs_Control.ViewModels
 {
@@ -21,6 +22,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
         private ChemElecAnlSetter chemElecAnlSetter;
         public ChemicalElectricalAnalysisViewModel(GlobalNavigateCommand globalNavigateCommand ,IEventAggregator eventAggregator)
         {
+            this.eventAggregator = eventAggregator;
+            this.eventAggregator.GetEvent<RecordedEvent>().Subscribe(delegate (Record record)
+            {
+                currentRecord = record;
+            }
+            ,ThreadOption.PublisherThread,true);
             this.globalNavigateCommand = globalNavigateCommand;
             chemElecAnlSetter = new ChemElecAnlSetter();
             expirments = chemElecAnlSetter.expirments;
@@ -31,13 +38,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
             }
             allResults = new List<ObservableCollection<ResultWrapper>>();
             allResults.Add(results);
-            selectedEquipment = new List<int>();
+
             selectedEquipment.Add(1);
             transformerPotentials = new List<string>();
             transformerPotentials.Add(string.Empty);
-            this.eventAggregator = eventAggregator;
-            this.eventAggregator.GetEvent<RecordedEvent>().Subscribe(record => currentRecord = record);
         }
+
         private Record _currentRecord;
         public Record currentRecord
         {
@@ -70,7 +76,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _transfomerPotentials, value); }
         }
 
-        private IList<int> _selectedEquipment;
+        private IList<int> _selectedEquipment = new List<int>();
         public IList<int> selectedEquipment
         {
             get { return _selectedEquipment; }
@@ -89,6 +95,12 @@ namespace CCL_Oil_Labs_Control.ViewModels
         {
             get { return _results; }
             set { SetProperty(ref _results, value); }
+        }
+        private Oil _selectedEquipmentItem;
+        public Oil selectedEquipmentItem
+        {
+            get { return _selectedEquipmentItem; }
+            set { SetProperty(ref _selectedEquipmentItem, value); }
         }
 
         private int _currentSelectedRow;
@@ -137,6 +149,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
                 results = allResults[currentSampleIndex];
                 transformerPotential = transformerPotentials[currentSampleIndex];
                 selectedEquipmentID = selectedEquipment[currentSampleIndex];
+                selectedEquipmentItem = Oil.getEquipment(selectedEquipmentID);
+                
                 
 
             }, ()=>true));
@@ -172,12 +186,79 @@ namespace CCL_Oil_Labs_Control.ViewModels
         {
             continuationCallback(true);
         }
+        private ObservableCollection<Transformer> _storedResults;
+        public ObservableCollection<Transformer> storedResutls
+        {
+            get { return _storedResults; }
+            set { SetProperty(ref _storedResults, value); }
+        }
 
+        private DelegateCommand _dataGridLoadedCommand;
+        public DelegateCommand dataGridLoadedCommand =>
+            _dataGridLoadedCommand ?? (_dataGridLoadedCommand = new DelegateCommand(delegate { getOldResults(); }, ()=>true));
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
 
-        }
 
+        }
+        private void getOldResults()
+        {
+            storedResutls = Transformer.getResults(currentRecord.ID);
+            var counter = 0;
+            foreach (var result in storedResutls)
+            {
+                if (counter == allResults.Count)
+                {
+                    var tmpCollection = new ObservableCollection<ResultWrapper>();
+                    allResults.Add(new ObservableCollection<ResultWrapper>());
+                }
+
+                syncResults(result, allResults[counter++]);
+                selectedEquipment.Add((int)result.Oil);
+                transformerPotentials.Add(String.Empty);
+            }
+       
+            numSamples = storedResutls.Count();
+            if (numSamples > 0)
+            {
+                selectedEquipmentID = (int)storedResutls[0].Oil;
+                selectedEquipmentItem = Oil.getEquipment(selectedEquipmentID);
+            }
+        }
+        private void syncResults(Transformer oldResult, ObservableCollection<ResultWrapper> newResult)
+        {
+            if (newResult.Count > 0)
+            {
+                newResult[0] = new ResultWrapper((double)oldResult.SG);
+                newResult[1] = new ResultWrapper((double)oldResult.COL);
+                newResult[2] = new ResultWrapper((double)oldResult.IMP);
+
+                newResult[3] = new ResultWrapper((double)oldResult.WA);
+                newResult[4] = new ResultWrapper((double)oldResult.IPI);
+                newResult[5] = new ResultWrapper((double)oldResult.KV);
+                newResult[6] = new ResultWrapper((double)oldResult.PF);
+                newResult[7] = new ResultWrapper((double)oldResult.ST);
+                newResult[8] = new ResultWrapper((double)oldResult.KI);
+                newResult[9] = new ResultWrapper((double)oldResult.FL);
+                newResult[10] = new ResultWrapper((double)oldResult.CO);
+            }
+            else
+            {
+                newResult.Add(new ResultWrapper((double)oldResult.SG));
+                newResult.Add(new ResultWrapper((double)oldResult.COL));
+                newResult.Add(new ResultWrapper((double)oldResult.IMP));
+                newResult.Add(new ResultWrapper((double)oldResult.IPI));
+                newResult.Add(new ResultWrapper((double)oldResult.WA));
+                newResult.Add(new ResultWrapper((double)oldResult.KV));
+                newResult.Add(new ResultWrapper((double)oldResult.PF));
+                newResult.Add(new ResultWrapper((double)oldResult.ST));
+                newResult.Add(new ResultWrapper((double)oldResult.KI));
+                newResult.Add(new ResultWrapper((double)oldResult.FL));
+                newResult.Add(new ResultWrapper((double)oldResult.CO));
+            }
+
+
+        }
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
             return true;
@@ -185,8 +266,40 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            //TODO merge the record with all results
-            //TODO code to Save in DB
+            var counter = 0;
+            foreach (var newResult in allResults)
+            {
+                if(counter == storedResutls.Count())
+                {
+                    Transformer tempResult = new Transformer();
+                    sycnResultsBack(tempResult, newResult);
+                    tempResult.Oil = selectedEquipment[counter];
+                    tempResult.PaperID = currentRecord.ID;
+                    tempResult.KF = transformerPotentials[counter];
+                    storedResutls.Add(tempResult);
+                    counter++;
+                }
+                else
+                {
+                    sycnResultsBack(storedResutls[counter++], newResult);
+                }
+            }
+            DatabaseEntities.Initiate().SaveChanges();
+        }
+
+        private void sycnResultsBack(Transformer oldResult , ObservableCollection<ResultWrapper> newResult)
+        {
+            oldResult.SG = newResult[0].result;
+            oldResult.COL = newResult[1].result;
+            oldResult.IMP = newResult[2].result;
+            oldResult.WA = newResult[3].result;
+            oldResult.IPI = newResult[4].result;
+            oldResult.KV = newResult[5].result;
+            oldResult.PF = newResult[6].result;
+            oldResult.ST = newResult[7].result;
+            oldResult.KI = newResult[8].result;
+            oldResult.FL = newResult[9].result;
+            oldResult.CO = newResult[10].result;
         }
     }
 }

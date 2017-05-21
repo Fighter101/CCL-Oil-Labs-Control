@@ -43,6 +43,9 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterType<CodesRegAnlTypeMenuViewModel, CodesRegAnlTypeMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<CodesRegExpDetailsMenuViewModel, CodesRegExpDetailsMenuViewModel>(new ContainerControlledLifetimeManager());
             Container.RegisterType<ChemicalElectricalAnalysisViewModel, ChemicalElectricalAnalysisViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<ReportsMainMenuViewModel, ReportsMainMenuViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<TransformerReportViewModel, TransformerReportViewModel>(new ContainerControlledLifetimeManager());
+            Container.RegisterType<recordReport, recordReport>(new ContainerControlledLifetimeManager());
             Container.RegisterTypeForNavigation<EntryMenu>("EntryMenu");
             Container.RegisterTypeForNavigation<MainMenu>("MainMenu");
             Container.RegisterTypeForNavigation<CodesAddingMenu>("CodesAddingMenu");
@@ -57,6 +60,9 @@ namespace CCL_Oil_Labs_Control
             Container.RegisterTypeForNavigation<CodesRegAnlTypeMenu>("CodesRegAnlTypeMenu");
             Container.RegisterTypeForNavigation<CodesRegExpDetailsMenu>("CodesRegExpDetailsMenu");
             Container.RegisterTypeForNavigation<ChemicalElectricalAnalysis>("ChemicalElectricalAnalysis");
+            Container.RegisterTypeForNavigation<ReportsMainMenu>("ReportsMainMenu");
+            Container.RegisterTypeForNavigation<TransformerReport>("TransformerReport");
+            Container.RegisterTypeForNavigation<recordReport>("recordReport");
         }
     }
 }

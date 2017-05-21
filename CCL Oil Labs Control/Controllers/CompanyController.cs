@@ -4,55 +4,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Collections.ObjectModel;
 
 namespace CCL_Oil_Labs_Control.Model
 {
     public partial class Company
     {
 
-        public static IList<Company> getCompanies()
+        public static ObservableCollection<Company> getCompanies()
         {
-            List<Company> companiesList;
-            using (var model = DatabaseEntities.Initiate())
-            {
-                companiesList = (from company in model.Companies
-                                 select company).ToList();
-            }
-            return companiesList;
+            var model = DatabaseEntities.Initiate();
+            ((from company in model.Companies select company)).Load();
+            return model.Companies.Local;
         }
 
-        public static IList<Company> getCompanies(int companyType)
+        public static ObservableCollection<Company> getCompanies(int companyType)
         {
-            List<Company> companiesList;
-            using (var model = DatabaseEntities.Initiate())
-            {
-                companiesList = (from company in model.Companies
-                                 where company.Type == companyType
-                                 select company).ToList();
-            }
-            return companiesList;
+            var model = DatabaseEntities.Initiate();
+            (from company in model.Companies where company.Type == companyType select company).Load();
+            return model.Companies.Local;
         }
-        public static IList<Company> getCompaniesByID(int companyID)
+        public static ObservableCollection<Company> getCompaniesByID(int companyID)
         {
-            List<Company> companiesList;
-            using (var model = DatabaseEntities.Initiate())
-            {
-                companiesList = (from company in model.Companies
-                                 where company.ID == companyID
-                                 select company).ToList();
-            }
-            return companiesList;
+            var model = DatabaseEntities.Initiate();
+            (from company in model.Companies
+                             where company.ID == companyID
+                             select company).Load();
+            return model.Companies.Local;
         }
-        public static IList<Company> getCompanies(String companyName)
+        public static ObservableCollection<Company> getCompanies(String companyName)
         {
-            List<Company> companiesList;
-            using (var model = DatabaseEntities.Initiate())
-            {
-                companiesList = (from company in model.Companies
-                                 where company.Name == companyName
-                                 select company).ToList();
-            }
-            return companiesList;
+            var model = DatabaseEntities.Initiate();
+                (from company in model.Companies
+                 where company.Name == companyName
+                 select company).Load();
+            return model.Companies.Local;
         }
 
     }

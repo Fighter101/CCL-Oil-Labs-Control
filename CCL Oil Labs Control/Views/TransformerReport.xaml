@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="CCL_Oil_Labs_Control.Views.TransformerReport"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid>
+        <DataGrid Name="reportDataGrid" IsReadOnly="True" AutoGenerateColumns="False" ItemsSource="{Binding transformers}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Specific Gravity" Binding="{Binding SG}"/>
+                <DataGridTextColumn Header="Color" Binding="{Binding COL}"/>
+                <DataGridTextColumn Header="Impurities" Binding="{Binding IMP}"/>
+                <DataGridTextColumn Header="Water Content" Binding="{Binding WA}"/>
+                <DataGridTextColumn Header="Total Acidity" Binding="{Binding IPI}"/>
+                <DataGridTextColumn Header="Break Down Voltage" Binding="{Binding KV}"/>
+                <DataGridTextColumn Header="Power Factor" Binding="{Binding PF}"/>
+                <DataGridTextColumn Header="Flash Point Open" Binding="{Binding FL}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

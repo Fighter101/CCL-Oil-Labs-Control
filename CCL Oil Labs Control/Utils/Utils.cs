@@ -15,8 +15,8 @@ namespace CCL_Oil_Labs_Control.Utils
             IntPtr unsecurePass = Marshal.SecureStringToBSTR(password);
             var hasher = new SHA256Managed();
             var byteHash = hasher.ComputeHash(new UTF8Encoding().GetBytes(salt + Marshal.PtrToStringBSTR(unsecurePass)));
-            Marshal.FreeBSTR(unsecurePass);
             var hashString = Convert.ToBase64String(byteHash);
+            Marshal.FreeBSTR(unsecurePass);
             return hashString;
         }
 

@@ -19,7 +19,6 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public CodesRegSampleDataMenuViewModel (GlobalNavigateCommand globalNavigateCommand , IEventAggregator eventAggregator)
         {
             this.globalNavigateCommand = globalNavigateCommand;
-            currentRecord = new Record();
             this.eventAggregator = eventAggregator;
         }
 
@@ -29,7 +28,24 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _eventAggregator; }
             set { SetProperty(ref _eventAggregator, value); }
         }
-        public Record currentRecord { get; set; }
+        private Record _currentRecord;
+        private Record currentRecord { get
+            {
+                if (_currentRecord == null)
+                {
+                    _currentRecord = new Record();
+                }
+                return _currentRecord;
+            }
+            set
+            {
+                if (value == null)
+                    nulledCurrentRecord = true;
+                SetProperty(ref _currentRecord , value);
+                
+            }
+        }
+        private bool nulledCurrentRecord = false;
 
         private GlobalNavigateCommand _globalNavigateCommand;
         public GlobalNavigateCommand globalNavigateCommand
@@ -37,19 +53,29 @@ namespace CCL_Oil_Labs_Control.ViewModels
             get { return _globalNavigateCommand; }
             set { SetProperty(ref _globalNavigateCommand, value); }
         }
-
-        private DateTime _importCheckDate;
-        public DateTime importCheckDate
+        private void clearData()
         {
-            get { return _importCheckDate; }
-            set
-            {
-                SetProperty(ref _importCheckDate, value);
-                currentRecord = currentRecord == null ? new Record(): currentRecord;
-                currentRecord.ImportNo = -1;
-                currentRecord.ImportDate = _importCheckDate;
-                currentRecord = currentRecord.exists();
-                if (currentRecord != null)
+            this.importDate = DateTime.Now;
+            this.importNumber = 0;
+            this.exportDate = DateTime.Now;
+            this.exportNumber = 0;
+            this.companyTypeSelectedID = 0;
+            this.selectedCompanyID = 0;
+            this.selectedOilTypeID = 0;
+            this.actualStationID = 0;
+            this.selectedStationID = 0;
+            this.selectedAnalysisType = 0;
+            this.selectedLab = 0;
+            this.recommendations = "";
+            this.results = "";
+            this.price = 0;
+        }
+        private void checkForRecord(int importNum , DateTime importDate)
+        {
+            currentRecord.ImportDate = importDate;
+            currentRecord.ImportNo = importNum;
+             currentRecord = currentRecord.exists();
+                if (!nulledCurrentRecord)
                 {
                     this.importDate = currentRecord.ImportDate;
                     this.importNumber = (int)currentRecord.ImportNo ;
@@ -58,14 +84,28 @@ namespace CCL_Oil_Labs_Control.ViewModels
                     this.companyTypeSelectedID = (int)currentRecord.CompanyType;
                     this.selectedCompanyID = (int)currentRecord.Company;
                     this.selectedOilTypeID = (int)currentRecord.OilType;
-                    this.selectedStationID = (int)currentRecord.Station;
+                    this.actualStationID = (int)currentRecord.Station;
                     this.selectedAnalysisType = (int)currentRecord.OilAnalysisType;
                     this.selectedLab = (int)currentRecord.Lab;
                     this.recommendations = currentRecord.Recommendations;
                     this.results = currentRecord.Results;
                     this.price = (double)currentRecord.Cost;
-
                 }
+                else
+                {
+                    //clearData();
+                }
+            nulledCurrentRecord = false;
+        }
+        private DateTime _importCheckDate;
+        public DateTime importCheckDate
+        {
+            get { return _importCheckDate; }
+            set
+            {
+                SetProperty(ref _importCheckDate, value);
+                checkForRecord(-1, importCheckDate);
+               
 
             }
         }
@@ -74,14 +114,22 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public DateTime importDate
         {
             get { return _importDate; }
-            set { SetProperty(ref _importDate, value); }
+            set
+            {
+                SetProperty(ref _importDate, value);
+                currentRecord.ImportDate = this.importDate;
+            }
         }
 
         private DateTime _exportDate;
         public DateTime exportDate
         {
             get { return _exportDate; }
-            set { SetProperty(ref _exportDate, value); }
+            set
+            {
+                SetProperty(ref _exportDate, value);
+                currentRecord.ExportDate = this.exportDate;
+            }
         }
 
         private int _importCheckNumber;
@@ -91,27 +139,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set
             {
                 SetProperty(ref _importCheckNumber, value);
-                currentRecord = currentRecord == null ? new Record() : currentRecord;
-                currentRecord.ImportNo = importCheckNumber;
-                currentRecord.ImportDate = DateTime.MinValue;
-                currentRecord = currentRecord.exists();
-                if (currentRecord != null)
-                {
-                    this.importDate = currentRecord.ImportDate;
-                    this.importNumber = (int)currentRecord.ImportNo;
-                    this.exportDate = (DateTime)currentRecord.ExportDate;
-                    this.exportNumber = (int)currentRecord.ExportNo;
-                    this.companyTypeSelectedID = (int)currentRecord.CompanyType;
-                    this.selectedCompanyID = (int)currentRecord.Company;
-                    this.selectedOilTypeID = (int)currentRecord.OilType;
-                    this.selectedStationID = (int)currentRecord.Station;
-                    this.selectedAnalysisType = (int)currentRecord.OilAnalysisType;
-                    this.selectedLab = (int)currentRecord.Lab;
-                    this.recommendations = currentRecord.Recommendations;
-                    this.results = currentRecord.Results;
-                    this.price = (double)currentRecord.Cost;
-
-                }
+                checkForRecord(importCheckNumber, DateTime.Now);
             }
         }
 
@@ -119,14 +147,22 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public int importNumber
         {
             get { return _importNumber; }
-            set { SetProperty(ref _importNumber, value); }
+            set
+            {
+                SetProperty(ref _importNumber, value);
+                currentRecord.ImportNo = this._importNumber;
+            }
         }
 
         private int _exportNumber;
         public int exportNumber
         {
             get { return _exportNumber; }
-            set { SetProperty(ref _exportNumber, value); }
+            set
+            {
+                SetProperty(ref _exportNumber, value);
+                currentRecord.ExportNo = this._exportNumber;
+            }
         }
 
         private IList<CompanyType> _companyTypes = CompanyType.getCompanyTypes();
@@ -143,7 +179,9 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set
             {
                 SetProperty(ref _companyTypeSelectedID, value);
-                station = Station.getStations(selectedCompanyID, companyTypeSelectedID);
+                _companies = Company.getCompanies(companyTypeSelectedID);
+
+                currentRecord.CompanyType = _companyTypeSelectedID;
             }
         }
 
@@ -151,7 +189,10 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public IList<Company> companies
         {
             get { return _companies; }
-            set { SetProperty(ref _companies, value); }
+            set
+            {
+                SetProperty(ref _companies, value);
+            }
         }
 
         private int _selectedCompanyID;
@@ -162,6 +203,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             {
                 SetProperty(ref _selectedCompanyID, value);
                 station = Station.getStations(selectedCompanyID, companyTypeSelectedID);
+                currentRecord.Company = _selectedCompanyID;
             }
         }
 
@@ -176,7 +218,21 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public int selectedStationID
         {
             get { return _selectedStationID; }
-            set { SetProperty(ref _selectedStationID, value); }
+            set
+            {
+                SetProperty(ref _selectedStationID, value);
+               currentRecord.Station = selectedStationID;
+            }
+        }
+        private int _actualStationID;
+        public int actualStationID
+        {
+            get { return _actualStationID; }
+            set
+            {
+                SetProperty(ref _actualStationID, value);
+                currentStation = Station.getSation(_actualStationID);
+            }
         }
 
 
@@ -191,21 +247,32 @@ namespace CCL_Oil_Labs_Control.ViewModels
         public int selectedOilTypeID
         {
             get { return _selectedOilTypeID; }
-            set { SetProperty(ref _selectedOilTypeID, value); }
+            set
+            {
+                SetProperty(ref _selectedOilTypeID, value);
+                currentRecord.OilType = _selectedOilTypeID;
+            }
         }
 
         private IList<OilAnalysisType> _analysisTypes = OilAnalysisType.getAnalysis();
         public IList<OilAnalysisType> analysisTypes
         {
             get { return _analysisTypes; }
-            set { SetProperty(ref _analysisTypes, value); }
+            set
+            {
+                SetProperty(ref _analysisTypes, value);
+            }
         }
 
         private int _selectedAnalysisType;
         public int selectedAnalysisType
         {
             get { return _selectedAnalysisType; }
-            set { SetProperty(ref _selectedAnalysisType, value); }
+            set
+            {
+                SetProperty(ref _selectedAnalysisType, value);
+                currentRecord.OilAnalysisType = _selectedAnalysisType;
+            }
         }
 
         private IList<Lab> _labs = Lab.getLabs();
@@ -215,26 +282,43 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _labs, value); }
         }
 
-        private int _selectedLab;
-        public int selectedLab
+        private int ? _selectedLab;
+        public int ? selectedLab
         {
             get { return _selectedLab; }
-            set { SetProperty(ref _selectedLab, value); }
+            set
+            {
+                SetProperty(ref _selectedLab, value);
+                currentRecord.Lab = _selectedLab;
+            }
         }
         private string _results;
         public string results
         {
             get { return _results; }
-            set { SetProperty(ref _results, value); }
+            set
+            {
+                SetProperty(ref _results, value);
+                currentRecord.Results = _results;
+            }
         }
 
         private string _recommendations;
         public string recommendations
         {
             get { return _recommendations; }
-            set { SetProperty(ref _recommendations, value); }
+            set
+            {
+                SetProperty(ref _recommendations, value);
+                currentRecord.Recommendations = _recommendations;
+            }
         }
-
+        private Station _currentStation;
+        public Station currentStation
+        {
+            get { return _currentStation; }
+            set { SetProperty(ref _currentStation, value); }
+        }
         private double _price;
         public double price
         {
@@ -242,10 +326,24 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _price, value); }
         }
 
+        private DelegateCommand _printingCommand;
+        public DelegateCommand printingCommand =>
+            _printingCommand ?? (_printingCommand = new DelegateCommand(print, canPrint));
+
+        private void print()
+        {
+
+            Utils.pdfCreator.createPDF(currentStation.Name, currentRecord.ImportDate, DateTime.Today, Transformer.getResults(), "Normal");
+        }
+        private bool canPrint()
+        {
+            return true;
+        }
         public void ConfirmNavigationRequest(NavigationContext navigationContext, Action<bool> continuationCallback)
         {
-            eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
+           
             continuationCallback(true);
+            eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
@@ -259,6 +357,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
+            currentRecord.sync();
+           // eventAggregator.GetEvent<RecordedEvent>().Publish(currentRecord);
         }
     }
 }

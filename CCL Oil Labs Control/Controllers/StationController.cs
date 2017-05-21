@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,34 +11,42 @@ namespace CCL_Oil_Labs_Control.Model
     public partial class Station
     {
 
-        public static IList<Station> getStations(int companyName , int CompanyType)
+        public static ObservableCollection<Station> getStations(int companyName , int CompanyType)
         {
-            var stationList = new List<Station>();
-
-            using (var model = DatabaseEntities.Initiate())
-            {
-                stationList = (from station in model.Stations
-                               where station.CompanyName == companyName &&
-                               station.CompanyType == CompanyType
-                               select station).ToList();
-            }
-                return stationList;
+            DatabaseEntities.clearEntity<Station>();
+            var model = DatabaseEntities.Initiate();
+            (from station in model.Stations where station.CompanyName == companyName && station.CompanyType == CompanyType select station).Load();
+            return DatabaseEntities.Initiate().Stations.Local;
         }
 
-        public static IList<Station> getStations(int companyName, int CompanyType,string stationName)
+        public static ObservableCollection<Station> getStations(int companyName, int CompanyType,string stationName)
         {
-            var stationList = new List<Station>();
-
-            using (var model = DatabaseEntities.Initiate())
-            {
-                stationList = (from station in model.Stations
-                               where station.CompanyName == companyName &&
-                               station.CompanyType == CompanyType && station.Name == stationName
-                               select station).ToList();
-            }
-            return stationList;
+            DatabaseEntities.clearEntity<Station>();
+            var model = DatabaseEntities.Initiate();
+            return new ObservableCollection<Station>((from station in model.Stations
+             where station.CompanyName == companyName && 
+             station.CompanyType == CompanyType && 
+             station.Name == stationName
+             select station));
+        }
+        public int getID()
+        {
+            var model = DatabaseEntities.Initiate();
+            return
+                (from station in model.Stations
+                 where station.CompanyName == this.CompanyName
+                 && station.CompanyType == this.CompanyType
+                 && station.Name == this.Name
+                 select station.ID).ToList().FirstOrDefault();
         }
 
+        public static Station getSation(int id)
+        {
+            var model = DatabaseEntities.Initiate();
+            return (from station in model.Stations
+                    where station.ID == id
+                    select station).ToList().FirstOrDefault();
+        }
 
     }
 }

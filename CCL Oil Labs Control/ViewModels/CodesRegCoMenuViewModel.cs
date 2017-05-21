@@ -34,7 +34,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set { SetProperty(ref _companyTypes, value); }
         }
 
-        private ObservableCollection<Company> _companies = new ObservableCollection<Company>(Company.getCompanies());
+        private ObservableCollection<Company> _companies = Company.getCompanies();
         public ObservableCollection<Company> companies
         {
             get { return _companies; }
@@ -64,14 +64,26 @@ namespace CCL_Oil_Labs_Control.ViewModels
             _comboBoxSelectionChangedCommand ?? (_comboBoxSelectionChangedCommand = new DelegateCommand<object[]>(
                 delegate(object[] o)
                 {
-                    companies.ElementAt(currentSelectedRow).Type = (o[0] as CompanyType).ID;
-                    companies.ElementAt(currentSelectedRow).CompanyType = (o[0] as CompanyType);
+                    if(currentSelectedRow == companies.Count)
+                    {
+                        //What the duck am i doing here ?
+                        var newCompany = new Company();
+                        newCompany.Type = 1;
+                        //Because Types in the DB start from zero--> am gonna kill that dev
+                        companies.Add(newCompany);
+                        currentSelectedRow--;
+                    }
+                    if (o is object[] && (o as object[]).Count() > 0 && o[0] is CompanyType && (o[0] as CompanyType).ID !=0)
+                    {
+                        companies.ElementAt(currentSelectedRow).Type = (o[0] as CompanyType).ID;
+                        companies.ElementAt(currentSelectedRow).CompanyType = (o[0] as CompanyType);
+                    }
                 }
                 , o => currentSelectedRow >= 0)).ObservesProperty(()=>currentSelectedRow);
 
         private DelegateCommand _deleteCommand;
         public DelegateCommand deleteCommand =>
-            _deleteCommand ?? (_deleteCommand = new DelegateCommand(() => companies.RemoveAt(currentSelectedRow), () => currentSelectedRow >= 0));
+            _deleteCommand ?? (_deleteCommand = new DelegateCommand(() => companies.RemoveAt(currentSelectedRow), () => currentSelectedRow >= 0 && currentSelectedRow < companies.Count()));
 
         private DelegateCommand<object> _cellSelectionChangedCommand;
         public DelegateCommand<object> cellSelectionChangedCommand =>
@@ -104,7 +116,14 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-            //TODO code to Save in DB
+            try
+            {
+                DatabaseEntities.Initiate().SaveChanges();
+            }
+            catch (System.InvalidOperationException)
+            {
+                MessageBox.Show("You don't want to change this, I know better :P");
+            }
         }
     }
 }

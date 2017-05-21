@@ -191,7 +191,8 @@
                          ItemsSource="{Binding station}"
                           DisplayMemberPath="Name"
                           SelectedValuePath="ID"
-                          SelectedValue="{Binding selectedStationID, Mode=TwoWay}"
+                          SelectedValue="{Binding actualStationID, Mode=TwoWay}"
+                          SelectedItem="{Binding currentStation, Mode=TwoWay}"
                           IsEditable="True"
                           SelectedIndex="0"/>
                 <!--Station TextBlock-->
@@ -322,10 +323,10 @@
                        />
         </Button>
         <!--Add button-->
-        <Button Style="{StaticResource BasicButton}"
+        <Button Style="{StaticResource BasicButton}" Command="{Binding printingCommand}"
                 Grid.Row="4" Grid.Column="13" Grid.ColumnSpan="2">
             <TextBlock Style="{StaticResource BaicBrownText}"
-                       Text="{StaticResource ArAdd}"
+                       Text="{StaticResource ArAdd}" 
                        />
         </Button>
     </Grid>
