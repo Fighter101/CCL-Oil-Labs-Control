@@ -221,7 +221,7 @@ namespace CCL_Oil_Labs_Control.ViewModels
             set
             {
                 SetProperty(ref _selectedStationID, value);
-               currentRecord.Station = station[_selectedStationID].getID();
+               currentRecord.Station = selectedStationID;
             }
         }
         private int _actualStationID;
@@ -332,7 +332,8 @@ namespace CCL_Oil_Labs_Control.ViewModels
 
         private void print()
         {
-            Utils.pdfCreator.createPDF("Hamdy Station", DateTime.Now, DateTime.Now, null, "It works :P");
+
+            Utils.pdfCreator.createPDF(currentStation.Name, currentRecord.ImportDate, DateTime.Today, Transformer.getResults(), "Normal");
         }
         private bool canPrint()
         {

@@ -217,9 +217,13 @@ namespace CCL_Oil_Labs_Control.ViewModels
                 selectedEquipment.Add((int)result.Oil);
                 transformerPotentials.Add(String.Empty);
             }
+       
             numSamples = storedResutls.Count();
-            selectedEquipmentID = (int)storedResutls[0].Oil;
-            selectedEquipmentItem = Oil.getEquipment(selectedEquipmentID);
+            if (numSamples > 0)
+            {
+                selectedEquipmentID = (int)storedResutls[0].Oil;
+                selectedEquipmentItem = Oil.getEquipment(selectedEquipmentID);
+            }
         }
         private void syncResults(Transformer oldResult, ObservableCollection<ResultWrapper> newResult)
         {
